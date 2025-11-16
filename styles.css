@@ -243,6 +243,45 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+/* VIDEO WRAPPER */
+
+.video-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-subtle);
+  background: #000;
+}
+
+/* Maintain 16:9 ratio for embedded media */
+.video-wrapper iframe,
+.video-wrapper video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Project media (16:9 images at end of each card) */
+
+.project-media {
+  margin-top: 1rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #020617;
+}
+
+.project-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
 /* Tags */
 
 .tag-list {

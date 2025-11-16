@@ -35,7 +35,7 @@
           <a class="btn ghost" href="#contact">Contact</a>
         </div>
         <div class="header-links">
-          <!-- Replace # with your actual GitHub and LinkedIn URLs -->
+          <!-- Replace with your actual GitHub and LinkedIn URLs -->
           <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub</a>
           <span>•</span>
           <a href="https://bit.ly/45zrtPQ" target="_blank" rel="noopener">LinkedIn</a>
@@ -49,6 +49,7 @@
 
   <nav class="top-nav">
     <div class="container nav-inner">
+      <a href="#video">Video Résumé</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
@@ -59,6 +60,35 @@
   </nav>
 
   <main>
+    <!-- VIDEO -->
+    <section id="video" class="section section-alt">
+      <div class="container">
+        <h2>Video Résumé</h2>
+        <p class="section-intro">
+          A brief introduction to my background in GIS, remote sensing, and environmental work.
+        </p>
+        <div class="video-wrapper">
+          <!-- Option 1: YouTube/Vimeo embed -->
+          <!-- Replace VIDEO_ID with your actual video ID -->
+          <!--
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Marcelo Guzmán Video Résumé"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          -->
+
+          <!-- Option 2: Self-hosted video file -->
+          <video controls poster="images/video-resume-poster.jpg">
+            <source src="video-resume.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="container">
@@ -148,6 +178,9 @@
               <li>Linked geospatial metrics to phenotypic measurements (body mass, tarsus length, wing morphology, etc.).</li>
               <li>Contributed to long-term datasets on avian adaptation to urban environments.</li>
             </ul>
+            <div class="project-media">
+              <img src="images/urbanization-index-map.jpg" alt="Urbanization index map for blackbird sampling sites" />
+            </div>
           </article>
 
           <!-- PROJECT 2 -->
@@ -165,6 +198,9 @@
               <li>Integrated point-count bird surveys with spatial layers to model biodiversity responses.</li>
               <li>Presented findings at the “DATATON” panel to support post-storm environmental planning after tropical storm Alberto.</li>
             </ul>
+            <div class="project-media">
+              <img src="images/riparian-bird-diversity.jpg" alt="Riparian vegetation and bird diversity map" />
+            </div>
           </article>
 
           <!-- PROJECT 3 -->
@@ -183,6 +219,9 @@
                   reducing processing time from five days to one.</li>
               <li>Combined spatial data with field observations of large mammals and endangered species distributions.</li>
             </ul>
+            <div class="project-media">
+              <img src="images/reforestation-ndvi-series.jpg" alt="NDVI time series for reforestation monitoring" />
+            </div>
           </article>
 
           <!-- PROJECT 4 -->
@@ -200,6 +239,9 @@
               <li>Implemented ArcGIS Pro ModelBuilder workflows with Python and R integrations for real-time updates.</li>
               <li>Ensured QA/QC of spatial datasets and alignment with regulatory standards.</li>
             </ul>
+            <div class="project-media">
+              <img src="images/drone-orthomosaic-compensation.jpg" alt="Drone orthomosaic of compensation area" />
+            </div>
           </article>
 
           <!-- PROJECT 5 -->
@@ -217,6 +259,9 @@
               <li>Combined land surveys, species observations, and water quality data with GIS outputs.</li>
               <li>Delivered actionable recommendations to minimize ecological impact and guide sustainable planning.</li>
             </ul>
+            <div class="project-media">
+              <img src="images/housing-ndvi-nwi.jpg" alt="NDVI and NWI analysis for housing development site" />
+            </div>
           </article>
 
           <!-- PROJECT 6 -->
@@ -234,6 +279,9 @@
               <li>Worked with spatial data on park layout and habitat structure to interpret biodiversity patterns.</li>
               <li>Supported the design of indicators aligned with SDG 11 and urban sustainability goals.</li>
             </ul>
+            <div class="project-media">
+              <img src="images/urban-parks-biodiversity.jpg" alt="Biodiversity monitoring across urban parks" />
+            </div>
           </article>
         </div>
       </div>
@@ -399,4 +447,3 @@
   </script>
 </body>
 </html>
-
