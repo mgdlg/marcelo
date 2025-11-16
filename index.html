@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marcelo Guzmán | GIS & Environmental Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="GIS, remote sensing, and environmental projects by Marcelo Guzmán."
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="page-header">
+    <div class="page-inner">
+      <h1 class="site-title">Marcelo Guzmán</h1>
+      <p class="site-tagline">Biologist · GIS & Remote Sensing · Environmental Analysis</p>
+
+      <div class="header-links">
+        <a href="https://github.com/mgdlg" target="_blank" rel="noopener">GitHub</a>
+        <span>·</span>
+        <a href="https://bit.ly/45zrtPQ" target="_blank" rel="noopener">LinkedIn</a>
+        <span>·</span>
+        <a href="mailto:marcelo.guzmandlg@gmail.com">marcelo.guzmandlg@gmail.com</a>
+        <span>·</span>
+        <span>Monterrey, Mexico</span>
+      </div>
+
+      <p class="intro">
+        I work at the intersection of <strong>GIS</strong>, <strong>remote sensing</strong>, and
+        <strong>field ecology</strong>, supporting environmental impact assessments, reforestation
+        monitoring, and urban biodiversity research. Below is a selection of projects where I’ve
+        combined spatial analysis, scripting in R/Python, and on-the-ground surveys to answer
+        environmental questions.
+      </p>
+
+      <p class="scroll-hint">Scroll to explore</p>
+
+      <nav class="project-toc">
+        <ul>
+          <li><a href="#urbanization-index">Urbanization Index & Blackbird Phenotypes</a></li>
+          <li><a href="#riparian-birds">Riparian Forests & Urban Bird Diversity</a></li>
+          <li><a href="#enel-reforestation">Remote Sensing for Reforestation Monitoring</a></li>
+          <li><a href="#irca-drone">Drone Photogrammetry for Environmental Compensation</a></li>
+          <li><a href="#javer-ndvi">NDVI & NWI for Housing Development</a></li>
+          <li><a href="#urban-parks">Urban Park Biodiversity Monitoring</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="page-inner">
+
+      <!-- PROJECT 1 -->
+      <section id="urbanization-index" class="project-section">
+        <h2>Urbanization Index & Blackbird Phenotypes</h2>
+        <p class="project-meta">
+          Research Intern & GIS Analyst · Institute of Biology and Ecology, University of Debrecen · 2025
+        </p>
+
+        <p>
+          In this project, I integrated <strong>geospatial analysis</strong> into an Urbanization Index
+          used to study phenotypic variation in <em>Turdus merula</em> (Eurasian blackbird) across an
+          urban–rural gradient. The goal was to quantify how urban structure shapes body condition and
+          morphology, and to relate these patterns to landscape composition around sampling sites.
+        </p>
+
+        <p>
+          I constructed spatial layers describing land cover, green space, building density, and
+          fragmentation around each sampling point. These variables were then combined into an
+          Urbanization Index, which we linked to biometric metrics such as body mass, tarsus length,
+          wing measurements, and feather condition. Standardized capture and ringing protocols ensured
+          that field data from mist netting and banding could be rigorously compared between sites.
+        </p>
+
+        <p>
+          The refined Urbanization Index markedly improved our ability to discriminate between urban,
+          peri-urban, and rural contexts. This allowed us to test hypotheses about how
+          urbanization-driven changes in habitat structure affect bird condition, survival, and
+          potential local adaptation.
+        </p>
+
+        <figure class="project-figure">
+          <!-- Replace with your own screenshot or map -->
+          <img src="images/urbanization-index-map.jpg" alt="Urbanization index map for blackbird sampling sites" />
+          <figcaption>
+            Example of the Urbanization Index around blackbird sampling locations, combining land cover,
+            built-up density, and green space metrics.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- PROJECT 2 -->
+      <section id="riparian-birds" class="project-section">
+        <h2>Riparian Forests & Urban Bird Diversity</h2>
+        <p class="project-meta">
+          Researcher & GIS Analyst · Lab of Conservation Biology and Sustainable Development – UANL · 2023–2024
+        </p>
+
+        <p>
+          For the Santa Catarina River in Monterrey, I studied how
+          <strong>riparian forest structure</strong> within a heavily modified urban corridor influences
+          bird diversity and community composition. Following extreme disturbance events, this riverbed
+          has evolved into a mosaic of successional habitats, providing an opportunity to evaluate how
+          vegetation recovery affects avian communities.
+        </p>
+
+        <p>
+          I processed multispectral satellite imagery to derive vegetation indices (e.g. NDVI) and to
+          map land cover classes along the river. These spatial layers were paired with standardized
+          point-count surveys to model richness and functional diversity as a function of canopy cover,
+          patch connectivity, and surrounding urbanization.
+        </p>
+
+        <p>
+          The analysis highlighted riparian segments where regenerating vegetation disproportionately
+          supports bird diversity, providing an evidence base for maintaining or restoring forested
+          strips as part of urban planning and disaster recovery strategies.
+        </p>
+
+        <figure class="project-figure">
+          <img src="images/riparian-bird-map.jpg" alt="Riparian vegetation and bird survey points along an urban river" />
+          <figcaption>
+            Riparian vegetation and bird survey points along the Santa Catarina River, illustrating
+            how forest patches persist within a dense urban matrix.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- PROJECT 3 -->
+      <section id="enel-reforestation" class="project-section">
+        <h2>Remote Sensing for Reforestation Monitoring</h2>
+        <p class="project-meta">
+          Ecological Data Analyst & Surveyor · Enel Green Power · 2024–2025
+        </p>
+
+        <p>
+          At Enel Green Power, I supported <strong>reforestation monitoring</strong> for renewable
+          energy projects by combining field surveys with satellite-based vegetation analysis. A major
+          challenge was turning heterogeneous, site-level observations into analysis-ready data that
+          could be compared across multiple projects and years.
+        </p>
+
+        <p>
+          I built reproducible pipelines in R to clean and standardize field data from large mammal and
+          endangered species surveys, reducing processing times from several days to a single day. These
+          datasets were then aligned with remote sensing products tracking vegetation cover, growth
+          dynamics, and habitat condition within compensation and restoration areas.
+        </p>
+
+        <p>
+          The result was a suite of indicators that allowed environmental teams to evaluate whether
+          commitments on reforestation and biodiversity were being met, and to prioritize sites where
+          additional interventions might be needed.
+        </p>
+
+        <figure class="project-figure">
+          <img src="images/reforestation-ndvi-series.png" alt="NDVI time series for reforestation monitoring" />
+          <figcaption>
+            NDVI time series visualizing vegetation recovery in reforestation plots associated with a
+            renewable energy project.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- PROJECT 4 -->
+      <section id="irca-drone" class="project-section">
+        <h2>Drone Photogrammetry for Environmental Compensation</h2>
+        <p class="project-meta">
+          Project Manager · IRCA Consultants · 2025–Present
+        </p>
+
+        <p>
+          As project manager at IRCA Consultants, I design and oversee <strong>drone-based
+          photogrammetry</strong> and GIS workflows for environmental compensation projects. These
+          projects often involve monitoring forest cover, erosion, and soil recovery following
+          infrastructure development.
+        </p>
+
+        <p>
+          Using UAV imagery, I generate orthomosaics and digital surface models that provide
+          high-resolution baselines for tracking structural changes in vegetation and terrain. I then
+          implement ModelBuilder and Python-based tools in ArcGIS Pro to segment forest patches, derive
+          canopy metrics, and quantify change over time.
+        </p>
+
+        <p>
+          Combining this with regulatory requirements and on-the-ground observations allows us to
+          document compliance, identify areas that lag behind restoration targets, and recommend
+          actionable measures to improve ecological outcomes.
+        </p>
+
+        <figure class="project-figure">
+          <img src="images/drone-orthomosaic-compensation.png" alt="Drone orthomosaic of an environmental compensation site" />
+          <figcaption>
+            Drone orthomosaic and surface model used to track forest cover and topographic changes in a
+            compensation area.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- PROJECT 5 -->
+      <section id="javer-ndvi" class="project-section">
+        <h2>NDVI & NWI for Housing Development Planning</h2>
+        <p class="project-meta">
+          GIS Technician & Surveyor · Javer Housing Developer · 2024
+        </p>
+
+        <p>
+          For a housing development project, I carried out a <strong>historical vegetation and surface
+          water analysis</strong> using NDVI and NWI. The aim was to understand how vegetation and
+          wetland-like conditions had changed over time within and around the proposed development
+          footprint.
+        </p>
+
+        <p>
+          I processed multispectral imagery from multiple dates, generating NDVI and NWI layers to
+          highlight persistent vegetation, ephemeral water bodies, and areas sensitive to disturbance.
+          These were integrated with field visits, interviews with local residents, and observations of
+          flora and fauna.
+        </p>
+
+        <p>
+          The final maps informed layout decisions, helping to avoid the most sensitive zones, maintain
+          drainage patterns, and incorporate green spaces that retain some of the site’s original
+          ecological functions.
+        </p>
+
+        <figure class="project-figure">
+          <img src="images/housing-ndvi-nwi.png" alt="NDVI and NWI maps for a housing development site" />
+          <figcaption>
+            NDVI and NWI composites showing vegetation and water-related patterns used to guide housing
+            development design.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- PROJECT 6 -->
+      <section id="urban-parks" class="project-section">
+        <h2>Urban Park Biodiversity Monitoring</h2>
+        <p class="project-meta">
+          Biodiversity Monitoring Intern · San Pedro + Parques · 2024
+        </p>
+
+        <p>
+          In San Pedro Garza García, I helped standardize and analyze biodiversity monitoring efforts
+          across a network of urban parks. Each park collected data using slightly different methods,
+          making it challenging to compare biodiversity indicators across the system.
+        </p>
+
+        <p>
+          I worked with the ecology team to harmonize survey protocols and to design a set of
+          biodiversity metrics that could be computed consistently, including species richness, relative
+          abundance, and functional group composition. Spatial data on park structure and connectivity
+          provided additional context for interpreting these indicators.
+        </p>
+
+        <p>
+          This work contributed to a monitoring framework aligned with urban sustainability goals and
+          SDG 11, giving decision-makers clearer signals about where management actions have the
+          greatest ecological payoff.
+        </p>
+
+        <figure class="project-figure">
+          <img src="images/urban-parks-biodiversity.png" alt="Map and charts for biodiversity monitoring across urban parks" />
+          <figcaption>
+            Example outputs from the urban park monitoring framework: spatial distribution of survey
+            points and diversity indicators across the park network.
+          </figcaption>
+        </figure>
+      </section>
+
+      <footer class="page-footer">
+        <p>© <span id="year"></span> Marcelo Guzmán · Built with HTML &amp; CSS · Hosted on GitHub Pages</p>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
