@@ -246,7 +246,7 @@ h3 {
 /* VIDEO WRAPPER */
 
 .video-wrapper {
-  max-width: 800px;
+  max-width: 400px;
   margin: 0 auto;
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -261,7 +261,6 @@ h3 {
   display: block;
   width: 50%;
   height: 50%;
-  aspect-ratio: 9 / 16;
 }
 
 /* Project media (16:9 images at end of each card) */
