@@ -261,7 +261,7 @@ h3 {
   display: block;
   width: 100%;
   height: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
 }
 
 /* Project media (16:9 images at end of each card) */
