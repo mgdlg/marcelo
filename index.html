@@ -164,7 +164,7 @@
         <div class="projects-grid">
 
 <!-- FEATURED EXCHANGE & ADVANCED GIS WORK -->
-<article class="card featured-project">
+<article class="card featured-project animate-on-scroll">
   <h2 class="featured-title">University of Debrecen · Advanced GIS & Research Internship</h2>
   <p class="featured-meta">Stipendium Hungaricum Scholar · Feb–Jul 2025 · GPA 4.0/4.0</p>
 
@@ -370,7 +370,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item animate-on-scroll" >
             <div class="timeline-date">  Feb 2025 – Sep 2025</div>
             <div class="timeline-content">
               <h3>Research Intern & GIS Analyst · Institute of Biology and Ecology, University of Debrecen</h3>
@@ -382,7 +382,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item animate-on-scroll">
             <div class="timeline-date">  Jun 2024 – Feb 2025</div>
             <div class="timeline-content">
               <h3>Ecological Data Analyst & Surveyor · Enel Green Power</h3>
@@ -394,7 +394,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item animate-on-scroll">
             <div class="timeline-date">  Nov 2024 – Dec 2024</div>
             <div class="timeline-content">
               <h3>GIS Technician & Surveyor · Javer Housing Developer</h3>
@@ -406,7 +406,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item animate-on-scroll">
             <div class="timeline-date">  Jan 2024 – Nov 2024</div>
             <div class="timeline-content">
               <h3>Researcher & GIS Analyst · Lab of Conservation Biology and Sustainable Development – UANL</h3>
@@ -418,7 +418,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item animate-on-scroll">
             <div class="timeline-date">  Jun 2024 – Dec 2024</div>
             <div class="timeline-content">
               <h3>Biodiversity Monitoring Intern · San Pedro + Parques</h3>
@@ -507,6 +507,27 @@
   <script>
     // Update footer year automatically
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll-in animations for elements with .animate-on-scroll
+    const animatedEls = document.querySelectorAll(".animate-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            // Once animated, you can unobserve to improve performance
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    animatedEls.forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
+
