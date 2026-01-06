@@ -1,33 +1,28 @@
-```css
 /* =========================
    THEME TOKENS
    Light mode is default.
    Dark mode reverts to your original midnight blue palette.
    ========================= */
 
-/* LIGHT (default): "classy pure white" + ultra-light grays (max darkness ~ #e1e1e1 for UI objects) */
 :root {
-  /* Text (keep readable on white) */
-  --text: #2b2b2b;                 /* main text */
-  --muted: #5a5a5a;                /* secondary text */
-  --text-on-accent: #2b2b2b;        /* text on very light buttons */
+  /* Typography */
+  --text: #1f2937;        /* dark gray */
+  --muted: #4b5563;       /* medium gray */
+  --text-on-accent: #ffffff;
 
-  /* Surfaces */
-  --bg: #ffffff;                    /* pure white */
-  --bg-alt: #fafafa;                /* very subtle section background */
-  --surface: #ffffff;               /* cards */
-  --surface-2: #f6f6f6;             /* subtle fills (media, chips bg) */
+  /* Surfaces (light) */
+  --bg: #ffffff;          /* pure white */
+  --bg-alt: #f7f7f8;      /* subtle light gray section */
+  --surface: #ffffff;     /* cards */
+  --surface-2: #e1e1e1;   /* subtle fills */
+  --border-subtle: rgba(17, 24, 39, 0.14);
 
-  /* Borders & lines (light gray) */
-  --border-subtle: rgba(225, 225, 225, 1);   /* #e1e1e1 */
-  --border-faint: rgba(225, 225, 225, 0.7);
-
-  /* Accent & UI emphasis (light gray per request) */
-  --accent: #e1e1e1;                /* "darkest gray" for objects */
-  --accent-soft: rgba(225, 225, 225, 0.45);
+  /* Accent (kept achromatic in light mode) */
+  --accent: #e1e1e1;      /* near-black */
+  --accent-soft: rgba(17, 24, 39, 0.06);
 
   /* Effects */
-  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 18px 45px rgba(17, 24, 39, 0.08);
 
   /* Layout */
   --radius-lg: 18px;
@@ -35,16 +30,16 @@
   --max-width: 980px;
 
   /* Backgrounds */
-  --page-bg: linear-gradient(to bottom, #ffffff, #fbfbfb);
-  --section-alt-bg: linear-gradient(to bottom, #ffffff, #f7f7f7);
-  --nav-bg: rgba(255, 255, 255, 0.82);
+  --page-bg: linear-gradient(to bottom, #ffffff, #f6f7f9);
+  --section-alt-bg: linear-gradient(to bottom, #fafafa, #f3f4f6);
+  --nav-bg: rgba(255, 255, 255, 0.75);
   --footer-bg: #ffffff;
 
   /* Media */
   --media-bg: #ffffff;
 }
 
-/* DARK: original midnight blue + light blue accent */
+/* Dark theme (original midnight blue + light blue accent) */
 html[data-theme="dark"] {
   --bg: #050816;
   --bg-alt: #0b1020;
@@ -57,7 +52,6 @@ html[data-theme="dark"] {
   --text: #e5e7eb;
   --muted: #9ca3af;
   --border-subtle: rgba(148, 163, 184, 0.30);
-  --border-faint: rgba(148, 163, 184, 0.22);
 
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
 
@@ -67,9 +61,6 @@ html[data-theme="dark"] {
   --footer-bg: #020617;
 
   --media-bg: #000000;
-
-  /* Dark mode button text */
-  --text-on-accent: #0b1120;
 }
 
 /* =========================
@@ -113,13 +104,9 @@ body {
   font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--muted); /* light mode: keep classy, not heavy */
+  color: var(--accent);
   font-weight: 600;
   margin-bottom: 0.5rem;
-}
-
-html[data-theme="dark"] .eyebrow {
-  color: var(--accent);
 }
 
 .title {
@@ -160,21 +147,11 @@ html[data-theme="dark"] .eyebrow {
 }
 
 .header-links a {
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border-faint);
-}
-
-.header-links a:hover { border-bottom-color: var(--border-subtle); }
-
-html[data-theme="dark"] .header-links a {
   color: var(--accent);
-  border-bottom-color: transparent;
+  text-decoration: none;
 }
 
-html[data-theme="dark"] .header-links a:hover {
-  border-bottom-color: rgba(56, 189, 248, 0.35);
-}
+.header-links a:hover { text-decoration: underline; }
 
 /* =========================
    BUTTONS
@@ -194,26 +171,19 @@ html[data-theme="dark"] .header-links a:hover {
   transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out, border-color 0.12s ease-out;
 }
 
-/* Light mode: buttons are light gray (#e1e1e1) */
 .btn.primary {
   background: var(--accent);
   color: var(--text-on-accent);
-  border-color: var(--border-subtle);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 14px 35px rgba(17, 24, 39, 0.15);
 }
 
-.btn.primary:hover {
-  transform: translateY(-1px);
-  background: rgba(225, 225, 225, 0.85);
-}
-
-/* Dark mode: keep your original blue gradient */
 html[data-theme="dark"] .btn.primary {
   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
   color: #0b1120;
-  border-color: transparent;
   box-shadow: 0 14px 35px rgba(56, 189, 248, 0.5);
 }
+
+.btn.primary:hover { transform: translateY(-1px); }
 
 html[data-theme="dark"] .btn.primary:hover {
   box-shadow: 0 20px 45px rgba(56, 189, 248, 0.6);
@@ -226,11 +196,7 @@ html[data-theme="dark"] .btn.primary:hover {
 }
 
 .btn.ghost:hover {
-  background: rgba(225, 225, 225, 0.35);
-}
-
-html[data-theme="dark"] .btn.ghost:hover {
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--accent-soft);
 }
 
 /* =========================
@@ -264,16 +230,11 @@ html[data-theme="dark"] .btn.ghost:hover {
 }
 
 .top-nav a:hover {
-  background: rgba(225, 225, 225, 0.45);
-  color: var(--text);
-}
-
-html[data-theme="dark"] .top-nav a:hover {
-  background: rgba(15, 23, 42, 0.95);
+  background: var(--accent-soft);
   color: var(--accent);
 }
 
-/* Theme toggle button (light gray objects) */
+/* Theme toggle button */
 .theme-toggle {
   margin-left: auto;
   display: inline-flex;
@@ -282,11 +243,16 @@ html[data-theme="dark"] .top-nav a:hover {
   padding: 0.45rem 0.75rem;
   border-radius: 999px;
   border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.55);
   color: var(--text);
   cursor: pointer;
   font-size: 0.9rem;
   transition: background 0.12s ease-out, transform 0.12s ease-out;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: rgba(2, 6, 23, 0.35);
+  color: var(--text);
 }
 
 .theme-toggle:hover { transform: translateY(-1px); }
@@ -295,18 +261,7 @@ html[data-theme="dark"] .top-nav a:hover {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: #bdbdbd; /* a touch darker than #e1e1e1 but still light */
-  border: 1px solid var(--border-subtle);
-}
-
-html[data-theme="dark"] .theme-toggle {
-  background: rgba(2, 6, 23, 0.35);
-  color: var(--text);
-}
-
-html[data-theme="dark"] .theme-toggle .toggle-dot {
   background: var(--accent);
-  border-color: transparent;
 }
 
 /* =========================
@@ -351,10 +306,7 @@ h3 {
   box-shadow: var(--shadow-soft);
 }
 
-/* Light mode: keep project edge subtle and light */
 .project-card { border-left: 3px solid var(--accent); }
-
-html[data-theme="dark"] .project-card { border-left: 3px solid var(--accent); }
 
 .project-meta,
 .edu-meta {
@@ -377,6 +329,7 @@ html[data-theme="dark"] .project-card { border-left: 3px solid var(--accent); }
   background: var(--media-bg);
 }
 
+/* Let the video decide its own ratio (portrait-friendly) */
 .video-wrapper iframe,
 .video-wrapper video {
   display: block;
@@ -420,13 +373,12 @@ html[data-theme="dark"] .project-card { border-left: 3px solid var(--accent); }
   font-size: 0.8rem;
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
-  background: rgba(225, 225, 225, 0.35);
+  background: var(--accent-soft);
   color: var(--text);
   border: 1px solid var(--border-subtle);
 }
 
 html[data-theme="dark"] .tag-list li {
-  background: var(--accent-soft);
   color: #e0f2fe;
   border: 1px solid rgba(56, 189, 248, 0.5);
 }
@@ -447,10 +399,6 @@ html[data-theme="dark"] .tag-list li {
   top: 0.2rem;
   bottom: 0.2rem;
   width: 2px;
-  background: linear-gradient(to bottom, rgba(225, 225, 225, 1), rgba(225, 225, 225, 0));
-}
-
-html[data-theme="dark"] .timeline::before {
   background: linear-gradient(to bottom, var(--accent), transparent);
 }
 
@@ -467,14 +415,11 @@ html[data-theme="dark"] .timeline::before {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: rgba(225, 225, 225, 1);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 0 0 4px rgba(225, 225, 225, 0.35);
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.10);
 }
 
 html[data-theme="dark"] .timeline-item::before {
-  background: var(--accent);
-  border: none;
   box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.18);
 }
 
@@ -509,10 +454,9 @@ html[data-theme="dark"] .timeline-item::before {
 }
 
 /* Links */
-a { color: var(--text); }
-a:hover { text-decoration: underline; }
 
-html[data-theme="dark"] a { color: var(--accent); }
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
 
 /* =========================
    FOOTER
@@ -540,11 +484,10 @@ html[data-theme="dark"] a { color: var(--accent); }
   background: var(--surface);
   padding: 2rem 1.6rem;
   margin-bottom: 2rem;
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 28px 60px rgba(17, 24, 39, 0.10);
 }
 
 html[data-theme="dark"] .featured-project {
-  border-left: 5px solid var(--accent);
   background: radial-gradient(circle at top left, #0a192f 0%, #020617 60%);
   box-shadow: 0 28px 60px rgba(56, 189, 248, 0.25);
 }
@@ -553,10 +496,8 @@ html[data-theme="dark"] .featured-project {
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 0.4rem;
-  color: var(--text);
+  color: var(--accent);
 }
-
-html[data-theme="dark"] .featured-title { color: var(--accent); }
 
 .featured-meta {
   color: var(--muted);
@@ -578,22 +519,8 @@ html[data-theme="dark"] .featured-title { color: var(--accent); }
 
 .featured-list li { margin-bottom: 1rem; color: var(--text); }
 
-.featured-list a {
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border-faint);
-}
-
-.featured-list a:hover { border-bottom-color: var(--border-subtle); }
-
-html[data-theme="dark"] .featured-list a {
-  color: var(--accent);
-  border-bottom-color: transparent;
-}
-
-html[data-theme="dark"] .featured-list a:hover {
-  border-bottom-color: rgba(56, 189, 248, 0.35);
-}
+.featured-list a { color: var(--accent); text-decoration: none; }
+.featured-list a:hover { text-decoration: underline; }
 
 /* =========================
    SCROLL ANIMATIONS
@@ -619,4 +546,3 @@ html[data-theme="dark"] .featured-list a:hover {
   .header-content { flex-direction: column; }
   .header-meta { flex-direction: column; }
 }
-```
