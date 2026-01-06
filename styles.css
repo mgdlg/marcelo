@@ -6,8 +6,8 @@
 
 :root {
   /* Typography */
-  --text: #bdbdbd;        /* dark gray */
-  --muted: #4b5563;       /* medium gray */
+  --text: #505050;        /* dark gray */
+  --muted: #000000;       /* medium gray */
   --text-on-accent: #ffffff;
 
   /* Surfaces (light) */
@@ -18,7 +18,7 @@
   --border-subtle: rgba(17, 24, 39, 0.14);
 
   /* Accent (kept achromatic in light mode) */
-  --accent: #bdbdbd;      /* near-black */
+  --accent: #505050;      /* near-black */
   --accent-soft: rgba(17, 24, 39, 0.06);
 
   /* Effects */
@@ -55,7 +55,7 @@ html[data-theme="dark"] {
 
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
 
-  --page-bg: radial-gradient(circle at top, #bdbdbd 0, #020617 45%, #020617 100%);
+  --page-bg: radial-gradient(circle at top, #505050 0, #020617 45%, #020617 100%);
   --section-alt-bg: radial-gradient(circle at top left, #020617 0, #020617 40%, #020617 100%);
   --nav-bg: linear-gradient(to right, rgba(2, 6, 23, 0.86), rgba(15, 23, 42, 0.92));
   --footer-bg: #020617;
