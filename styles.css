@@ -14,11 +14,11 @@
   --bg: #ffffff;          /* pure white */
   --bg-alt: #f7f7f8;      /* subtle light gray section */
   --surface: #ffffff;     /* cards */
-  --surface-2: #f3f4f6;   /* subtle fills */
+  --surface-2: #e1e1e1;   /* subtle fills */
   --border-subtle: rgba(17, 24, 39, 0.14);
 
   /* Accent (kept achromatic in light mode) */
-  --accent: #111827;      /* near-black */
+  --accent: #e1e1e1;      /* near-black */
   --accent-soft: rgba(17, 24, 39, 0.06);
 
   /* Effects */
