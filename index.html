@@ -514,25 +514,26 @@
     const toggleLabel = document.getElementById("themeToggleLabel");
 
     function setTheme(theme) {
-      if (theme === "dark") {
-        htmlEl.setAttribute("data-theme", "dark");
-        toggleBtn.setAttribute("aria-pressed", "true");
-        toggleLabel.textContent = "Light mode";
-      } else {
-        htmlEl.removeAttribute("data-theme");
-        toggleBtn.setAttribute("aria-pressed", "false");
-        toggleLabel.textContent = "Dark mode";
-      }
-    }
+  if (theme === "dark") {
+    htmlEl.setAttribute("data-theme", "dark");
+    toggleBtn.setAttribute("aria-pressed", "true");
+    toggleLabel.textContent = "Light mode";
+  } else {
+    htmlEl.removeAttribute("data-theme");
+    toggleBtn.setAttribute("aria-pressed", "false");
+    toggleLabel.textContent = "Dark mode";
+  }
 
-// Swap images that have light/dark sources
-document.querySelectorAll("img.theme-swap").forEach((img) => {
-  const lightSrc = img.getAttribute("data-light-src");
-  const darkSrc = img.getAttribute("data-dark-src");
-  if (!lightSrc || !darkSrc) return;
+  // ✅ Swap images that have light/dark sources
+  document.querySelectorAll("img.theme-swap").forEach((img) => {
+    const lightSrc = img.getAttribute("data-light-src");
+    const darkSrc = img.getAttribute("data-dark-src");
+    if (!lightSrc || !darkSrc) return;
 
-  img.src = (theme === "dark") ? darkSrc : lightSrc;
-});
+    img.src = (theme === "dark") ? darkSrc : lightSrc;
+  });
+}
+
 
     // Load saved preference; if none, stay in light mode
     const savedTheme = localStorage.getItem("theme");
