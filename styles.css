@@ -18,7 +18,7 @@
   --border-subtle: rgba(17, 24, 39, 0.14);
 
   /* Accent (kept achromatic in light mode) */
-  --accent: #e1e1e1;      /* near-black */
+  --accent: #111827;      /* near-black */
   --accent-soft: rgba(17, 24, 39, 0.06);
 
   /* Effects */
