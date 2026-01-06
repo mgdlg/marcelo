@@ -253,7 +253,14 @@
               <li>Presented findings at the “DATATON” panel to support post-storm environmental planning after tropical storm Alberto.</li>
             </ul>
             <div class="project-media">
-              <img src="images/bird-diversity.png" alt="Riparian vegetation and bird diversity map" />
+            <div class="project-media">
+              <img
+                class="theme-swap"
+                src="images/bird-diversity light.png"
+                data-light-src="images/bird-diversity light.png"
+                data-dark-src="images/bird-diversity dark.png"
+                alt="Riparian Forests & Urban Bird Diversity — diversity profiles figure"
+              />
             </div>
           </article>
 
@@ -516,6 +523,16 @@
         toggleBtn.setAttribute("aria-pressed", "false");
         toggleLabel.textContent = "Dark mode";
       }
+    }
+
+    // Swap images that have light/dark sources
+      document.querySelectorAll("img.theme-swap").forEach((img) => {
+        const lightSrc = img.getAttribute("data-light-src");
+        const darkSrc = img.getAttribute("data-dark-src");
+        if (!lightSrc || !darkSrc) return;
+
+        img.src = (theme === "dark") ? darkSrc : lightSrc;
+      });
     }
 
     // Load saved preference; if none, stay in light mode
