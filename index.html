@@ -39,9 +39,6 @@
           <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub</a>
           <span>•</span>
           <a href="https://bit.ly/45zrtPQ" target="_blank" rel="noopener">LinkedIn</a>
-          <!-- If you upload your CV as a PDF in this repo, link it here -->
-          <!-- <span>•</span>
-          <a href="cv_marcelo_guzman.pdf" target="_blank" rel="noopener">Download CV</a> -->
         </div>
       </div>
     </div>
@@ -56,6 +53,12 @@
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
+
+      <!-- Theme toggle -->
+      <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
+        <span class="toggle-dot" aria-hidden="true"></span>
+        <span id="themeToggleLabel">Dark mode</span>
+      </button>
     </div>
   </nav>
 
@@ -68,19 +71,6 @@
           A brief introduction to my background in GIS, remote sensing, and environmental work.
         </p>
         <div class="video-wrapper">
-          <!-- Option 1: YouTube/Vimeo embed -->
-          <!-- Replace VIDEO_ID with your actual video ID -->
-          <!--
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="Marcelo Guzmán Video Résumé"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-          -->
-
-          <!-- Option 2: Self-hosted video file -->
           <video controls poster="images/video-resume-poster.jpg">
             <source src="video-resume.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -151,6 +141,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
@@ -505,10 +496,43 @@
   </footer>
 
   <script>
-    // Update footer year automatically
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Scroll-in animations for elements with .animate-on-scroll
+    // ----------------------------
+    // Theme toggle (default: light)
+    // ----------------------------
+    const htmlEl = document.documentElement;
+    const toggleBtn = document.getElementById("themeToggle");
+    const toggleLabel = document.getElementById("themeToggleLabel");
+
+    function setTheme(theme) {
+      if (theme === "dark") {
+        htmlEl.setAttribute("data-theme", "dark");
+        toggleBtn.setAttribute("aria-pressed", "true");
+        toggleLabel.textContent = "Light mode";
+      } else {
+        htmlEl.removeAttribute("data-theme");
+        toggleBtn.setAttribute("aria-pressed", "false");
+        toggleLabel.textContent = "Dark mode";
+      }
+    }
+
+    // Load saved preference; if none, stay in light mode
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") setTheme("dark");
+    else setTheme("light");
+
+    toggleBtn.addEventListener("click", () => {
+      const isDark = htmlEl.getAttribute("data-theme") === "dark";
+      const nextTheme = isDark ? "light" : "dark";
+      setTheme(nextTheme);
+      localStorage.setItem("theme", nextTheme);
+    });
+
+    // ----------------------------
+    // Scroll animations
+    // ----------------------------
     const animatedEls = document.querySelectorAll(".animate-on-scroll");
 
     const observer = new IntersectionObserver(
@@ -516,18 +540,14 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("in-view");
-            // Once animated, you can unobserve to improve performance
             observer.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.15,
-      }
+      { threshold: 0.15 }
     );
 
     animatedEls.forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
-
