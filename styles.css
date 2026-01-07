@@ -296,7 +296,7 @@ h3 {
 
 .edu-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 
-.projects-grid { display: grid; gap: 1.5rem; justify-items: center; }
+.projects-grid { display: grid; gap: 1.5rem; }
 
 .card {
   background: var(--surface);
@@ -306,10 +306,7 @@ h3 {
   box-shadow: var(--shadow-soft);
 }
 
-.project-card { 
-  border-left: 3px solid var(--accent); 
-  max-width: 720px;
-}
+.project-card { border-left: 3px solid var(--accent); }
 
 .project-meta,
 .edu-meta {
@@ -488,9 +485,6 @@ a:hover { text-decoration: underline; }
   padding: 2rem 1.6rem;
   margin-bottom: 2rem;
   box-shadow: 0 28px 60px rgba(17, 24, 39, 0.10);
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 html[data-theme="dark"] .featured-project {
@@ -555,126 +549,96 @@ html[data-theme="dark"] .featured-project {
 
 
 /* =========================
-   IMAGE BELT (ABOUT)
+   PROJECT ROW + RIGHT-SIDE MEDIA SHOWCASE
+   Desktop: text left, media right
+   Mobile: showcase stacks below text (same as before)
    ========================= */
 
-.image-belt {
-  margin-top: 2rem;
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
 }
 
-.belt-viewport {
-  position: relative;
+.project-row {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.project-row > article.project-card {
   width: 100%;
-  height: 220px;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-subtle);
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
+  max-width: 360px; /* your preferred card width */
+}
+
+.project-showcase {
+  width: 100%;
+  min-width: 0;
+}
+
+.showcase-main {
+  border-radius: var(--radius-lg);
   overflow: hidden;
-
-  /* 3D belt perspective */
-  perspective: 900px;
-  transform-style: preserve-3d;
-
-  /* UX */
-  touch-action: pan-y;
-  user-select: none;
-  outline: none;
-}
-
-html[data-theme="dark"] .belt-viewport {
-  background: rgba(2, 6, 23, 0.85);
-}
-
-.belt-viewport:focus-visible {
-  box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow-soft);
-}
-
-.belt-viewport.is-dragging {
-  cursor: grabbing;
-}
-
-.belt-track {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  transform-style: preserve-3d;
-}
-
-.belt-item {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 210px;
-  aspect-ratio: 1 / 1;
-  transform-style: preserve-3d;
-
-  /* Center anchor; JS adds translateX/rotate/scale */
-  transform: translate(-50%, -50%);
-  transition: transform 240ms ease, opacity 240ms ease;
-  will-change: transform, opacity;
-}
-
-.belt-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
   border: 1px solid var(--border-subtle);
   background: var(--surface-2);
+  box-shadow: var(--shadow-soft);
+}
+
+.showcase-main-img {
   display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain; /* main display: avoid cropping; thumbnails still show full */
+  background: var(--media-bg);
 }
 
-.belt-item.is-active img {
-  border-color: rgba(56, 189, 248, 0.6);
-  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.18);
+.showcase-thumbs {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  gap: 0.5rem;
 }
 
-html[data-theme="dark"] .belt-item.is-active img {
-  box-shadow: 0 22px 60px rgba(56, 189, 248, 0.22);
-}
-
-.belt-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.9rem;
-  margin-top: 0.85rem;
-}
-
-.belt-btn {
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
+.showcase-thumbs .thumb {
+  padding: 0;
+  border-radius: 12px;
   border: 1px solid var(--border-subtle);
   background: var(--surface);
-  color: var(--text);
   cursor: pointer;
-  transition: transform 0.12s ease-out, background 0.12s ease-out;
+  overflow: hidden;
+  transition: transform 0.12s ease-out, border-color 0.12s ease-out, box-shadow 0.12s ease-out;
 }
 
-.belt-btn:hover {
+.showcase-thumbs .thumb:hover {
   transform: translateY(-1px);
   background: var(--accent-soft);
 }
 
-.belt-hint {
-  font-size: 0.85rem;
-  color: var(--muted);
+.showcase-thumbs .thumb.is-active {
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.14);
 }
 
+.showcase-thumbs .thumb img {
+  width: 100%;
+  height: 64px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile: keep the “images below text” behavior */
 @media (max-width: 720px) {
-  .belt-viewport {
-    height: 190px;
+  .project-row {
+    grid-template-columns: 1fr;
   }
 
-  .belt-item {
-    width: 170px;
-    aspect-ratio: 1 / 1;
+  .project-row > article.project-card {
+    max-width: 100%;
   }
 
-  .belt-controls {
-    flex-wrap: wrap;
+  .showcase-main-img {
+    max-height: none;
   }
 }
