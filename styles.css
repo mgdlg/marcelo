@@ -554,11 +554,18 @@ html[data-theme="dark"] .featured-project {
 
 .image-belt {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 
 .belt-viewport {
   position: relative;
   width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
   height: 220px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-subtle);
@@ -601,8 +608,8 @@ html[data-theme="dark"] .belt-viewport {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 210px;
-  height: 140px;
+  width: 220px;
+  height: 160px;
   transform-style: preserve-3d;
 
   /* Center anchor; JS adds translateX/rotate/scale */
@@ -614,7 +621,8 @@ html[data-theme="dark"] .belt-viewport {
 .belt-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--surface-2);
   border-radius: 14px;
   border: 1px solid var(--border-subtle);
   background: var(--surface-2);
@@ -631,7 +639,9 @@ html[data-theme="dark"] .belt-item.is-active img {
 }
 
 .belt-controls {
-  display: flex;
+    width: 100%;
+  max-width: 1100px;
+display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.9rem;
@@ -664,8 +674,8 @@ html[data-theme="dark"] .belt-item.is-active img {
   }
 
   .belt-item {
-    width: 170px;
-    height: 118px;
+    width: 180px;
+    height: 130px;
   }
 
   .belt-controls {
