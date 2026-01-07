@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marcelo Guzman | GIS & Environmental Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Marcelo Guzmán, biologist and GIS specialist focused on environmental assessments, remote sensing, and conservation."
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <div>
+        <p class="eyebrow">GIS • Remote Sensing • Conservation</p>
+        <h1 class="title">Marcelo Guzmán</h1>
+        <p class="subtitle">
+          Biologist & GIS specialist using remote sensing, spatial modeling, and field ecology
+          to support environmental compliance, restoration, and urban biodiversity.
+        </p>
+        <div class="header-meta">
+          <span>🌎 Monterrey, Mexico</span>
+          <span>✉️ <a href="mailto:marcelo.guzmandlg@gmail.com">marcelo.guzmandlg@gmail.com</a></span>
+        </div>
+        <div class="header-actions">
+          <a class="btn primary" href="#projects">View GIS & Environmental Projects</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+        <div class="header-links">
+          <!-- Replace with your actual GitHub and LinkedIn URLs -->
+          <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub</a>
+          <span>•</span>
+          <a href="https://bit.ly/45zrtPQ" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="top-nav">
+    <div class="container nav-inner">
+      <a href="#video">Video Résumé</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+
+      <!-- Theme toggle -->
+      <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
+        <span class="toggle-dot" aria-hidden="true"></span>
+        <span id="themeToggleLabel">Dark mode</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- VIDEO -->
+    <section id="video" class="section section-alt">
+      <div class="container">
+        <h2>Video Résumé</h2>
+        <p class="section-intro">
+          A brief introduction to my background in GIS, remote sensing, and environmental work.
+        </p>
+        <div class="video-wrapper">
+          <video controls poster="images/video-resume-poster.jpg">
+            <source src="video-resume.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p>
+          I am a biologist with extensive experience in <strong>GIS, remote sensing, and environmental investigation</strong>.
+          My work sits at the intersection of <strong>geospatial analysis, ecology, and environmental policy</strong>, and
+          spans environmental impact assessments, urban biodiversity research, renewable energy projects, and restoration
+          monitoring.
+        </p>
+        <p>
+          I enjoy transforming raw spatial and ecological data into <strong>actionable insights</strong> for sustainable
+          development—whether that’s modeling urbanization effects on wildlife, monitoring forest cover with UAVs and
+          satellite imagery, or designing geospatial workflows that keep decision-makers up to date in real time.
+        </p>
+      
+        <!-- IMAGE BELT (50 images) -->
+        <div class="image-belt" aria-label="Image belt">
+          <div
+            class="belt-viewport"
+            id="beltViewport"
+            tabindex="0"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Image belt carousel"
+          >
+            <ul class="belt-track" id="beltTrack" aria-live="polite"></ul>
+          </div>
+
+          <div class="belt-controls" aria-label="Image belt controls">
+            <button class="belt-btn" id="beltPrev" type="button" aria-label="Previous image">Prev</button>
+            <span class="belt-hint">Drag, scroll, or use ← / →</span>
+            <button class="belt-btn" id="beltNext" type="button" aria-label="Next image">Next</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <h2>Technical Skills</h2>
+        <div class="grid skills-grid">
+          <div class="card">
+            <h3>GIS & Remote Sensing</h3>
+            <ul class="tag-list">
+              <li>ArcGIS Pro</li>
+              <li>ArcGIS ModelBuilder</li>
+              <li>QGIS</li>
+              <li>ENVI</li>
+              <li>Multispectral analysis</li>
+              <li>DEM/DSM</li>
+              <li>NDVI / NWI</li>
+              <li>Drone photogrammetry</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Data Science & Statistics</h3>
+            <ul class="tag-list">
+              <li>R</li>
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Excel</li>
+              <li>Geospatial modeling</li>
+              <li>Statistical analysis</li>
+              <li>Reproducible workflows</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Field & Environmental Work</h3>
+            <ul class="tag-list">
+              <li>Environmental assessments</li>
+              <li>Large mammal surveys</li>
+              <li>Ornithology (mist netting, banding)</li>
+              <li>Habitat monitoring</li>
+              <li>Community engagement</li>
+              <li>Project management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Selected GIS & Environmental Projects</h2>
+        <p class="section-intro">
+          A selection of projects where I combined <strong>geospatial analysis</strong>, <strong>ecology</strong>, and
+          <strong>fieldwork</strong> to support conservation, urban planning, and environmental compliance.
+        </p>
+
+        <div class="projects-grid">
+
+<!-- FEATURED EXCHANGE & ADVANCED GIS WORK -->
+<article class="card featured-project animate-on-scroll">
+  <h2 class="featured-title">University of Debrecen · Advanced GIS & Research Internship</h2>
+  <p class="featured-meta">Stipendium Hungaricum Scholar · Feb–Jul 2025 · GPA 4.0/4.0</p>
+
+  <p>
+    During my academic exchange at the <strong>University of Debrecen</strong>, I completed graduate-level coursework in 
+    <em>Remote Sensing with UAVs</em>, <em>Hyperspectral Remote Sensing</em>, <em>Models in GIS</em>, and 
+    <em>Environmental Policy & Communication</em>. I also joined a research internship focusing on 
+    <strong>avian adaptation to urbanization</strong>, where I conducted GIS analysis, UAV processing, and field ecology—
+    including mist netting, bird banding, and biometric sampling.  
+  </p>
+
+  <p>
+    These experiences strengthened my ability to integrate <strong>geospatial modeling</strong>, 
+    <strong>remote sensing</strong>, and <strong>ecological field methods</strong> in applied environmental research 
+    and spatial analysis.
+  </p>
+
+  <hr class="featured-divider" />
+
+  <h3>🎯 Highlighted Graduate Projects</h3>
+
+  <ul class="featured-list">
+    <li>
+      <strong>Models in GIS — ModelBuilder Workflow (with tutorial)</strong><br />
+      Developed reproducible GIS models for calculating tree-cover metrics and landscape indices. My final project included a model that produces a CSV table with the areas and relative areas (%) of land types for each division within a feature polygon. The required material are only two shapefile data points: (a) Land Cover Classification and (b) Political Boundaries of your region on interest. In this example I am using forest types according to the CORINE Land Cover (Copernicus Land Monitoring Service) and the district political boundaries within the Hajdú-Bihar county in Hungary. The result is a table with the forest type percentages for each district.
+      <br />
+      ▶️ Tutorial video: 
+      <a href="https://youtu.be/Iv3EsjJKXX0?si=Qs954e2EDz-um58q" target="_blank">Watch on YouTube</a>
+    </li>
+
+    <li>
+      <strong>Ornithology Research Internship — GIS Workflow for Blackbird Monitoring</strong><br />
+      Spatial analysis of nest locations, foraging buffers, and habitat metrics for 
+      <em>Turdus merula</em> urbanization research. Includes beginner-friendly GIS tutorial.
+      <br />
+      ▶️ Tutorial video:
+      <a href="https://www.youtube.com/watch?v=asC6aSBmSpQ" target="_blank">Watch on YouTube</a>
+    </li>
+
+    <li>
+      <strong>UAV Remote Sensing Accuracy Assessment</strong><br />
+      Produced DSM and orthomosaic accuracy reports for five product pipelines:
+      Ground Control, RTK with Emlid base, and RTK via network correction. 
+      Area of study: <em>Debrecen Botanical Garden</em>, Hajdú-Bihar, Hungary.  
+    </li>
+  </ul>
+  <div class="project-media">
+    <img src="images/udeb-uav-botanical.png" alt="UAV accuracy assessment map – Debrecen Botanical Garden" />
+  </div>
+<!-- SECOND IMAGE -->
+  <div class="project-media">
+    <img src="images/models-in-gis.png" alt="Models in GIS Tree Types Model" />
+  </div>
+</article>
+
+
+          <!-- PROJECT 1 -->
+          <article class="card project-card animate-on-scroll">
+            <h3>Urbanization Index & Blackbird Phenotypes</h3>
+            <p class="project-meta">
+              Institute of Biology and Ecology, University of Debrecen · 2025 · Research Intern & GIS Analyst
+            </p>
+            <p>
+              Integrated <strong>geospatial analyses</strong> into the project’s Urbanization Index to quantify urban
+              gradients affecting <em>Turdus merula</em> populations. Strengthened the analytical framework’s accuracy
+              by 86% and enabled statistically robust comparisons between urban and non-urban sites.
+            </p>
+            <ul>
+              <li>Developed spatial layers describing land cover, built-up density, and green space distribution.</li>
+              <li>Linked geospatial metrics to phenotypic measurements (body mass, tarsus length, wing morphology, etc.).</li>
+              <li>Contributed to long-term datasets on avian adaptation to urban environments.</li>
+            </ul>
+            <div class="project-media">
+              <img src="images/urbanization-index-map.jpg" alt="Urbanization index map for blackbird sampling sites" />
+            </div>
+<!-- SECOND IMAGE -->
+  <div class="project-media">
+    <img src="images/blackbird-model.png" alt="ArcGIS Pro ModelBuilder Model Screenshot for Tree Cover calculation">
+  </div>
+</article>
+
+          <!-- PROJECT 2 -->
+          <article class="card project-card animate-on-scroll">
+            <h3>Riparian Forests & Urban Bird Diversity</h3>
+            <p class="project-meta">
+              Lab of Conservation Biology & Sustainable Development – UANL · 2024 · Researcher & GIS Analyst
+            </p>
+            <p>
+              Used <strong>multispectral remote sensing</strong> and land cover data to quantify how riparian forests
+              along an urban river influence bird diversity and community structure.
+            </p>
+            <ul>
+              <li>Processed satellite imagery to map vegetation structure and coverage along riparian corridors.</li>
+              <li>Integrated point-count bird surveys with spatial layers to model biodiversity responses.</li>
+              <li>Presented findings at the “DATATON” panel to support post-storm environmental planning after tropical storm Alberto.</li>
+            </ul>
+<div class="project-media">
+  <img
+    class="theme-swap"
+    src="images/bird-diversity-light.png"
+    data-light-src="images/bird-diversity-light.png"
+    data-dark-src="images/bird-diversity-dark.png"
+    alt="Riparian Forests & Urban Bird Diversity — diversity profiles figure"
+  />
+            </div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="card project-card animate-on-scroll">
+            <h3>Remote Sensing for Reforestation Monitoring</h3>
+            <p class="project-meta">
+              Enel Green Power · 2024–2025 · Ecological Data Analyst & Surveyor
+            </p>
+            <p>
+              Supported a remote sensing program evaluating <strong>reforestation efforts</strong> in renewable energy
+              sites, ensuring ecological commitments were met.
+            </p>
+            <ul>
+              <li>Applied geospatial tools and satellite imagery to track changes in vegetation cover through time.</li>
+              <li>Automated the transformation of raw environmental metadata into analysis-ready databases using R,
+                  reducing processing time from five days to one.</li>
+              <li>Combined spatial data with field observations of large mammals and endangered species distributions.</li>
+            </ul>
+            <div class="project-media">
+              <img src="images/reforestation-ndvi-series.jpg" alt="NDVI time series for reforestation monitoring" />
+            </div>
+          </article>
+
+          <!-- PROJECT 4 -->
+          <article class="card project-card animate-on-scroll">
+            <h3>Drone Photogrammetry for Environmental Compensation</h3>
+            <p class="project-meta">
+              IRCA Consultants · 2025–Present · Project Manager
+            </p>
+            <p>
+              Designed and managed <strong>drone-based photogrammetry</strong> analyses to monitor forest cover, soil
+              recovery, and ecological restoration in environmental compensation projects.
+            </p>
+            <ul>
+              <li>Captured and processed UAV imagery to generate DSMs and orthomosaics of restoration sites.</li>
+              <li>Implemented ArcGIS Pro ModelBuilder workflows with Python and R integrations for real-time updates.</li>
+              <li>Ensured QA/QC of spatial datasets and alignment with regulatory standards.</li>
+            </ul>
+            <div class="project-media">
+              <img src="images/drone-orthomosaic-compensation.jpg" alt="Drone orthomosaic of compensation area" />
+            </div>
+          </article>
+
+          <!-- PROJECT 5 -->
+          <article class="card project-card animate-on-scroll">
+            <h3>Historical Vegetation & Water Surface Analysis for Urban Development</h3>
+            <p class="project-meta">
+              Javer Housing Developer · 2024 · GIS Technician & Surveyor
+            </p>
+            <p>
+              Conducted a <strong>multispectral remote sensing</strong> project using NDVI and NWI to analyze historical
+              vegetation and water bodies for a housing development area.
+            </p>
+            <ul>
+              <li>Built temporal NDVI and NWI maps to identify sensitive ecological areas.</li>
+              <li>Combined land surveys, species observations, and water quality data with GIS outputs.</li>
+              <li>Delivered actionable recommendations to minimize ecological impact and guide sustainable planning.</li>
+            </ul>
+            <div class="project-media">
+              <img src="images/housing-ndvi-nwi.jpg" alt="NDVI and NWI analysis for housing development site" />
+            </div>
+          </article>
+
+          <!-- PROJECT 6 -->
+          <article class="card project-card animate-on-scroll">
+            <h3>Urban Park Biodiversity Monitoring Framework</h3>
+            <p class="project-meta">
+              San Pedro + Parques · 2024 · Biodiversity Monitoring Intern
+            </p>
+            <p>
+              Standardized biodiversity surveys across nine urban parks and proposed new statistical indicators to better
+              track ecological health in urban green spaces.
+            </p>
+            <ul>
+              <li>Harmonized survey protocols to make cross-park comparisons possible.</li>
+              <li>Worked with spatial data on park layout and habitat structure to interpret biodiversity patterns.</li>
+              <li>Supported the design of indicators aligned with SDG 11 and urban sustainability goals.</li>
+            </ul>
+            <div class="project-media">
+              <img src="images/urban-parks-biodiversity.jpg" alt="Biodiversity monitoring across urban parks" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE TIMELINE -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <h2>Professional Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">  -  Sep 2025 – Present</div>
+            <div class="timeline-content">
+              <h3>Project Manager · IRCA Consultants</h3>
+              <p>
+                Leading environmental compliance and geospatial workflows for impact assessments and compensation projects.
+              </p>
+              <ul>
+                <li>Scoped and managed environmental compliance projects and permitting consultations.</li>
+                <li>Implemented drone-based photogrammetry and GIS workflows for forest and soil recovery monitoring.</li>
+                <li>Maintained GIS databases with QA/QC aligned to regulatory and client standards.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item animate-on-scroll" >
+            <div class="timeline-date">  -  Feb 2025 – Sep 2025</div>
+            <div class="timeline-content">
+              <h3>Research Intern & GIS Analyst · Institute of Biology and Ecology, University of Debrecen</h3>
+              <p>Integrated geospatial analysis into avian urbanization research in Europe.</p>
+              <ul>
+                <li>Enhanced Urbanization Index analytics for blackbird populations with GIS metrics.</li>
+                <li>Applied standardized bird sampling protocols including mist netting, banding, and biometric analyses.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-date">  -  Jun 2024 – Feb 2025</div>
+            <div class="timeline-content">
+              <h3>Ecological Data Analyst & Surveyor · Enel Green Power</h3>
+              <p>Supported renewable energy projects with ecological surveys and geospatial data pipelines.</p>
+              <ul>
+                <li>Automated environmental data processing in R (500% efficiency gain).</li>
+                <li>Contributed geospatial analyses for reforestation and biodiversity monitoring.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-date">  -  Nov 2024 – Dec 2024</div>
+            <div class="timeline-content">
+              <h3>GIS Technician & Surveyor · Javer Housing Developer</h3>
+              <p>Provided GIS-based insights for sustainable housing development.</p>
+              <ul>
+                <li>Developed NDVI and NWI maps for historical vegetation and water surface analysis.</li>
+                <li>Integrated resident interviews and field data with spatial analysis to inform planning.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-date">  -  Jan 2024 – Nov 2024</div>
+            <div class="timeline-content">
+              <h3>Researcher & GIS Analyst · Lab of Conservation Biology and Sustainable Development – UANL</h3>
+              <p>Quantified the role of riparian forests in maintaining urban bird diversity.</p>
+              <ul>
+                <li>Processed multispectral imagery and land cover data for riparian forest mapping.</li>
+                <li>Engaged local communities around conservation initiatives and urban habitat preservation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-date">  -  Jun 2024 – Dec 2024</div>
+            <div class="timeline-content">
+              <h3>Biodiversity Monitoring Intern · San Pedro + Parques</h3>
+              <p>Supported biodiversity monitoring and metric design across nine urban parks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2>Education & Training</h2>
+        <div class="grid edu-grid">
+          <div class="card">
+            <h3>University of Debrecen</h3>
+            <p class="edu-meta">
+              Geoinformatics M.S. & Environmental Science M.S. · GPA: 4.0/4.0
+            </p>
+            <p>Stipendium Hungaricum Scholar with a focus on geoinformatics, remote sensing, and environmental policy.</p>
+            <ul>
+              <li>Hyperspectral Remote Sensing</li>
+              <li>Remote Sensing with Unmanned Aerial Vehicles</li>
+              <li>Models in GIS</li>
+              <li>Environmental Policy and Communication</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Universidad Autónoma de Nuevo León</h3>
+            <p class="edu-meta">
+              B.S. Biology · GPA: 3.8/4.0
+            </p>
+            <p>
+              Honors Program student with strong training in ecology, conservation biology, and quantitative analysis.
+            </p>
+            <ul>
+              <li>Excellence and social service awards recognizing contributions to SDG-aligned sustainability projects.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Additional Qualifications</h3>
+            <p class="edu-meta">
+              A.A. Teaching English as a Second Language · International Baccalaureate
+            </p>
+            <ul>
+              <li>R for Data Science (Cognitive Class)</li>
+              <li>J-1 Exchange Visitor Program (BridgeUSA)</li>
+              <li>French DELF B2 & immersion program in Canada</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>
+          I am open to collaborations on <strong>environmental assessments, GIS analysis, remote sensing projects, and
+          conservation research</strong>.
+        </p>
+        <div class="contact-card">
+          <p><strong>Email:</strong> <a href="mailto:marcelo.guzmandlg@gmail.com">marcelo.guzmandlg@gmail.com</a></p>
+          <p><strong>Location:</strong> Monterrey, Mexico</p>
+          <p>
+            <strong>LinkedIn:</strong>
+            <a href="https://bit.ly/45zrtPQ" target="_blank" rel="noopener">View my profile</a>
+          </p>
+          <p>
+            <strong>GitHub:</strong>
+            <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">View my repositories</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Marcelo Guzmán. Built with HTML & CSS, hosted on GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ----------------------------
+    // Theme toggle (default: light)
+    // ----------------------------
+    const htmlEl = document.documentElement;
+    const toggleBtn = document.getElementById("themeToggle");
+    const toggleLabel = document.getElementById("themeToggleLabel");
+
+function setTheme(theme) {
+  if (theme === "dark") {
+    htmlEl.setAttribute("data-theme", "dark");
+    toggleBtn.setAttribute("aria-pressed", "true");
+    toggleLabel.textContent = "Light mode";
+  } else {
+    htmlEl.removeAttribute("data-theme");
+    toggleBtn.setAttribute("aria-pressed", "false");
+    toggleLabel.textContent = "Dark mode";
+  }
+
+  // ✅ Swap images that have light/dark sources
+  document.querySelectorAll("img.theme-swap").forEach((img) => {
+    const lightSrc = img.getAttribute("data-light-src");
+    const darkSrc = img.getAttribute("data-dark-src");
+    if (!lightSrc || !darkSrc) return;
+
+    img.src = (theme === "dark") ? darkSrc : lightSrc;
+  });
+}
+
+
+    // Load saved preference; if none, stay in light mode
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") setTheme("dark");
+    else setTheme("light");
+
+    toggleBtn.addEventListener("click", () => {
+      const isDark = htmlEl.getAttribute("data-theme") === "dark";
+      const nextTheme = isDark ? "light" : "dark";
+      setTheme(nextTheme);
+      localStorage.setItem("theme", nextTheme);
+    });
+
+    // ----------------------------
+    // Scroll animations
+    // ----------------------------
+    const animatedEls = document.querySelectorAll(".animate-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    animatedEls.forEach((el) => observer.observe(el));
+  
+    // ----------------------------
+    // Image belt (50 images)
+    // ----------------------------
+    (function initImageBelt() {
+      const track = document.getElementById("beltTrack");
+      const viewport = document.getElementById("beltViewport");
+      const prevBtn = document.getElementById("beltPrev");
+      const nextBtn = document.getElementById("beltNext");
+
+      // If the belt isn't on the page, exit safely.
+      if (!track || !viewport || !prevBtn || !nextBtn) return;
+
+      // Adjust if you store images elsewhere
+      const BELT_PATH = "images/belt/";
+      const IMAGE_COUNT = 50;
+
+      // Start centered (image 25) for an even 1..50 set.
+      let active = Math.floor((IMAGE_COUNT - 1) / 2);
+
+      // Create DOM once
+      const items = [];
+      for (let i = 0; i < IMAGE_COUNT; i++) {
+        const li = document.createElement("li");
+        li.className = "belt-item";
+        li.setAttribute("role", "group");
+        li.setAttribute("aria-label", `Image ${i + 1} of ${IMAGE_COUNT}`);
+
+        const img = document.createElement("img");
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.src = `${BELT_PATH}${i + 1}.jpg`;
+        img.alt = `Belt image ${i + 1}`;
+
+        li.appendChild(img);
+        li.addEventListener("click", () => setActive(i, true));
+
+        track.appendChild(li);
+        items.push(li);
+      }
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setActive(next, focus) {
+        active = clamp(next, 0, IMAGE_COUNT - 1);
+        render();
+
+        if (focus) {
+          items[active]?.querySelector("img")?.focus?.();
+        }
+      }
+
+      // Perspective belt layout:
+      // - Active image is largest and centered
+      // - Images shrink and rotate away to both sides
+      function render() {
+        const maxVisible = 10; // beyond this: fade out
+        const spacing = window.matchMedia("(max-width: 720px)").matches ? 70 : 92;
+
+        items.forEach((el, i) => {
+          const offset = i - active;
+          const abs = Math.abs(offset);
+
+          const isHidden = abs > maxVisible;
+          el.style.pointerEvents = isHidden ? "none" : "auto";
+          el.style.opacity = isHidden ? "0" : String(clamp(1 - abs * 0.12, 0, 1));
+
+          const scale = clamp(1 - abs * 0.085, 0.38, 1);
+          const translateX = offset * spacing;
+          const rotateY = clamp(offset * -14, -65, 65);
+
+          // Push side images slightly "back" for depth
+          const translateZ = -abs * 18;
+
+          el.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+          el.style.zIndex = String(100 - abs);
+          el.classList.toggle("is-active", i === active);
+        });
+
+        // Update live region for assistive tech
+        track.setAttribute("aria-label", `Active image ${active + 1} of ${IMAGE_COUNT}`);
+      }
+
+      // Buttons
+      prevBtn.addEventListener("click", () => setActive(active - 1, false));
+      nextBtn.addEventListener("click", () => setActive(active + 1, false));
+
+      // Keyboard (viewport is focusable)
+      viewport.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") setActive(active - 1, false);
+        if (e.key === "ArrowRight") setActive(active + 1, false);
+        if (e.key === "Home") setActive(0, false);
+        if (e.key === "End") setActive(IMAGE_COUNT - 1, false);
+      });
+
+      // Wheel/trackpad (horizontal preferred; vertical fallback)
+      viewport.addEventListener(
+        "wheel",
+        (e) => {
+          const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+          if (Math.abs(delta) < 6) return;
+          e.preventDefault();
+          setActive(active + (delta > 0 ? 1 : -1), false);
+        },
+        { passive: false }
+      );
+
+      // Drag / swipe
+      let isDown = false;
+      let startX = 0;
+      let startActive = 0;
+
+      viewport.addEventListener("pointerdown", (e) => {
+        isDown = true;
+        startX = e.clientX;
+        startActive = active;
+        viewport.setPointerCapture(e.pointerId);
+        viewport.classList.add("is-dragging");
+      });
+
+      viewport.addEventListener("pointermove", (e) => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        const step = window.matchMedia("(max-width: 720px)").matches ? 60 : 78;
+
+        const next = startActive - Math.round(dx / step);
+        if (next !== active) setActive(next, false);
+      });
+
+      function endDrag() {
+        isDown = false;
+        viewport.classList.remove("is-dragging");
+      }
+
+      viewport.addEventListener("pointerup", endDrag);
+      viewport.addEventListener("pointercancel", endDrag);
+      viewport.addEventListener("pointerleave", endDrag);
+
+      // Initial layout + relayout on resize
+      render();
+      window.addEventListener("resize", render, { passive: true });
+    })();
+
+  </script>
+</body>
+</html>
