@@ -659,7 +659,7 @@ function setTheme(theme) {
 
       // Adjust if you store images elsewhere
       const BELT_PATH = "images/belt/";
-      const IMAGE_COUNT = 50;
+      const IMAGE_COUNT = 45;
 
       // Start centered (image 25) for an even 1..50 set.
       let active = Math.floor((IMAGE_COUNT - 1) / 2);
@@ -690,15 +690,12 @@ function setTheme(theme) {
       }
 
       function setActive(next, focus) {
-        // Circular carousel: wrap around instead of clamping
-        active = ((next % IMAGE_COUNT) + IMAGE_COUNT) % IMAGE_COUNT;
+        active = clamp(next, 0, IMAGE_COUNT - 1);
         render();
 
         if (focus) {
           items[active]?.querySelector("img")?.focus?.();
         }
-      }
-
       }
 
       // Perspective belt layout:
