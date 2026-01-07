@@ -681,7 +681,7 @@ function setTheme(theme) {
 
       // Adjust if you store images elsewhere
       const BELT_PATH = "images/belt/";
-      const IMAGE_COUNT = 45;
+      const IMAGE_COUNT = 50;
 
       // Start centered (image 25) for an even 1..50 set.
       let active = Math.floor((IMAGE_COUNT - 1) / 2);
@@ -711,16 +711,20 @@ function setTheme(theme) {
         return Math.max(min, Math.min(max, n));
       }
 
+      function wrapIndex(n, len) {
+        return ((n % len) + len) % len;
+      }
+
       function setActive(next, focus) {
-        active = clamp(next, 0, IMAGE_COUNT - 1);
+        active = wrapIndex(next, IMAGE_COUNT);
         render();
 
         if (focus) {
-          items[active]?.querySelector("img")?.focus?.();
+          // Keep focus within the carousel region for keyboard users.
+          viewport.focus?.();
         }
       }
-
-      // Perspective belt layout:
+// Perspective belt layout:
       // - Active image is largest and centered
       // - Images shrink and rotate away to both sides
       function render() {
