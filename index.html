@@ -600,7 +600,7 @@ function setTheme(theme) {
 
       // Adjust if you store images elsewhere
       const BELT_PATH = "images/belt/";
-      const IMAGE_COUNT = 50;
+      const IMAGE_COUNT = 45;
 
       // Start centered (image 25) for an even 1..50 set.
       let active = Math.floor((IMAGE_COUNT - 1) / 2);
@@ -661,7 +661,7 @@ function setTheme(theme) {
           // Push side images slightly "back" for depth
           const translateZ = -abs * 18;
 
-          el.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+          el.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
           el.style.zIndex = String(100 - abs);
           el.classList.toggle("is-active", i === active);
         });
