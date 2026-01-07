@@ -543,6 +543,102 @@ html[data-theme="dark"] .featured-project {
   transform: translateY(0);
 }
 
+
+/* =========================
+   PROJECT ROW + RIGHT-SIDE MEDIA SHOWCASE
+   Desktop: text left, media right with thumbnail bar
+   Mobile: keep original ".project-media" inside the card
+   ========================= */
+
+/* Base: keep project rows neutral unless desktop kicks in */
+.project-row { width: 100%; }
+.project-showcase { display: none; }
+
+/* Desktop-only layout */
+@media (min-width: 901px) {
+  .projects-grid { 
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    justify-items: initial;
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    width: 100%;
+  }
+
+  .project-row > article.project-card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* Hide the inline media blocks inside the text card on desktop */
+  .project-row > article.project-card .project-media {
+    display: none;
+  }
+
+  .project-showcase { 
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .showcase-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    background: var(--surface-2);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .showcase-main-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    background: var(--media-bg);
+  }
+
+  .showcase-thumbs {
+    margin-top: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .showcase-thumbs .thumb {
+    padding: 0;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    background: var(--surface);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.12s ease-out, border-color 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+  }
+
+  .showcase-thumbs .thumb:hover {
+    transform: translateY(-1px);
+    background: var(--accent-soft);
+  }
+
+  .showcase-thumbs .thumb.is-active {
+    border-color: rgba(56, 189, 248, 0.6);
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.14);
+  }
+
+  .showcase-thumbs .thumb img {
+    width: 100%;
+    height: 64px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
 /* =========================
    RESPONSIVE
    ========================= */

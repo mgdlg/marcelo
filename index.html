@@ -234,7 +234,8 @@
 
 
           <!-- PROJECT 1 -->
-          <article class="card project-card animate-on-scroll">
+          <div class="project-row">
+            <article class="card project-card animate-on-scroll">
             <h3>Urbanization Index & Blackbird Phenotypes</h3>
             <p class="project-meta">
               Institute of Biology and Ecology, University of Debrecen · 2025 · Research Intern & GIS Analyst
@@ -257,9 +258,18 @@
     <img src="images/blackbird-model.png" alt="ArcGIS Pro ModelBuilder Model Screenshot for Tree Cover calculation">
   </div>
 </article>
+            <aside class="project-showcase" data-project-showcase>
+              <div class="showcase-main">
+                <img class="showcase-main-img" alt="" />
+              </div>
+              <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
+            </aside>
+          </div>
+
 
           <!-- PROJECT 2 -->
-          <article class="card project-card animate-on-scroll">
+          <div class="project-row">
+            <article class="card project-card animate-on-scroll">
             <h3>Riparian Forests & Urban Bird Diversity</h3>
             <p class="project-meta">
               Lab of Conservation Biology & Sustainable Development – UANL · 2024 · Researcher & GIS Analyst
@@ -283,9 +293,18 @@
   />
             </div>
           </article>
+            <aside class="project-showcase" data-project-showcase>
+              <div class="showcase-main">
+                <img class="showcase-main-img" alt="" />
+              </div>
+              <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
+            </aside>
+          </div>
+
 
           <!-- PROJECT 3 -->
-          <article class="card project-card animate-on-scroll">
+          <div class="project-row">
+            <article class="card project-card animate-on-scroll">
             <h3>Remote Sensing for Reforestation Monitoring</h3>
             <p class="project-meta">
               Enel Green Power · 2024–2025 · Ecological Data Analyst & Surveyor
@@ -304,9 +323,18 @@
               <img src="images/reforestation-ndvi-series.jpg" alt="NDVI time series for reforestation monitoring" />
             </div>
           </article>
+            <aside class="project-showcase" data-project-showcase>
+              <div class="showcase-main">
+                <img class="showcase-main-img" alt="" />
+              </div>
+              <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
+            </aside>
+          </div>
+
 
           <!-- PROJECT 4 -->
-          <article class="card project-card animate-on-scroll">
+          <div class="project-row">
+            <article class="card project-card animate-on-scroll">
             <h3>Drone Photogrammetry for Environmental Compensation</h3>
             <p class="project-meta">
               IRCA Consultants · 2025–Present · Project Manager
@@ -327,9 +355,18 @@
               <img src="images/frisa-sc.jpg" alt="Outreach Layout for SC Site" />
             </div>
           </article>
+            <aside class="project-showcase" data-project-showcase>
+              <div class="showcase-main">
+                <img class="showcase-main-img" alt="" />
+              </div>
+              <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
+            </aside>
+          </div>
+
 
           <!-- PROJECT 5 -->
-          <article class="card project-card animate-on-scroll">
+          <div class="project-row">
+            <article class="card project-card animate-on-scroll">
             <h3>Historical Vegetation & Water Surface Analysis for Urban Development</h3>
             <p class="project-meta">
               Javer Housing Developer · 2024 · GIS Technician & Surveyor
@@ -347,9 +384,18 @@
               <img src="images/housing-ndvi-nwi.jpg" alt="NDVI and NWI analysis for housing development site" />
             </div>
           </article>
+            <aside class="project-showcase" data-project-showcase>
+              <div class="showcase-main">
+                <img class="showcase-main-img" alt="" />
+              </div>
+              <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
+            </aside>
+          </div>
+
 
           <!-- PROJECT 6 -->
-          <article class="card project-card animate-on-scroll">
+          <div class="project-row">
+            <article class="card project-card animate-on-scroll">
             <h3>Urban Park Biodiversity Monitoring Framework</h3>
             <p class="project-meta">
               San Pedro + Parques · 2024 · Biodiversity Monitoring Intern
@@ -367,6 +413,14 @@
               <img src="images/urban-parks-biodiversity.jpg" alt="Biodiversity monitoring across urban parks" />
             </div>
           </article>
+            <aside class="project-showcase" data-project-showcase>
+              <div class="showcase-main">
+                <img class="showcase-main-img" alt="" />
+              </div>
+              <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
+            </aside>
+          </div>
+
         </div>
       </div>
     </section>
@@ -555,6 +609,8 @@ function setTheme(theme) {
 
     img.src = (theme === "dark") ? darkSrc : lightSrc;
   });
+  // Keep right-side project showcases in sync
+  if (typeof window.refreshProjectShowcases === "function") window.refreshProjectShowcases();
 }
 
 
@@ -731,6 +787,135 @@ function setTheme(theme) {
       // Initial layout + relayout on resize
       render();
       window.addEventListener("resize", render, { passive: true });
+    })();
+
+  
+    // ----------------------------
+    // Project media showcases (desktop only)
+    // - Desktop: show media in a right-side showcase with thumbnail bar
+    // - Mobile: keep the original ".project-media" blocks inside the card
+    // ----------------------------
+    (function initProjectShowcases() {
+      const rows = document.querySelectorAll(".project-row");
+      if (!rows.length) return;
+
+      const getTheme = () => (document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+      rows.forEach((row) => {
+        const card = row.querySelector("article.project-card");
+        const showcase = row.querySelector("[data-project-showcase]");
+        if (!card || !showcase) return;
+
+        const imgEls = Array.from(card.querySelectorAll(".project-media img")).filter(Boolean);
+        const imgs = imgEls
+          .map((img) => ({
+            el: img,
+            alt: img.getAttribute("alt") || "Project image",
+            light: img.getAttribute("data-light-src"),
+            dark: img.getAttribute("data-dark-src"),
+          }))
+          .filter((x) => x.el && (x.el.getAttribute("src") || x.light || x.dark));
+
+        // If no images, remove the empty showcase column
+        if (!imgs.length) {
+          showcase.remove();
+          return;
+        }
+
+        const mainImg = showcase.querySelector(".showcase-main-img");
+        const thumbs = showcase.querySelector(".showcase-thumbs");
+
+        let active = 0;
+
+        function resolveSrc(item) {
+          const theme = getTheme();
+          if (item.el && item.el.classList.contains("theme-swap") && item.light && item.dark) {
+            return theme === "dark" ? item.dark : item.light;
+          }
+          return item.el ? item.el.getAttribute("src") : "";
+        }
+
+        function setActive(next) {
+          active = Math.max(0, Math.min(imgs.length - 1, next));
+          const item = imgs[active];
+          const src = resolveSrc(item);
+          mainImg.src = src;
+          mainImg.alt = item.alt;
+
+          thumbs.querySelectorAll("button[data-idx]").forEach((btn) => {
+            const isActive = Number(btn.getAttribute("data-idx")) === active;
+            btn.setAttribute("aria-selected", isActive ? "true" : "false");
+            btn.tabIndex = isActive ? 0 : -1;
+            btn.classList.toggle("is-active", isActive);
+          });
+        }
+
+        // Build thumbs once
+        thumbs.innerHTML = "";
+        imgs.forEach((item, i) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "thumb";
+          btn.setAttribute("data-idx", String(i));
+          btn.setAttribute("role", "tab");
+          btn.setAttribute("aria-selected", "false");
+          btn.tabIndex = -1;
+
+          const timg = document.createElement("img");
+          timg.loading = "lazy";
+          timg.decoding = "async";
+          timg.alt = item.alt;
+          timg.src = resolveSrc(item);
+
+          if (item.light) timg.setAttribute("data-light-src", item.light);
+          if (item.dark) timg.setAttribute("data-dark-src", item.dark);
+          if (item.el && item.el.classList.contains("theme-swap")) timg.classList.add("theme-swap");
+
+          btn.appendChild(timg);
+
+          btn.addEventListener("click", () => setActive(i));
+          btn.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") { e.preventDefault(); setActive(active - 1); }
+            if (e.key === "ArrowRight") { e.preventDefault(); setActive(active + 1); }
+            if (e.key === "Home") { e.preventDefault(); setActive(0); }
+            if (e.key === "End") { e.preventDefault(); setActive(imgs.length - 1); }
+          });
+
+          thumbs.appendChild(btn);
+        });
+
+        // Expose minimal API for theme refresh
+        row._projectShowcase = {
+          imgs,
+          setActive,
+          mainImg,
+          thumbs,
+          resolveSrc,
+          get active() { return active; },
+          set active(v) { active = v; },
+        };
+
+        // Initialize
+        setActive(0);
+      });
+
+      // Refresh thumbnails + main image when theme swaps theme-swap image src
+      window.refreshProjectShowcases = function refreshProjectShowcases() {
+        document.querySelectorAll(".project-row").forEach((row) => {
+          const api = row._projectShowcase;
+          if (!api) return;
+
+          // Update thumb srcs
+          api.thumbs.querySelectorAll("img").forEach((imgEl, idx) => {
+            const item = api.imgs[idx];
+            if (!item) return;
+            imgEl.src = api.resolveSrc(item);
+          });
+
+          // Update main
+          api.mainImg.src = api.resolveSrc(api.imgs[api.active]);
+        });
+      };
     })();
 
   </script>
