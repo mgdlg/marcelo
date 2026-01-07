@@ -306,7 +306,10 @@ h3 {
   box-shadow: var(--shadow-soft);
 }
 
-.project-card { border-left: 3px solid var(--accent); }
+.project-card { 
+  border-left: 3px solid var(--accent); 
+  max-width: 360px;
+}
 
 .project-meta,
 .edu-meta {
