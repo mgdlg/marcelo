@@ -94,6 +94,27 @@
           development—whether that’s modeling urbanization effects on wildlife, monitoring forest cover with UAVs and
           satellite imagery, or designing geospatial workflows that keep decision-makers up to date in real time.
         </p>
+      
+        <!-- IMAGE BELT (50 images) -->
+        <div class="image-belt" aria-label="Image belt">
+          <div
+            class="belt-viewport"
+            id="beltViewport"
+            tabindex="0"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Image belt carousel"
+          >
+            <ul class="belt-track" id="beltTrack" aria-live="polite"></ul>
+          </div>
+
+          <div class="belt-controls" aria-label="Image belt controls">
+            <button class="belt-btn" id="beltPrev" type="button" aria-label="Previous image">Prev</button>
+            <span class="belt-hint">Drag, scroll, or use ← / →</span>
+            <button class="belt-btn" id="beltNext" type="button" aria-label="Next image">Next</button>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -564,6 +585,151 @@ function setTheme(theme) {
     );
 
     animatedEls.forEach((el) => observer.observe(el));
+  
+    // ----------------------------
+    // Image belt (50 images)
+    // ----------------------------
+    (function initImageBelt() {
+      const track = document.getElementById("beltTrack");
+      const viewport = document.getElementById("beltViewport");
+      const prevBtn = document.getElementById("beltPrev");
+      const nextBtn = document.getElementById("beltNext");
+
+      // If the belt isn't on the page, exit safely.
+      if (!track || !viewport || !prevBtn || !nextBtn) return;
+
+      // Adjust if you store images elsewhere
+      const BELT_PATH = "images/belt/";
+      const IMAGE_COUNT = 50;
+
+      // Start centered (image 25) for an even 1..50 set.
+      let active = Math.floor((IMAGE_COUNT - 1) / 2);
+
+      // Create DOM once
+      const items = [];
+      for (let i = 0; i < IMAGE_COUNT; i++) {
+        const li = document.createElement("li");
+        li.className = "belt-item";
+        li.setAttribute("role", "group");
+        li.setAttribute("aria-label", `Image ${i + 1} of ${IMAGE_COUNT}`);
+
+        const img = document.createElement("img");
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.src = `${BELT_PATH}${i + 1}.jpg`;
+        img.alt = `Belt image ${i + 1}`;
+
+        li.appendChild(img);
+        li.addEventListener("click", () => setActive(i, true));
+
+        track.appendChild(li);
+        items.push(li);
+      }
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setActive(next, focus) {
+        active = clamp(next, 0, IMAGE_COUNT - 1);
+        render();
+
+        if (focus) {
+          items[active]?.querySelector("img")?.focus?.();
+        }
+      }
+
+      // Perspective belt layout:
+      // - Active image is largest and centered
+      // - Images shrink and rotate away to both sides
+      function render() {
+        const maxVisible = 10; // beyond this: fade out
+        const spacing = window.matchMedia("(max-width: 720px)").matches ? 70 : 92;
+
+        items.forEach((el, i) => {
+          const offset = i - active;
+          const abs = Math.abs(offset);
+
+          const isHidden = abs > maxVisible;
+          el.style.pointerEvents = isHidden ? "none" : "auto";
+          el.style.opacity = isHidden ? "0" : String(clamp(1 - abs * 0.12, 0, 1));
+
+          const scale = clamp(1 - abs * 0.085, 0.38, 1);
+          const translateX = offset * spacing;
+          const rotateY = clamp(offset * -14, -65, 65);
+
+          // Push side images slightly "back" for depth
+          const translateZ = -abs * 18;
+
+          el.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+          el.style.zIndex = String(100 - abs);
+          el.classList.toggle("is-active", i === active);
+        });
+
+        // Update live region for assistive tech
+        track.setAttribute("aria-label", `Active image ${active + 1} of ${IMAGE_COUNT}`);
+      }
+
+      // Buttons
+      prevBtn.addEventListener("click", () => setActive(active - 1, false));
+      nextBtn.addEventListener("click", () => setActive(active + 1, false));
+
+      // Keyboard (viewport is focusable)
+      viewport.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") setActive(active - 1, false);
+        if (e.key === "ArrowRight") setActive(active + 1, false);
+        if (e.key === "Home") setActive(0, false);
+        if (e.key === "End") setActive(IMAGE_COUNT - 1, false);
+      });
+
+      // Wheel/trackpad (horizontal preferred; vertical fallback)
+      viewport.addEventListener(
+        "wheel",
+        (e) => {
+          const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+          if (Math.abs(delta) < 6) return;
+          e.preventDefault();
+          setActive(active + (delta > 0 ? 1 : -1), false);
+        },
+        { passive: false }
+      );
+
+      // Drag / swipe
+      let isDown = false;
+      let startX = 0;
+      let startActive = 0;
+
+      viewport.addEventListener("pointerdown", (e) => {
+        isDown = true;
+        startX = e.clientX;
+        startActive = active;
+        viewport.setPointerCapture(e.pointerId);
+        viewport.classList.add("is-dragging");
+      });
+
+      viewport.addEventListener("pointermove", (e) => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        const step = window.matchMedia("(max-width: 720px)").matches ? 60 : 78;
+
+        const next = startActive - Math.round(dx / step);
+        if (next !== active) setActive(next, false);
+      });
+
+      function endDrag() {
+        isDown = false;
+        viewport.classList.remove("is-dragging");
+      }
+
+      viewport.addEventListener("pointerup", endDrag);
+      viewport.addEventListener("pointercancel", endDrag);
+      viewport.addEventListener("pointerleave", endDrag);
+
+      // Initial layout + relayout on resize
+      render();
+      window.addEventListener("resize", render, { passive: true });
+    })();
+
   </script>
 </body>
 </html>
