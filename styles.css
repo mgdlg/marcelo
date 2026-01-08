@@ -478,6 +478,14 @@ a:hover { text-decoration: underline; }
   color: var(--muted);
 }
 
+
+/* Divider inside project cards */
+.project-divider {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 1.2rem 0;
+}
+
 /* =========================
    FEATURED PROJECT CARD
    ========================= */
