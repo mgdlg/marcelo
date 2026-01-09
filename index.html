@@ -164,20 +164,22 @@
     </section>
 
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
+    
+    <!-- FEATURED GIS PROJECTS (SWIPE / SCROLL) -->
+    <section id="featured" class="section featured-section">
       <div class="container">
-        <h2>Selected GIS & Environmental Projects</h2>
-        <p class="section-intro">
-          A selection of projects where I combined <strong>geospatial analysis</strong>, <strong>ecology</strong>, and
-          <strong>fieldwork</strong> to support conservation, urban planning, and environmental compliance.
-        </p>
+        <div class="featured-header">
+          <h2>FEATURED GIS PROJECTS</h2>
+          <div class="featured-controls" aria-label="Featured projects controls">
+            <button class="btn icon" type="button" id="featuredPrev" aria-label="Previous featured project">‹</button>
+            <button class="btn icon" type="button" id="featuredNext" aria-label="Next featured project">›</button>
+          </div>
+        </div>
 
-        <div class="projects-grid">
-
+        <div class="featured-carousel" id="featuredCarousel" tabindex="0" aria-label="Featured GIS projects carousel">
 <!-- FEATURED EXCHANGE & ADVANCED GIS WORK -->
-<article class="card featured-project animate-on-scroll">
-  <h2 class="featured-title">University of Debrecen · Advanced GIS & Research Internship</h2>
+<article class="card featured-project featured-slide">
+  <h3 class="featured-title">University of Debrecen · Advanced GIS & Research Internship</h3>
   <p class="featured-meta">Stipendium Hungaricum Scholar · Feb–Jul 2025 · GPA 4.0/4.0</p>
 
   <p>
@@ -230,10 +232,76 @@
   <div class="project-media">
     <img src="images/models-in-gis.png" alt="Models in GIS Tree Types Model" />
   </div>
+
 </article>
 
+<!-- FEATURED INDEPENDENT COMMUNITY CARTOGRAPHY -->
+<article class="card featured-project featured-slide">
+  <h3 class="featured-title">Río Santa Catarina · Community Volunteer Cartography Initiative</h3>
+  <p class="featured-meta">Independent Project · Monterrey, Nuevo León, Mexico · 2024–Present</p>
 
-          <!-- PROJECT 1 -->
+  <p>
+    I am building a community-led volunteer cartography initiative focused on the <strong>Río Santa Catarina corridor</strong> in Monterrey.
+    The goal is to create <strong>open, high-quality geospatial data</strong> that supports environmental restoration, safer public access,
+    and evidence-based decision-making for NGOs, universities, and local stakeholders.
+  </p>
+
+  <p>
+    The initiative combines <strong>field mapping</strong> (GPS / mobile data collection), <strong>GIS QA/QC</strong>, and
+    <strong>open mapping standards</strong> to document river features, access points, infrastructure, and priority environmental issues
+    (e.g., erosion zones, invasive vegetation, litter hotspots, habitat patches).
+  </p>
+
+  <hr class="featured-divider" />
+
+  <h3>🎯 Highlighted Outputs</h3>
+
+  <ul class="featured-list">
+    <li>
+      <strong>Volunteer Mapping Workflow & Training</strong><br />
+      Defined data standards, collection forms, and a volunteer onboarding flow to ensure consistent, repeatable mapping sessions.
+    </li>
+
+    <li>
+      <strong>River Corridor Basemap & Issue Inventory</strong><br />
+      Compiled and validated layers for trails/access points, riparian vegetation structure, infrastructure, and environmental impact observations.
+    </li>
+
+    <li>
+      <strong>Open Data Deliverables (GeoJSON / Shapefiles)</strong><br />
+      Prepared shareable datasets and map products for collaborators, with an emphasis on transparency and reproducibility.
+    </li>
+  </ul>
+
+  <div class="header-actions">
+    <!-- Replace the href below with your project page, story map, GitHub repo, or shared map link when ready -->
+    <a class="btn primary" href="#" target="_blank" rel="noopener">View project (link soon)</a>
+    <a class="btn ghost" href="#contact">Collaborate</a>
+  </div>
+
+  <div class="project-media">
+    <!-- Add an image file to your /images folder and update the src -->
+    <img src="images/rio-santa-catarina-volunteer-cartography.png" alt="Río Santa Catarina community volunteer cartography initiative — sample map and field notes" />
+  </div>
+</article>
+        </div>
+      </div>
+    </section>
+
+
+
+<!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Selected GIS & Environmental Projects</h2>
+        <p class="section-intro">
+          A selection of projects where I combined <strong>geospatial analysis</strong>, <strong>ecology</strong>, and
+          <strong>fieldwork</strong> to support conservation, urban planning, and environmental compliance.
+        </p>
+
+        <div class="projects-grid">
+
+<!-- PROJECT 1 -->
           <div class="project-row">
             <article class="card project-card animate-on-scroll">
             <h3>Urbanization Index & Blackbird Phenotypes</h3>
@@ -937,5 +1005,37 @@ function setTheme(theme) {
     })();
 
   </script>
+
+  <script>
+    (function () {
+      const track = document.getElementById('featuredCarousel');
+      const prev = document.getElementById('featuredPrev');
+      const next = document.getElementById('featuredNext');
+      if (!track || !prev || !next) return;
+
+      const getStep = () => {
+        const slide = track.querySelector('.featured-slide');
+        if (!slide) return track.clientWidth;
+        const slideRect = slide.getBoundingClientRect();
+        // include CSS gap by reading computed style
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0) || 0;
+        return Math.round(slideRect.width + gap);
+      };
+
+      const scrollByStep = (dir) => {
+        track.scrollBy({ left: dir * getStep(), behavior: 'smooth' });
+      };
+
+      prev.addEventListener('click', () => scrollByStep(-1));
+      next.addEventListener('click', () => scrollByStep(1));
+
+      // keyboard support
+      track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') scrollByStep(-1);
+        if (e.key === 'ArrowRight') scrollByStep(1);
+      });
+    })();
+  </script>
+
 </body>
 </html>
