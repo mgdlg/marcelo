@@ -632,8 +632,11 @@ html[data-theme="dark"] .featured-slide-credit {
   font-size: 0.75rem;
   padding: 0.5rem;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -30px;
+  right: 0;
+  left: auto;
+  background: var(--surface);
+  border-radius: 4px;
 }
 
 /* Navigation arrows */
@@ -643,7 +646,7 @@ html[data-theme="dark"] .featured-slide-credit {
   top: 50%;
   width: auto;
   margin-top: -22px;
-  padding: 16px;
+  padding: 12px 16px;
   color: var(--text);
   background-color: var(--accent);
   font-weight: bold;
@@ -655,11 +658,42 @@ html[data-theme="dark"] .featured-slide-credit {
 }
 
 .prev {
-  left: 0;
+  left: -50px;
 }
 
 .next {
-  right: 0;
+  right: -50px;
+}
+
+@media (max-width: 1100px) {
+  .prev {
+    left: -40px;
+  }
+  
+  .next {
+    right: -40px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .prev {
+    left: 5px;
+  }
+  
+  .next {
+    right: 5px;
+  }
+  
+  .prev, .next {
+    padding: 10px 14px;
+    font-size: 1rem;
+    background-color: rgba(17, 24, 39, 0.7);
+  }
+  
+  html[data-theme="dark"] .prev,
+  html[data-theme="dark"] .next {
+    background-color: rgba(56, 189, 248, 0.7);
+  }
 }
 
 .prev:hover, .next:hover {
@@ -697,8 +731,8 @@ html[data-theme="dark"] .next:hover {
 
 @media (max-width: 600px) {
   .prev, .next {
-    font-size: 1rem;
-    padding: 12px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
   }
   
   .featured-slide-title {
@@ -711,6 +745,12 @@ html[data-theme="dark"] .next:hover {
   
   .featured-slide-maintext {
     font-size: 0.85rem;
+  }
+  
+  .numbertext {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.5rem;
+    top: -25px;
   }
 }
 
