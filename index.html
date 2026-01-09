@@ -265,16 +265,23 @@
       </div>
     </div>
 
-    <!-- Navigation arrows -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
+    </div>
 
-  <!-- Dot indicators -->
-  <div style="text-align:center; padding-top: 1rem;">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+  <!-- Featured carousel bottom navigation -->
+  <div class="featured-carousel-nav" aria-label="Featured projects navigation">
+    <button class="featured-nav-btn" type="button" onclick="plusSlides(-1)" aria-label="Previous featured project">
+      <span aria-hidden="true">‹</span>
+    </button>
+
+    <div class="featured-dots" role="tablist" aria-label="Featured projects pages">
+      <button class="dot" type="button" role="tab" aria-label="Go to slide 1" onclick="currentSlide(1)"></button>
+      <button class="dot" type="button" role="tab" aria-label="Go to slide 2" onclick="currentSlide(2)"></button>
+      <button class="dot" type="button" role="tab" aria-label="Go to slide 3" onclick="currentSlide(3)"></button>
+    </div>
+
+    <button class="featured-nav-btn" type="button" onclick="plusSlides(1)" aria-label="Next featured project">
+      <span aria-hidden="true">›</span>
+    </button>
   </div>
 </div>
 
@@ -892,6 +899,7 @@ function setTheme(theme) {
       
       for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
+        dots[i].setAttribute("aria-selected", "false");
       }
       
       if (slides[slideIndex-1]) {
@@ -899,6 +907,7 @@ function setTheme(theme) {
       }
       if (dots[slideIndex-1]) {
         dots[slideIndex-1].className += " active";
+        dots[slideIndex-1].setAttribute("aria-selected", "true");
       }
     }
 

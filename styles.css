@@ -1000,3 +1000,52 @@ html[data-theme="dark"] .belt-item.is-active img {
     flex-wrap: wrap;
   }
 }
+
+
+/* =========================
+   FEATURED CAROUSEL NAV (minimal, inside wrapper)
+   ========================= */
+
+.prev, .next { display: none; } /* legacy arrows (replaced by bottom nav) */
+
+.featured-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  margin-top: 1.1rem;
+}
+
+.featured-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease-out, background 0.12s ease-out, border-color 0.12s ease-out;
+}
+
+.featured-nav-btn:hover {
+  transform: translateY(-1px);
+  background: var(--accent-soft);
+}
+
+.featured-nav-btn:active { transform: translateY(0); }
+
+.featured-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.featured-dots .dot {
+  border: none;
+}
+
