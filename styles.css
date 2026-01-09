@@ -1201,3 +1201,14 @@ html:not([data-theme="dark"]) .feature-media .media-btn {
   transform: scale(1.08);
 }
 
+
+/* =========================
+   EMBEDS
+   ========================= */
+
+
+.external-embed {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
