@@ -774,12 +774,3 @@ html[data-theme="dark"] .belt-item.is-active img {
     flex-wrap: wrap;
   }
 }
-
-
-
-/* --- Patch: keep multiple featured projects centered inside the desktop flex projects grid --- */
-@media (min-width: 901px) {
-  .projects-grid { align-items: center; }
-  .featured-project { width: 100%; align-self: center; }
-}
-
