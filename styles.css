@@ -1212,3 +1212,439 @@ html:not([data-theme="dark"]) .feature-media .media-btn {
   justify-content: center;
   margin: 1.5rem 0;
 }
+
+
+/* =========================================================
+   REVOLUTIONARY PROJECTS SECTION (VISUALS ONLY)
+   Constraints honored:
+   - No HTML changes in #projects section.
+   - Existing CSS untouched; rules below only ADD/override via specificity.
+   ========================================================= */
+
+/* Section backdrop: subtle “map grid + aurora” */
+#projects.section {
+  position: relative;
+  isolation: isolate;
+  padding-top: 5rem;
+  padding-bottom: 5.25rem;
+}
+
+#projects.section::before {
+  content: "";
+  position: absolute;
+  inset: -1px 0 0 0;
+  z-index: -2;
+  background:
+    radial-gradient(900px 400px at 12% 18%, rgba(56, 189, 248, 0.18), transparent 55%),
+    radial-gradient(900px 400px at 88% 30%, rgba(17, 24, 39, 0.14), transparent 60%),
+    radial-gradient(650px 420px at 45% 90%, rgba(34, 197, 94, 0.10), transparent 55%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.02));
+}
+
+html[data-theme="dark"] #projects.section::before {
+  background:
+    radial-gradient(900px 420px at 14% 18%, rgba(56, 189, 248, 0.22), transparent 58%),
+    radial-gradient(900px 420px at 86% 26%, rgba(14, 165, 233, 0.14), transparent 62%),
+    radial-gradient(700px 520px at 45% 92%, rgba(34, 197, 94, 0.10), transparent 60%),
+    radial-gradient(circle at top, rgba(2, 6, 23, 0.25), rgba(2, 6, 23, 0.70));
+}
+
+/* Grid lines + topographic feel */
+#projects.section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.55;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(17, 24, 39, 0.06) 0px,
+      rgba(17, 24, 39, 0.06) 1px,
+      transparent 1px,
+      transparent 42px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(17, 24, 39, 0.06) 0px,
+      rgba(17, 24, 39, 0.06) 1px,
+      transparent 1px,
+      transparent 42px
+    );
+  mask-image: radial-gradient(circle at 50% 30%, rgba(0,0,0,0.95), rgba(0,0,0,0.35) 70%, rgba(0,0,0,0) 100%);
+}
+
+html[data-theme="dark"] #projects.section::after {
+  opacity: 0.35;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(56, 189, 248, 0.10) 0px,
+      rgba(56, 189, 248, 0.10) 1px,
+      transparent 1px,
+      transparent 46px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(56, 189, 248, 0.10) 0px,
+      rgba(56, 189, 248, 0.10) 1px,
+      transparent 1px,
+      transparent 46px
+    );
+}
+
+/* Headline treatment */
+#projects .container > h2 {
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.1rem;
+}
+
+#projects .container > h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.55rem;
+  width: min(280px, 68vw);
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), rgba(17, 24, 39, 0.0));
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] #projects .container > h2::after {
+  background: linear-gradient(90deg, var(--accent), rgba(56, 189, 248, 0.0));
+}
+
+/* Projects layout: tighten rhythm + make it feel like a “series” */
+#projects .projects-grid {
+  counter-reset: proj;
+  gap: 2.1rem;
+}
+
+/* Create a bold “index badge” without touching markup */
+#projects .project-row {
+  position: relative;
+  border-radius: calc(var(--radius-xl) + 10px);
+  padding: 0.35rem;
+  background:
+    linear-gradient(180deg, rgba(17, 24, 39, 0.06), rgba(17, 24, 39, 0.0)),
+    radial-gradient(800px 220px at 10% 0%, rgba(17, 24, 39, 0.08), transparent 55%);
+  transition: transform 0.18s ease-out, background 0.18s ease-out;
+}
+
+html[data-theme="dark"] #projects .project-row {
+  background:
+    linear-gradient(180deg, rgba(56, 189, 248, 0.10), rgba(2, 6, 23, 0.0)),
+    radial-gradient(800px 220px at 10% 0%, rgba(56, 189, 248, 0.10), transparent 58%);
+}
+
+#projects .project-row::before {
+  counter-increment: proj;
+  content: counter(proj, decimal-leading-zero);
+  position: absolute;
+  top: -0.9rem;
+  left: 1.15rem;
+  z-index: 3;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  color: var(--accent);
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.10);
+}
+
+html[data-theme="dark"] #projects .project-row::before {
+  background: rgba(2, 6, 23, 0.55);
+  color: #e0f2fe;
+  border-color: rgba(56, 189, 248, 0.30);
+  box-shadow: 0 16px 42px rgba(2, 6, 23, 0.65);
+}
+
+/* Alternate “accent edge” per row for a gallery feel */
+#projects .project-row:nth-child(odd) > article.project-card {
+  border-left-width: 4px;
+}
+
+#projects .project-row:nth-child(even) > article.project-card {
+  border-left-width: 4px;
+  border-left-color: rgba(34, 197, 94, 0.8);
+}
+
+html[data-theme="dark"] #projects .project-row:nth-child(even) > article.project-card {
+  border-left-color: rgba(34, 197, 94, 0.55);
+}
+
+/* Card: glass + crisp hierarchy */
+#projects article.project-card {
+  position: relative;
+  width: 100%;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.80));
+  backdrop-filter: blur(10px);
+  border-color: rgba(17, 24, 39, 0.12);
+  box-shadow:
+    0 26px 70px rgba(17, 24, 39, 0.10),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  overflow: hidden;
+}
+
+html[data-theme="dark"] #projects article.project-card {
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.10), rgba(2, 6, 23, 0.92) 55%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.88), rgba(2, 6, 23, 0.82));
+  border-color: rgba(56, 189, 248, 0.22);
+  box-shadow:
+    0 28px 75px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+/* Subtle animated “scanline” */
+#projects article.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.10;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(17, 24, 39, 0.0) 0px,
+    rgba(17, 24, 39, 0.0) 6px,
+    rgba(17, 24, 39, 0.10) 7px
+  );
+  transform: translateY(-40%);
+  animation: projects-scan 8.5s linear infinite;
+}
+
+html[data-theme="dark"] #projects article.project-card::after {
+  opacity: 0.06;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(56, 189, 248, 0.0) 0px,
+    rgba(56, 189, 248, 0.0) 7px,
+    rgba(56, 189, 248, 0.22) 8px
+  );
+}
+
+@keyframes projects-scan {
+  0% { transform: translateY(-45%); }
+  100% { transform: translateY(45%); }
+}
+
+/* Typography within project cards */
+#projects .project-card h3 {
+  font-size: 1.18rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+#projects .project-meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(17, 24, 39, 0.03);
+  margin-bottom: 0.85rem;
+}
+
+html[data-theme="dark"] #projects .project-meta {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+/* Lists: cleaner bullets */
+#projects .project-card ul {
+  margin-top: 0.8rem;
+  padding-left: 1.1rem;
+}
+
+#projects .project-card ul li {
+  margin-bottom: 0.45rem;
+}
+
+#projects .project-card ul li::marker {
+  color: var(--accent);
+}
+
+html[data-theme="dark"] #projects .project-card ul li::marker {
+  color: #7dd3fc;
+}
+
+/* Media: make images feel like “panels” */
+#projects .project-media {
+  margin-top: 0.95rem;
+  border-radius: 16px;
+  border-color: rgba(17, 24, 39, 0.14);
+  background:
+    radial-gradient(circle at top, rgba(17, 24, 39, 0.05), transparent 65%),
+    var(--surface-2);
+  box-shadow: 0 16px 45px rgba(17, 24, 39, 0.10);
+}
+
+html[data-theme="dark"] #projects .project-media {
+  border-color: rgba(56, 189, 248, 0.22);
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.10), transparent 62%),
+    rgba(15, 23, 42, 0.7);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
+}
+
+#projects .project-media img {
+  transform: translateZ(0);
+  transition: transform 0.18s ease-out, filter 0.18s ease-out;
+}
+
+#projects .project-media:hover img {
+  transform: scale(1.01);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+/* Instagram embed container: give it a clean “media module” look */
+#projects .external-embed {
+  margin: 1rem 0 0.6rem;
+  padding: 0.9rem;
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 55px rgba(17, 24, 39, 0.10);
+}
+
+html[data-theme="dark"] #projects .external-embed {
+  background: rgba(2, 6, 23, 0.55);
+  border-color: rgba(56, 189, 248, 0.20);
+  box-shadow: 0 22px 60px rgba(2, 6, 23, 0.70);
+}
+
+/* Ensure the embedded blockquote doesn’t overflow on mobile */
+#projects .external-embed blockquote.instagram-media {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* “Small note” becomes a calm caption pill */
+#projects .small-note {
+  margin: 0.55rem 0 0.15rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  padding: 0.55rem 0.75rem;
+  border-radius: 14px;
+  border: 1px dashed rgba(17, 24, 39, 0.18);
+  background: rgba(17, 24, 39, 0.03);
+}
+
+html[data-theme="dark"] #projects .small-note {
+  border-color: rgba(56, 189, 248, 0.25);
+  background: rgba(56, 189, 248, 0.06);
+}
+
+/* Desktop showcase: upgrade into a “display wall” */
+@media (min-width: 901px) {
+  #projects .project-showcase .showcase-main {
+    border-radius: 22px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.10), transparent 55%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78));
+    border: 1px solid rgba(17, 24, 39, 0.14);
+    box-shadow: 0 26px 70px rgba(17, 24, 39, 0.12);
+  }
+
+  html[data-theme="dark"] #projects .project-showcase .showcase-main {
+    background:
+      radial-gradient(circle at 12% 0%, rgba(56, 189, 248, 0.15), transparent 58%),
+      linear-gradient(180deg, rgba(2, 6, 23, 0.92), rgba(2, 6, 23, 0.80));
+    border-color: rgba(56, 189, 248, 0.22);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.58);
+  }
+
+  #projects .showcase-thumbs .thumb {
+    border-radius: 14px;
+    position: relative;
+  }
+
+  #projects .showcase-thumbs .thumb.is-active {
+    border-color: rgba(17, 24, 39, 0.55);
+  }
+
+  html[data-theme="dark"] #projects .showcase-thumbs .thumb.is-active {
+    border-color: rgba(56, 189, 248, 0.65);
+  }
+
+  #projects .showcase-thumbs .thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.0) inset;
+    transition: opacity 0.12s ease-out;
+  }
+
+  #projects .showcase-thumbs .thumb:hover::after {
+    opacity: 1;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) inset;
+  }
+}
+
+/* Interaction polish: lift the whole row on hover (desktop only) */
+@media (hover: hover) and (min-width: 901px) {
+  #projects .project-row:hover {
+    transform: translateY(-2px);
+  }
+
+  #projects .project-row:hover > article.project-card {
+    box-shadow:
+      0 32px 85px rgba(17, 24, 39, 0.14),
+      0 1px 0 rgba(255, 255, 255, 0.82) inset;
+  }
+
+  html[data-theme="dark"] #projects .project-row:hover > article.project-card {
+    box-shadow:
+      0 34px 95px rgba(0, 0, 0, 0.62),
+      0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  }
+}
+
+/* Mobile: keep it bold but breathable */
+@media (max-width: 900px) {
+  #projects.section { padding-top: 4.25rem; }
+  #projects .projects-grid { gap: 1.6rem; }
+
+  #projects .project-row {
+    padding: 0.2rem;
+    border-radius: calc(var(--radius-xl) + 6px);
+  }
+
+  #projects .project-row::before {
+    left: 0.95rem;
+    top: -0.75rem;
+    font-size: 0.74rem;
+  }
+
+  #projects .project-meta {
+    font-size: 0.84rem;
+  }
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #projects article.project-card::after { animation: none; }
+  #projects .project-row,
+  #projects .project-media img {
+    transition: none;
+  }
+}
+
