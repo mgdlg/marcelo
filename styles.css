@@ -612,7 +612,6 @@ html[data-theme="dark"] .featured-carousel-wrapper {
   border: 1px solid var(--border-subtle);
 }
 
-
 .numbertext {
   color: var(--muted);
   font-size: 0.75rem;
@@ -643,39 +642,24 @@ html[data-theme="dark"] .featured-carousel-wrapper {
   z-index: 10;
 }
 
-.prev {
-  left: -50px;
-}
-
-.next {
-  right: -50px;
-}
+.prev { left: -50px; }
+.next { right: -50px; }
 
 @media (max-width: 1100px) {
-  .prev {
-    left: -40px;
-  }
-  
-  .next {
-    right: -40px;
-  }
+  .prev { left: -40px; }
+  .next { right: -40px; }
 }
 
 @media (max-width: 1000px) {
-  .prev {
-    left: 5px;
-  }
-  
-  .next {
-    right: 5px;
-  }
-  
+  .prev { left: 5px; }
+  .next { right: 5px; }
+
   .prev, .next {
     padding: 10px 14px;
     font-size: 1rem;
     background-color: rgba(17, 24, 39, 0.7);
   }
-  
+
   html[data-theme="dark"] .prev,
   html[data-theme="dark"] .next {
     background-color: rgba(56, 189, 248, 0.7);
@@ -716,28 +700,11 @@ html[data-theme="dark"] .next:hover {
 }
 
 @media (max-width: 600px) {
-  .prev, .next {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-  
-  .featured-slide-title {
-    font-size: 1.2rem;
-  }
-  
-  .featured-slide-subtitle {
-    font-size: 0.85rem;
-  }
-  
-  .featured-slide-maintext {
-    font-size: 0.85rem;
-  }
-  
-  .numbertext {
-    font-size: 0.7rem;
-    padding: 0.3rem 0.5rem;
-    top: -25px;
-  }
+  .prev, .next { font-size: 0.9rem; padding: 8px 12px; }
+  .featured-slide-title { font-size: 1.2rem; }
+  .featured-slide-subtitle { font-size: 0.85rem; }
+  .featured-slide-maintext { font-size: 0.85rem; }
+  .numbertext { font-size: 0.7rem; padding: 0.3rem 0.5rem; top: -25px; }
 }
 
 /* =========================
@@ -754,7 +721,6 @@ html[data-theme="dark"] .next:hover {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* =========================
    PROJECT ROW + RIGHT-SIDE MEDIA SHOWCASE
@@ -861,14 +827,11 @@ html[data-theme="dark"] .next:hover {
   .header-meta { flex-direction: column; }
 }
 
-
 /* =========================
    IMAGE BELT (ABOUT)
    ========================= */
 
-.image-belt {
-  margin-top: 2rem;
-}
+.image-belt { margin-top: 2rem; }
 
 .belt-viewport {
   position: relative;
@@ -890,17 +853,13 @@ html[data-theme="dark"] .next:hover {
   outline: none;
 }
 
-html[data-theme="dark"] .belt-viewport {
-  background: rgba(2, 6, 23, 0.85);
-}
+html[data-theme="dark"] .belt-viewport { background: rgba(2, 6, 23, 0.85); }
 
 .belt-viewport:focus-visible {
   box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow-soft);
 }
 
-.belt-viewport.is-dragging {
-  cursor: grabbing;
-}
+.belt-viewport.is-dragging { cursor: grabbing; }
 
 .belt-track {
   position: absolute;
@@ -973,20 +932,10 @@ html[data-theme="dark"] .belt-item.is-active img {
 }
 
 @media (max-width: 720px) {
-  .belt-viewport {
-    height: 190px;
-  }
-
-  .belt-item {
-    width: 170px;
-    aspect-ratio: 1 / 1;
-  }
-
-  .belt-controls {
-    flex-wrap: wrap;
-  }
+  .belt-viewport { height: 190px; }
+  .belt-item { width: 170px; aspect-ratio: 1 / 1; }
+  .belt-controls { flex-wrap: wrap; }
 }
-
 
 /* =========================
    FEATURED CAROUSEL NAV (minimal, inside wrapper)
@@ -1031,11 +980,7 @@ html[data-theme="dark"] .belt-item.is-active img {
   flex: 1;
 }
 
-.featured-dots .dot {
-  border: none;
-}
-
-
+.featured-dots .dot { border: none; }
 
 /* ===== Featured slide: multi-image media carousel ===== */
 .feature-media { position: relative; }
@@ -1087,8 +1032,6 @@ html[data-theme="dark"] .belt-item.is-active img {
   background: var(--accent);
   border-color: var(--accent);
 }
-
-
 
 /* =========================
    FEATURED MEDIA BUTTONS (overlay inside media box)
@@ -1192,23 +1135,388 @@ html:not([data-theme="dark"]) .feature-media .media-btn {
 }
 
 /* Active dot should always be a bit more visible */
-.feature-media .media-dot.is-active {
-  opacity: 0.7;
-}
+.feature-media .media-dot.is-active { opacity: 0.7; }
 
 /* Optional: small hover emphasis */
-.feature-media .media-btn:hover {
-  transform: scale(1.08);
-}
-
+.feature-media .media-btn:hover { transform: scale(1.08); }
 
 /* =========================
    EMBEDS
    ========================= */
 
-
 .external-embed {
   display: flex;
   justify-content: center;
   margin: 1.5rem 0;
+}
+
+/* =========================================================
+   REVOLUTION: PROJECT ATLAS (Selected GIS & Environmental Projects)
+   Adds all missing styles for the new layout in index.html
+   ========================================================= */
+
+.projects-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle “topographic” vibe without images */
+.projects-section::before,
+.projects-section::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.12), transparent 45%),
+    radial-gradient(circle at 70% 55%, rgba(17, 24, 39, 0.08), transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.10), transparent 50%);
+  filter: blur(10px);
+  transform: translateZ(0);
+}
+
+html[data-theme="dark"] .projects-section::before,
+html[data-theme="dark"] .projects-section::after {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.16), transparent 48%),
+    radial-gradient(circle at 75% 55%, rgba(56, 189, 248, 0.08), transparent 55%),
+    radial-gradient(circle at 40% 85%, rgba(34, 197, 94, 0.10), transparent 55%);
+}
+
+.projects-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.2rem 0 1.8rem;
+}
+
+.legend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+/* Atlas layout: left rail + right stream */
+.projects-atlas {
+  position: relative;
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+
+/* Rail */
+.projects-rail {
+  position: relative;
+}
+
+.rail-card {
+  position: sticky;
+  top: 92px; /* below sticky nav */
+  padding: 1.1rem 1.1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+html[data-theme="dark"] .rail-card {
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.10), rgba(2, 6, 23, 0.92) 62%);
+}
+
+.rail-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(56, 189, 248, 0.20), transparent 40%),
+    linear-gradient(315deg, rgba(16, 185, 129, 0.14), transparent 45%);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.rail-eyebrow {
+  position: relative;
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rail-title {
+  position: relative;
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.rail-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.rail-link {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 0.6rem;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.55rem 0.6rem;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.35);
+  transition: transform 0.12s ease-out, background 0.12s ease-out, border-color 0.12s ease-out;
+}
+
+html[data-theme="dark"] .rail-link {
+  background: rgba(2, 6, 23, 0.35);
+}
+
+.rail-link:hover {
+  transform: translateY(-1px);
+  background: var(--accent-soft);
+  border-color: var(--border-subtle);
+}
+
+.rail-num {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.rail-text {
+  font-size: 0.88rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.rail-chip {
+  font-size: 0.72rem;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  color: var(--muted);
+  background: rgba(17, 24, 39, 0.04);
+}
+
+html[data-theme="dark"] .rail-chip {
+  background: rgba(56, 189, 248, 0.08);
+  color: #cfefff;
+  border-color: rgba(56, 189, 248, 0.28);
+}
+
+.rail-note {
+  position: relative;
+  margin: 0.9rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* Stream / Grid */
+.projects-stream {
+  min-width: 0;
+}
+
+.projects-grid--atlas {
+  justify-items: stretch;
+}
+
+.projects-grid--atlas .project-row {
+  width: 100%;
+}
+
+/* Atlas cards: more “signal”, less generic */
+.project-card--atlas {
+  position: relative;
+  border-left: 6px solid var(--p-accent, var(--accent));
+  padding: 1.25rem 1.25rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.project-card--atlas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--p-accent, var(--accent)) 20%, transparent), transparent 45%),
+    radial-gradient(circle at 90% 40%, rgba(17, 24, 39, 0.06), transparent 55%);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+html[data-theme="dark"] .project-card--atlas::before {
+  background:
+    radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--p-accent, var(--accent)) 24%, transparent), transparent 48%),
+    radial-gradient(circle at 90% 40%, rgba(56, 189, 248, 0.08), transparent 58%);
+}
+
+.project-topline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+
+.project-id {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(17, 24, 39, 0.04);
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .project-id {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: #cfefff;
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
+}
+
+.badge {
+  font-size: 0.74rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .badge {
+  border-color: rgba(56, 189, 248, 0.26);
+  background: rgba(56, 189, 248, 0.10);
+  color: #e0f7ff;
+}
+
+/* KPI strip */
+.project-kpis {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0.9rem 0 1rem;
+}
+
+.kpi {
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.55);
+  padding: 0.55rem 0.65rem;
+}
+
+html[data-theme="dark"] .kpi {
+  background: rgba(2, 6, 23, 0.35);
+}
+
+.kpi-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.kpi-value {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Ensure embedded content doesn’t blow layout */
+.project-card--atlas .external-embed {
+  margin: 1.2rem 0 0.2rem;
+}
+
+/* Desktop atlas: rail + cards becomes “museum wall” */
+@media (min-width: 901px) {
+  .projects-atlas {
+    grid-template-columns: 320px minmax(0, 1fr);
+  }
+
+  .projects-grid--atlas {
+    gap: 1.35rem;
+  }
+
+  .projects-grid--atlas .project-row {
+    position: relative;
+  }
+
+  /* Slight depth when scrolling into view */
+  .projects-grid--atlas .project-card--atlas.in-view {
+    transform: translateY(0);
+  }
+
+  .project-card--atlas {
+    transition: transform 0.16s ease-out, box-shadow 0.16s ease-out;
+  }
+
+  .project-card--atlas:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 26px 60px rgba(17, 24, 39, 0.12);
+  }
+
+  html[data-theme="dark"] .project-card--atlas:hover {
+    box-shadow: 0 26px 70px rgba(56, 189, 248, 0.12);
+  }
+}
+
+/* Mobile: collapse rail to top and keep stream clean */
+@media (max-width: 900px) {
+  .projects-atlas {
+    grid-template-columns: 1fr;
+  }
+
+  .rail-card {
+    position: relative;
+    top: auto;
+    margin-bottom: 1rem;
+  }
+
+  .project-kpis {
+    grid-template-columns: 1fr;
+  }
+
+  .project-topline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-badges {
+    justify-content: flex-start;
+  }
+}
+
+/* Small screens: soften density */
+@media (max-width: 520px) {
+  .rail-link {
+    grid-template-columns: 38px minmax(0, 1fr);
+  }
+
+  .rail-chip { display: none; }
 }
