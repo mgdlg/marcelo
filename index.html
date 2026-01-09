@@ -200,9 +200,25 @@
             </p>
           </div>
         </div>
-        <div class="featured-slide-right">
-          <img src="images/models-in-gis.png" class="featured-slide-image" alt="Models in GIS Tree Types Model">
-        </div>
+        
+<div class="featured-slide-right">
+  <div class="feature-media" data-media>
+    <img class="featured-slide-image is-active" src="images/models-in-gis.png" alt="Models in GIS Tree Types Model">
+    <img class="featured-slide-image" src="images/models-in-gis-2.png" alt="ModelBuilder workflow">
+    <img class="featured-slide-image" src="images/models-in-gis-3.png" alt="Model output table">
+
+    <div class="feature-media-nav" aria-label="Project media navigation">
+      <button type="button" class="media-btn" data-prev aria-label="Previous image">‹</button>
+      <div class="media-dots">
+        <button type="button" class="media-dot is-active" data-dot="0"></button>
+        <button type="button" class="media-dot" data-dot="1"></button>
+        <button type="button" class="media-dot" data-dot="2"></button>
+      </div>
+      <button type="button" class="media-btn" data-next aria-label="Next image">›</button>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
 
@@ -1027,6 +1043,35 @@ function setTheme(theme) {
       };
     })();
 
-  </script>
+  
+  // ----------------------------
+  // Mini carousel inside featured slides
+  // ----------------------------
+  (function initFeaturedMediaCarousels(){
+    document.querySelectorAll("[data-media]").forEach((wrap) => {
+      const imgs = Array.from(wrap.querySelectorAll(".featured-slide-image"));
+      const prev = wrap.querySelector("[data-prev]");
+      const next = wrap.querySelector("[data-next]");
+      const dots = Array.from(wrap.querySelectorAll(".media-dot"));
+
+      let i = 0;
+
+      function render(nextIndex){
+        i = (nextIndex + imgs.length) % imgs.length;
+        imgs.forEach((img, idx) => img.classList.toggle("is-active", idx === i));
+        dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
+      }
+
+      prev?.addEventListener("click", () => render(i - 1));
+      next?.addEventListener("click", () => render(i + 1));
+      dots.forEach((d) =>
+        d.addEventListener("click", () => render(Number(d.dataset.dot)))
+      );
+
+      render(0);
+    });
+  })();
+</script>
 </body>
+
 </html>
