@@ -860,3 +860,15 @@ html[data-theme="dark"] .belt-item.is-active img {
   .featured-page{ padding: 3rem 2rem; }
 }
 
+
+
+
+/* --- Featured pages: consistent viewport height and balanced layout --- */
+.featured-slide{ min-height: calc(100vh - 96px); } /* subtract approx. nav/header height */
+.featured-page{
+  min-height: calc(100vh - 96px);
+  display: flex;
+  align-items: center;          /* vertically center short pages to avoid awkward blank space */
+}
+.featured-page-inner{ width: 100%; }
+
