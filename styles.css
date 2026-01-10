@@ -1766,86 +1766,139 @@ html[data-theme="dark"] #projects .projects-lab{
   }
 }
 
+
 /* =========================
-   PROJECTS LAB — TOPO CONTOURS (v4)
-   Alternative to v3 warped grid.
+   PROJECTS LAB — CYBER CARTOGRAPHY GRID (v5)
+   Bold, static, GIS-tech vibe: scan-grid + diagonal energy band + nodes.
    Paste at END of styles.css (add-only).
-   This overrides ONLY the Projects Lab overlay: #projects .projects-lab::after
+   Overrides ONLY: #projects .projects-lab::after
    ========================= */
 
 #projects .projects-lab{
-  --projects-topo-line: rgba(17, 24, 39, 0.11);
-  --projects-topo-bold: rgba(17, 24, 39, 0.16);
-  --projects-topo-glow: rgba(17, 24, 39, 0.10);
+  --projects-v5-line: rgba(17, 24, 39, 0.14);
+  --projects-v5-major: rgba(17, 24, 39, 0.22);
+  --projects-v5-glow: rgba(37, 99, 235, 0.18);
+  --projects-v5-accent: rgba(34, 211, 238, 0.18);
+  --projects-v5-node: rgba(255, 255, 255, 0.14);
 }
 
 html[data-theme="dark"] #projects .projects-lab{
-  --projects-topo-line: rgba(56, 189, 248, 0.12);
-  --projects-topo-bold: rgba(56, 189, 248, 0.18);
-  --projects-topo-glow: rgba(56, 189, 248, 0.12);
+  --projects-v5-line: rgba(56, 189, 248, 0.13);
+  --projects-v5-major: rgba(56, 189, 248, 0.22);
+  --projects-v5-glow: rgba(56, 189, 248, 0.22);
+  --projects-v5-accent: rgba(99, 102, 241, 0.18);
+  --projects-v5-node: rgba(255, 255, 255, 0.10);
 }
 
-/* Topographic contour illusion:
-   - layered radial rings (contours)
-   - subtle crosshair axes
-   - soft edge fade so it feels embedded */
 #projects .projects-lab::after{
   content: "";
   position: absolute;
-  inset: -18%;
+  inset: -28%;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.62;
 
+  /* Layer stack:
+     1) fine grid
+     2) major grid
+     3) scanlines (horizontal)
+     4) diagonal energy band (static)
+     5) sparse nodes (radial dots) */
   background-image:
-    /* contour “rings” 1 */
-    repeating-radial-gradient(
-      circle at 22% 18%,
-      var(--projects-topo-line) 0px,
-      var(--projects-topo-line) 1px,
-      transparent 2px,
+    /* fine grid */
+    repeating-linear-gradient(
+      to right,
+      var(--projects-v5-line) 0px,
+      var(--projects-v5-line) 1px,
+      transparent 1px,
       transparent 18px
     ),
-    /* contour “rings” 2 (offset, larger cadence) */
-    repeating-radial-gradient(
-      circle at 78% 32%,
-      var(--projects-topo-line) 0px,
-      var(--projects-topo-line) 1px,
-      transparent 3px,
-      transparent 24px
+    repeating-linear-gradient(
+      to bottom,
+      var(--projects-v5-line) 0px,
+      var(--projects-v5-line) 1px,
+      transparent 1px,
+      transparent 18px
     ),
-    /* a few bolder “index contours” */
-    repeating-radial-gradient(
-      circle at 48% 70%,
+
+    /* major grid */
+    repeating-linear-gradient(
+      to right,
       transparent 0px,
-      transparent 46px,
-      var(--projects-topo-bold) 47px,
-      transparent 49px
+      transparent 107px,
+      var(--projects-v5-major) 107px,
+      var(--projects-v5-major) 109px
     ),
-    /* crosshair axes */
-    linear-gradient(to right, transparent 0, transparent 49.6%, var(--projects-topo-glow) 50%, transparent 50.4%, transparent 100%),
-    linear-gradient(to bottom, transparent 0, transparent 49.6%, var(--projects-topo-glow) 50%, transparent 50.4%, transparent 100%);
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 107px,
+      var(--projects-v5-major) 107px,
+      var(--projects-v5-major) 109px
+    ),
 
-  transform: rotate(-6deg) scale(1.02);
+    /* scanlines */
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.00) 0px,
+      rgba(255,255,255,0.00) 10px,
+      rgba(255,255,255,0.045) 11px,
+      rgba(255,255,255,0.00) 18px
+    ),
 
-  -webkit-mask-image: radial-gradient(circle at 55% 45%,
-    rgba(0,0,0,0.82) 0%,
-    rgba(0,0,0,0.55) 46%,
-    rgba(0,0,0,0.14) 74%,
+    /* diagonal “energy” band */
+    linear-gradient(
+      135deg,
+      rgba(0,0,0,0.00) 0%,
+      rgba(0,0,0,0.00) 38%,
+      var(--projects-v5-glow) 50%,
+      rgba(0,0,0,0.00) 62%,
+      rgba(0,0,0,0.00) 100%
+    ),
+
+    /* sparse nodes */
+    radial-gradient(circle at 18% 26%, var(--projects-v5-node) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 42% 18%, var(--projects-v5-node) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 66% 28%, var(--projects-v5-node) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 82% 44%, var(--projects-v5-node) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 30% 62%, var(--projects-v5-node) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 58% 70%, var(--projects-v5-node) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 76% 78%, var(--projects-v5-node) 0 1.2px, transparent 2.2px);
+
+  /* Subtle warp (static): perspective tilt */
+  transform-origin: 52% 36%;
+  transform:
+    perspective(1000px)
+    rotateX(58deg)
+    rotateZ(-12deg)
+    translateY(-6%)
+    scale(1.18);
+
+  /* Edge fade for readability */
+  -webkit-mask-image: radial-gradient(circle at 52% 38%,
+    rgba(0,0,0,0.90) 0%,
+    rgba(0,0,0,0.65) 44%,
+    rgba(0,0,0,0.16) 74%,
     rgba(0,0,0,0.00) 100%);
-  mask-image: radial-gradient(circle at 55% 45%,
-    rgba(0,0,0,0.82) 0%,
-    rgba(0,0,0,0.55) 46%,
-    rgba(0,0,0,0.14) 74%,
+  mask-image: radial-gradient(circle at 52% 38%,
+    rgba(0,0,0,0.90) 0%,
+    rgba(0,0,0,0.65) 44%,
+    rgba(0,0,0,0.16) 74%,
     rgba(0,0,0,0.00) 100%);
 
   mix-blend-mode: soft-light;
-  filter: blur(0.15px);
+  filter: blur(0.18px) saturate(1.08);
 }
 
+/* Make it slightly calmer on very small screens to keep text crisp */
 @media (max-width: 480px){
   #projects .projects-lab::after{
-    opacity: 0.44; /* reduce visual noise on small screens */
-    inset: -22%;
+    opacity: 0.50;
+    transform:
+      perspective(1000px)
+      rotateX(60deg)
+      rotateZ(-10deg)
+      translateY(-5%)
+      scale(1.14);
   }
 }
 
