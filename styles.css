@@ -1766,3 +1766,86 @@ html[data-theme="dark"] #projects .projects-lab{
   }
 }
 
+/* =========================
+   PROJECTS LAB — TOPO CONTOURS (v4)
+   Alternative to v3 warped grid.
+   Paste at END of styles.css (add-only).
+   This overrides ONLY the Projects Lab overlay: #projects .projects-lab::after
+   ========================= */
+
+#projects .projects-lab{
+  --projects-topo-line: rgba(17, 24, 39, 0.11);
+  --projects-topo-bold: rgba(17, 24, 39, 0.16);
+  --projects-topo-glow: rgba(17, 24, 39, 0.10);
+}
+
+html[data-theme="dark"] #projects .projects-lab{
+  --projects-topo-line: rgba(56, 189, 248, 0.12);
+  --projects-topo-bold: rgba(56, 189, 248, 0.18);
+  --projects-topo-glow: rgba(56, 189, 248, 0.12);
+}
+
+/* Topographic contour illusion:
+   - layered radial rings (contours)
+   - subtle crosshair axes
+   - soft edge fade so it feels embedded */
+#projects .projects-lab::after{
+  content: "";
+  position: absolute;
+  inset: -18%;
+  pointer-events: none;
+  opacity: 0.55;
+
+  background-image:
+    /* contour “rings” 1 */
+    repeating-radial-gradient(
+      circle at 22% 18%,
+      var(--projects-topo-line) 0px,
+      var(--projects-topo-line) 1px,
+      transparent 2px,
+      transparent 18px
+    ),
+    /* contour “rings” 2 (offset, larger cadence) */
+    repeating-radial-gradient(
+      circle at 78% 32%,
+      var(--projects-topo-line) 0px,
+      var(--projects-topo-line) 1px,
+      transparent 3px,
+      transparent 24px
+    ),
+    /* a few bolder “index contours” */
+    repeating-radial-gradient(
+      circle at 48% 70%,
+      transparent 0px,
+      transparent 46px,
+      var(--projects-topo-bold) 47px,
+      transparent 49px
+    ),
+    /* crosshair axes */
+    linear-gradient(to right, transparent 0, transparent 49.6%, var(--projects-topo-glow) 50%, transparent 50.4%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, transparent 49.6%, var(--projects-topo-glow) 50%, transparent 50.4%, transparent 100%);
+
+  transform: rotate(-6deg) scale(1.02);
+
+  -webkit-mask-image: radial-gradient(circle at 55% 45%,
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.55) 46%,
+    rgba(0,0,0,0.14) 74%,
+    rgba(0,0,0,0.00) 100%);
+  mask-image: radial-gradient(circle at 55% 45%,
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.55) 46%,
+    rgba(0,0,0,0.14) 74%,
+    rgba(0,0,0,0.00) 100%);
+
+  mix-blend-mode: soft-light;
+  filter: blur(0.15px);
+}
+
+@media (max-width: 480px){
+  #projects .projects-lab::after{
+    opacity: 0.44; /* reduce visual noise on small screens */
+    inset: -22%;
+  }
+}
+
