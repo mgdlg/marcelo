@@ -1766,3 +1766,96 @@ html[data-theme="dark"] #projects .projects-lab{
   }
 }
 
+
+/* =========================
+   PROJECTS LAB — WARPED NEON MESH (v6)
+   Boldest option: strong warp + neon mesh + aurora wash (STATIC).
+   Paste at END of styles.css (add-only).
+   Overrides ONLY: #projects .projects-lab::after
+   ========================= */
+
+#projects .projects-lab{
+  /* Light mode: keep bold but not blinding */
+  --v6-mesh-thin: rgba(2, 132, 199, 0.20);   /* cyan */
+  --v6-mesh-thick: rgba(79, 70, 229, 0.22);  /* indigo */
+  --v6-bloom: rgba(34, 211, 238, 0.18);      /* glow */
+  --v6-aurora-a: rgba(16, 185, 129, 0.14);   /* green */
+  --v6-aurora-b: rgba(244, 63, 94, 0.10);    /* rose */
+}
+
+html[data-theme="dark"] #projects .projects-lab{
+  /* Dark mode: push contrast and chroma */
+  --v6-mesh-thin: rgba(34, 211, 238, 0.26);
+  --v6-mesh-thick: rgba(99, 102, 241, 0.30);
+  --v6-bloom: rgba(56, 189, 248, 0.22);
+  --v6-aurora-a: rgba(16, 185, 129, 0.18);
+  --v6-aurora-b: rgba(244, 63, 94, 0.14);
+}
+
+#projects .projects-lab::after{
+  content: "";
+  position: absolute;
+  inset: -55%;                 /* big canvas so heavy warp still covers */
+  pointer-events: none;
+  opacity: 0.78;
+
+  /* Mesh + aurora + chroma interference (all static) */
+  background-image:
+    /* aurora wash 1 */
+    radial-gradient(900px 520px at 18% 22%, var(--v6-aurora-a), transparent 62%),
+    /* aurora wash 2 */
+    radial-gradient(780px 520px at 86% 18%, var(--v6-aurora-b), transparent 58%),
+    /* bloom haze around center */
+    radial-gradient(720px 420px at 50% 44%, var(--v6-bloom), transparent 62%),
+
+    /* thick “index” grid (primary) */
+    repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 92px,
+      var(--v6-mesh-thick) 92px,
+      var(--v6-mesh-thick) 95px,
+      transparent 96px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 92px,
+      var(--v6-mesh-thick) 92px,
+      var(--v6-mesh-thick) 95px,
+      transparent 96px
+    ),
+
+    /* thin grid (secondary) */
+    repeating-linear-gradient(
+      to right,
+      var(--v6-mesh-thin) 0px,
+      var(--v6-mesh-thin) 1px,
+      transparent 1px,
+      transparent 18px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--v6-mesh-thin) 0px,
+      var(--v6-mesh-thin) 1px,
+      transparent 1px,
+      transparent 18px
+    ),
+
+    /* subtle chroma interference */
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.00) 0px,
+      rgba(255,255,255,0.00) 10px,
+      rgba(56,189,248,0.10) 11px,
+      rgba(255,255,255,0.00) 18px
+    );
+
+  /* Stronger warp: perspective + tilt + twist + non-uniform scale */
+  transform-origin: 46% 28%;
+  transform:
+    perspective(780px)
+    rotateX(72deg)
+    rotateY(-18deg)
+    rotateZ(-24deg)
+    skewX(-18deg)
