@@ -480,8 +480,31 @@
           <strong>fieldwork</strong> to support conservation, urban planning, and environmental compliance.
         </p>
 
-        <div class="projects-grid">
-          <div class="project-row">
+                <div class="projects-lab" aria-label="Interactive projects gallery">
+          <input class="projects-lab-radio" type="radio" name="projectsDeck" id="proj1" checked />
+          <input class="projects-lab-radio" type="radio" name="projectsDeck" id="proj2" />
+          <input class="projects-lab-radio" type="radio" name="projectsDeck" id="proj3" />
+          <input class="projects-lab-radio" type="radio" name="projectsDeck" id="proj4" />
+          <input class="projects-lab-radio" type="radio" name="projectsDeck" id="proj5" />
+
+          <div class="projects-lab-ui" aria-label="Project navigation">
+            <div class="projects-lab-heading">
+              <p class="projects-lab-kicker">Explore</p>
+              <p class="projects-lab-subkicker">Select a project to reveal a full case card with media.</p>
+            </div>
+
+            <div class="projects-lab-tabs" role="tablist" aria-label="Projects">
+            <label class="projects-lab-tab" for="proj1" role="tab" aria-controls="projPanel1"><span class="tab-index">01</span><span class="tab-title">Riparian Forests & Urban Bird Diversity</span></label>
+            <label class="projects-lab-tab" for="proj2" role="tab" aria-controls="projPanel2"><span class="tab-index">02</span><span class="tab-title">Drone Photogrammetry for Environmental Compensation</span></label>
+            <label class="projects-lab-tab" for="proj3" role="tab" aria-controls="projPanel3"><span class="tab-index">03</span><span class="tab-title">Historical Vegetation & Water Surface Analysis for Urban Development</span></label>
+            <label class="projects-lab-tab" for="proj4" role="tab" aria-controls="projPanel4"><span class="tab-index">04</span><span class="tab-title">Remote Sensing for Reforestation Monitoring</span></label>
+            <label class="projects-lab-tab" for="proj5" role="tab" aria-controls="projPanel5"><span class="tab-index">05</span><span class="tab-title">Urban Park Biodiversity Monitoring Framework</span></label>
+            </div>
+          </div>
+
+          <div class="projects-lab-panels" aria-live="polite">
+            <div class="projects-lab-panel" id="projPanel1" role="tabpanel" tabindex="0" aria-label="Riparian Forests & Urban Bird Diversity">
+<div class="project-row">
             <article class="card project-card animate-on-scroll">
             <h3>Riparian Forests & Urban Bird Diversity</h3>
             <p class="project-meta">
@@ -536,10 +559,9 @@
               <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
             </aside>
           </div>
-
-
-          <!-- PROJECT 2 -->
-          <div class="project-row">
+            </div>
+            <div class="projects-lab-panel" id="projPanel2" role="tabpanel" tabindex="0" aria-label="Drone Photogrammetry for Environmental Compensation">
+<div class="project-row">
             <article class="card project-card animate-on-scroll">
             <h3>Drone Photogrammetry for Environmental Compensation</h3>
             <p class="project-meta">
@@ -572,10 +594,9 @@
               <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
             </aside>
           </div>
-
-
-          <!-- PROJECT 3 -->
-          <div class="project-row">
+            </div>
+            <div class="projects-lab-panel" id="projPanel3" role="tabpanel" tabindex="0" aria-label="Historical Vegetation & Water Surface Analysis for Urban Development">
+<div class="project-row">
             <article class="card project-card animate-on-scroll">
             <h3>Historical Vegetation & Water Surface Analysis for Urban Development</h3>
             <p class="project-meta">
@@ -604,10 +625,9 @@
               <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
             </aside>
           </div>
-
-
-          <!-- PROJECT 4 -->
-          <div class="project-row">
+            </div>
+            <div class="projects-lab-panel" id="projPanel4" role="tabpanel" tabindex="0" aria-label="Remote Sensing for Reforestation Monitoring">
+<div class="project-row">
             <article class="card project-card animate-on-scroll">
             <h3>Remote Sensing for Reforestation Monitoring</h3>
             <p class="project-meta">
@@ -655,10 +675,9 @@
               <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
             </aside>
           </div>
-
-
-          <!-- PROJECT 5 -->
-          <div class="project-row">
+            </div>
+            <div class="projects-lab-panel" id="projPanel5" role="tabpanel" tabindex="0" aria-label="Urban Park Biodiversity Monitoring Framework">
+<div class="project-row">
             <article class="card project-card animate-on-scroll">
             <h3>Urban Park Biodiversity Monitoring Framework</h3>
             <p class="project-meta">
@@ -693,8 +712,10 @@
               <div class="showcase-thumbs" role="tablist" aria-label="Project media thumbnails"></div>
             </aside>
           </div>
-
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
