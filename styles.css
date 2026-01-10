@@ -1660,4 +1660,109 @@ html[data-theme="dark"] #projects .projects-lab::after {
 }
 
 
+/* =========================
+   PROJECTS LAB — WARPED GRID BACKGROUND (v3)
+   Replaces the micro-texture overlay on the Projects section ONLY.
+   Add-only override: paste at the end of styles.css
+   ========================= */
+
+/* Grid tone tokens scoped to the Projects Lab */
+#projects .projects-lab{
+  --projects-grid-line: rgba(17, 24, 39, 0.12);
+  --projects-grid-bold: rgba(17, 24, 39, 0.18);
+  --projects-grid-glow: rgba(17, 24, 39, 0.10);
+}
+
+/* Dark theme variant */
+html[data-theme="dark"] #projects .projects-lab{
+  --projects-grid-line: rgba(56, 189, 248, 0.12);
+  --projects-grid-bold: rgba(56, 189, 248, 0.18);
+  --projects-grid-glow: rgba(56, 189, 248, 0.12);
+}
+
+/* Override the existing ::after micro-texture with a “warped grid” */
+#projects .projects-lab::after{
+  content: "";
+  position: absolute;
+  inset: -42%;                 /* gives room for perspective transform */
+  pointer-events: none;
+  opacity: 0.55;
+
+  /* Grid: thin lines + occasional bold lines + faint diagonal interference */
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--projects-grid-line) 0px,
+      var(--projects-grid-line) 1px,
+      transparent 1px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--projects-grid-line) 0px,
+      var(--projects-grid-line) 1px,
+      transparent 1px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 109px,
+      var(--projects-grid-bold) 109px,
+      var(--projects-grid-bold) 110px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 109px,
+      var(--projects-grid-bold) 109px,
+      var(--projects-grid-bold) 110px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.00) 0px,
+      rgba(255,255,255,0.00) 10px,
+      var(--projects-grid-glow) 11px,
+      rgba(255,255,255,0.00) 18px
+    );
+
+  /* The “warp” illusion: perspective + tilt + slight skew */
+  transform-origin: 45% 35%;
+  transform:
+    perspective(900px)
+    rotateX(62deg)
+    rotateZ(-16deg)
+    skewX(-8deg)
+    translateY(-8%)
+    scale(1.25);
+
+  /* Fade out towards edges so it feels embedded, not “stuck on top” */
+  -webkit-mask-image: radial-gradient(circle at 45% 35%,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.55) 42%,
+    rgba(0,0,0,0.10) 72%,
+    rgba(0,0,0,0.00) 100%);
+  mask-image: radial-gradient(circle at 45% 35%,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.55) 42%,
+    rgba(0,0,0,0.10) 72%,
+    rgba(0,0,0,0.00) 100%);
+
+  mix-blend-mode: soft-light;
+  filter: blur(0.2px);
+}
+
+/* If you prefer a cleaner grid on very small screens, soften it slightly */
+@media (max-width: 480px){
+  #projects .projects-lab::after{
+    opacity: 0.42;
+    transform:
+      perspective(900px)
+      rotateX(64deg)
+      rotateZ(-14deg)
+      skewX(-6deg)
+      translateY(-7%)
+      scale(1.22);
+  }
+}
 
