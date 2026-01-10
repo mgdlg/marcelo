@@ -1554,3 +1554,108 @@ html[data-theme="dark"] #projects .projects-lab .card.project-card::before {
   #projects .projects-lab-tab .tab-title { font-size: 0.9rem; }
 }
 
+
+
+/* =========================
+   PROJECTS LAB — ADJUSTMENTS (v2)
+   Goals:
+   1) Tabs: better typography + sizing so long titles feel intentional
+   2) Background: keep the same “energy” but STATIC (disable texture spin)
+   Note: add-only override block (does not modify existing rules).
+   ========================= */
+
+/* 2) Disable the rotating texture/glow animation (keep the visual, make it static) */
+#projects .projects-lab::before {
+  animation: none !important;
+  transform: rotate(10deg) !important; /* lock a pleasing consistent angle */
+}
+
+/* Add a STATIC micro-texture (subtle, no animation) */
+#projects .projects-lab::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.06) 0px,
+      rgba(255,255,255,0.06) 1px,
+      rgba(255,255,255,0.00) 3px,
+      rgba(255,255,255,0.00) 7px
+    );
+  mix-blend-mode: overlay;
+}
+
+html[data-theme="dark"] #projects .projects-lab::after {
+  opacity: 0.10;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(56,189,248,0.10) 0px,
+      rgba(56,189,248,0.10) 1px,
+      rgba(0,0,0,0.00) 3px,
+      rgba(0,0,0,0.00) 7px
+    );
+  mix-blend-mode: soft-light;
+}
+
+/* 1) Tabs — mobile: give each tab more real estate and cleaner wrapping */
+#projects .projects-lab-tabs {
+  grid-auto-columns: minmax(260px, 86%);
+}
+
+#projects .projects-lab-tab {
+  padding: 1rem 1.05rem;
+  min-height: 116px;
+  align-content: center;
+}
+
+#projects .projects-lab-tab .tab-title {
+  font-size: clamp(0.98rem, 1.2vw, 1.05rem);
+  line-height: 1.25;
+  text-wrap: balance;
+  hyphens: auto;
+}
+
+/* Make the index badge more “anchored” so the title block feels aligned */
+#projects .projects-lab-tab .tab-index {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+/* Desktop: wrap into a responsive grid instead of forcing narrow columns */
+@media (min-width: 900px) {
+  #projects .projects-lab-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.9rem;
+  }
+
+  #projects .projects-lab-tab {
+    flex: 1 1 240px;
+    min-width: 240px;
+    min-height: 104px;
+  }
+
+  /* Keep hover lift subtle; reduce “jitter” with taller cards */
+  #projects .projects-lab-tab:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Very small screens: slightly tighter height so the rail stays compact */
+@media (max-width: 420px) {
+  #projects .projects-lab-tab {
+    min-height: 106px;
+  }
+  #projects .projects-lab-tab .tab-title {
+    font-size: 0.98rem;
+  }
+}
+
