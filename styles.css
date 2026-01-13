@@ -1094,7 +1094,7 @@ html[data-theme="dark"] .belt-item.is-active img {
    FEATURED MEDIA BUTTONS (overlay inside media box)
    ========================= */
 
-/* Turn the media container into the visible “box” */
+/* Turn the media container into the visible â€œboxâ€ */
 .feature-media{
   position: relative;
   border-radius: var(--radius-lg);
@@ -1164,7 +1164,7 @@ html[data-theme="dark"] .feature-media-nav .media-dot{
 }
 
 /* =========================
-   FEATURED MEDIA — SUBTLE CONTROLS
+   FEATURED MEDIA â€” SUBTLE CONTROLS
    ========================= */
 
 /* Default: controls are subtle */
@@ -1557,10 +1557,10 @@ html[data-theme="dark"] #projects .projects-lab .card.project-card::before {
 
 
 /* =========================
-   PROJECTS LAB — ADJUSTMENTS (v2)
+   PROJECTS LAB â€” ADJUSTMENTS (v2)
    Goals:
    1) Tabs: better typography + sizing so long titles feel intentional
-   2) Background: keep the same “energy” but STATIC (disable texture spin)
+   2) Background: keep the same â€œenergyâ€ but STATIC (disable texture spin)
    Note: add-only override block (does not modify existing rules).
    ========================= */
 
@@ -1601,7 +1601,7 @@ html[data-theme="dark"] #projects .projects-lab::after {
   mix-blend-mode: soft-light;
 }
 
-/* 1) Tabs — mobile: give each tab more real estate and cleaner wrapping */
+/* 1) Tabs â€” mobile: give each tab more real estate and cleaner wrapping */
 #projects .projects-lab-tabs {
   grid-auto-columns: minmax(260px, 86%);
 }
@@ -1619,7 +1619,7 @@ html[data-theme="dark"] #projects .projects-lab::after {
   hyphens: auto;
 }
 
-/* Make the index badge more “anchored” so the title block feels aligned */
+/* Make the index badge more â€œanchoredâ€ so the title block feels aligned */
 #projects .projects-lab-tab .tab-index {
   width: 40px;
   height: 40px;
@@ -1643,7 +1643,7 @@ html[data-theme="dark"] #projects .projects-lab::after {
     min-height: 104px;
   }
 
-  /* Keep hover lift subtle; reduce “jitter” with taller cards */
+  /* Keep hover lift subtle; reduce â€œjitterâ€ with taller cards */
   #projects .projects-lab-tab:hover {
     transform: translateY(-2px);
   }
@@ -1661,7 +1661,7 @@ html[data-theme="dark"] #projects .projects-lab::after {
 
 
 /* =========================
-   PROJECTS LAB — WARPED GRID BACKGROUND (v3)
+   PROJECTS LAB â€” WARPED GRID BACKGROUND (v3)
    Replaces the micro-texture overlay on the Projects section ONLY.
    Add-only override: paste at the end of styles.css
    ========================= */
@@ -1680,7 +1680,7 @@ html[data-theme="dark"] #projects .projects-lab{
   --projects-grid-glow: rgba(56, 189, 248, 0.12);
 }
 
-/* Override the existing ::after micro-texture with a “warped grid” */
+/* Override the existing ::after micro-texture with a â€œwarped gridâ€ */
 #projects .projects-lab::after{
   content: "";
   position: absolute;
@@ -1726,7 +1726,7 @@ html[data-theme="dark"] #projects .projects-lab{
       rgba(255,255,255,0.00) 18px
     );
 
-  /* The “warp” illusion: perspective + tilt + slight skew */
+  /* The â€œwarpâ€ illusion: perspective + tilt + slight skew */
   transform-origin: 45% 35%;
   transform:
     perspective(900px)
@@ -1736,7 +1736,7 @@ html[data-theme="dark"] #projects .projects-lab{
     translateY(-8%)
     scale(1.25);
 
-  /* Fade out towards edges so it feels embedded, not “stuck on top” */
+  /* Fade out towards edges so it feels embedded, not â€œstuck on topâ€ */
   -webkit-mask-image: radial-gradient(circle at 45% 35%,
     rgba(0,0,0,0.85) 0%,
     rgba(0,0,0,0.55) 42%,
@@ -1765,4 +1765,3 @@ html[data-theme="dark"] #projects .projects-lab{
       scale(1.22);
   }
 }
-
