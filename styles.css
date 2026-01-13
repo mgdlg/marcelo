@@ -478,8 +478,7 @@ a:hover { text-decoration: underline; }
   color: var(--muted);
 }
 
-
-/* =========================
+//* =========================
    FEATURED CAROUSEL
    ========================= */
 
@@ -492,218 +491,184 @@ a:hover { text-decoration: underline; }
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-soft);
-}
-
-html[data-theme="dark"] .featured-carousel-wrapper {
-  background: radial-gradient(circle at top left, #0a192f 0%, #020617 60%);
-}
-
-/* =========================
-   FEATURED PROJECTS – GIS WARPED GRID BACKGROUND
-   ========================= */
-
-.featured-gis-wrapper {
   position: relative;
-  isolation: isolate;
   overflow: hidden;
+  isolation: isolate;
 }
 
-/* Grid color tokens for Featured Projects */
-.featured-gis-wrapper {
-  --featured-grid-primary: rgba(17, 24, 39, 0.14);
-  --featured-grid-secondary: rgba(17, 24, 39, 0.08);
-  --featured-grid-accent: rgba(79, 70, 229, 0.12);
-  --featured-grid-glow: rgba(99, 102, 241, 0.08);
-}
-
-html[data-theme="dark"] .featured-gis-wrapper {
-  --featured-grid-primary: rgba(56, 189, 248, 0.18);
-  --featured-grid-secondary: rgba(56, 189, 248, 0.10);
-  --featured-grid-accent: rgba(34, 211, 238, 0.15);
-  --featured-grid-glow: rgba(56, 189, 248, 0.12);
-}
-
-/* Animated warped grid background */
-.featured-gis-wrapper::before {
+/* Light mode: warped topographic grid with accent highlights */
+.featured-carousel-wrapper::before {
   content: "";
   position: absolute;
   inset: -55%;
   pointer-events: none;
-  opacity: 0.65;
-  z-index: 0;
-
-  /* Multi-layer grid pattern */
+  opacity: 0.28;
+  
+  /* Multi-layer grid: fine lines + bold cross-hatch + diagonal waves */
   background-image:
-    /* Fine grid */
+    /* Fine grid base */
     repeating-linear-gradient(
       to right,
-      var(--featured-grid-secondary) 0px,
-      var(--featured-grid-secondary) 1px,
+      rgba(17, 24, 39, 0.08) 0px,
+      rgba(17, 24, 39, 0.08) 1px,
       transparent 1px,
-      transparent 28px
+      transparent 18px
     ),
     repeating-linear-gradient(
       to bottom,
-      var(--featured-grid-secondary) 0px,
-      var(--featured-grid-secondary) 1px,
+      rgba(17, 24, 39, 0.08) 0px,
+      rgba(17, 24, 39, 0.08) 1px,
       transparent 1px,
-      transparent 28px
+      transparent 18px
     ),
-    /* Bold grid lines */
+    /* Bold accent lines */
     repeating-linear-gradient(
       to right,
       transparent 0px,
-      transparent 139px,
-      var(--featured-grid-primary) 139px,
-      var(--featured-grid-primary) 141px
+      transparent 89px,
+      rgba(17, 24, 39, 0.22) 89px,
+      rgba(17, 24, 39, 0.22) 91px
     ),
     repeating-linear-gradient(
       to bottom,
       transparent 0px,
-      transparent 139px,
-      var(--featured-grid-primary) 139px,
-      var(--featured-grid-primary) 141px
+      transparent 89px,
+      rgba(17, 24, 39, 0.22) 89px,
+      rgba(17, 24, 39, 0.22) 91px
     ),
-    /* Diagonal accent lines */
+    /* Diagonal "contour" waves */
     repeating-linear-gradient(
-      45deg,
+      125deg,
       transparent 0px,
-      transparent 85px,
-      var(--featured-grid-accent) 85px,
-      var(--featured-grid-accent) 86px,
-      transparent 86px,
-      transparent 170px
-    ),
-    /* Crosshatch glow effect */
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255,255,255,0.00) 0px,
-      rgba(255,255,255,0.00) 12px,
-      var(--featured-grid-glow) 13px,
-      rgba(255,255,255,0.00) 20px
+      transparent 14px,
+      rgba(17, 24, 39, 0.12) 15px,
+      transparent 16px,
+      transparent 32px
     );
-
-  /* The "warp" effect - creates depth and motion */
-  transform-origin: 52% 38%;
+  
+  /* Perspective warp to create "terrain map" effect */
+  transform-origin: 52% 42%;
   transform:
-    perspective(1100px)
+    perspective(850px)
     rotateX(58deg)
     rotateZ(-12deg)
-    skewX(-5deg)
+    skewX(-6deg)
     translateY(-12%)
-    scale(1.35);
-
-  /* Gradient mask for smooth edges */
-  -webkit-mask-image: radial-gradient(ellipse at 52% 38%,
-    rgba(0,0,0,0.90) 0%,
-    rgba(0,0,0,0.65) 38%,
-    rgba(0,0,0,0.25) 65%,
-    rgba(0,0,0,0.00) 100%);
-  mask-image: radial-gradient(ellipse at 52% 38%,
-    rgba(0,0,0,0.90) 0%,
-    rgba(0,0,0,0.65) 38%,
-    rgba(0,0,0,0.25) 65%,
-    rgba(0,0,0,0.00) 100%);
-
-  mix-blend-mode: overlay;
-  filter: blur(0.3px);
+    scale(1.32);
   
-  /* Subtle animation */
-  animation: featuredGridPulse 8s ease-in-out infinite;
+  /* Radial fade for embedded feel */
+  mask-image: radial-gradient(
+    ellipse at 52% 42%,
+    rgba(0,0,0,0.92) 0%,
+    rgba(0,0,0,0.65) 38%,
+    rgba(0,0,0,0.18) 68%,
+    rgba(0,0,0,0.00) 100%
+  );
+  
+  mix-blend-mode: multiply;
+  filter: blur(0.3px);
 }
 
-@keyframes featuredGridPulse {
-  0%, 100% {
-    opacity: 0.65;
-    transform:
-      perspective(1100px)
-      rotateX(58deg)
-      rotateZ(-12deg)
-      skewX(-5deg)
-      translateY(-12%)
-      scale(1.35);
-  }
-  50% {
-    opacity: 0.75;
-    transform:
-      perspective(1100px)
-      rotateX(60deg)
-      rotateZ(-10deg)
-      skewX(-6deg)
-      translateY(-10%)
-      scale(1.38);
-  }
-}
-
-/* Accent glow orbs */
-.featured-gis-wrapper::after {
+/* Accent "pulse" overlay for visual interest */
+.featured-carousel-wrapper::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.25;
-  z-index: 0;
+  opacity: 0.18;
+  
   background:
-    radial-gradient(ellipse 600px 400px at 25% 15%,
-      var(--featured-grid-glow) 0%,
-      transparent 55%),
-    radial-gradient(ellipse 500px 350px at 80% 75%,
-      var(--featured-grid-accent) 0%,
-      transparent 60%);
+    radial-gradient(
+      circle at 18% 25%,
+      rgba(17, 24, 39, 0.15) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(17, 24, 39, 0.12) 0%,
+      transparent 42%
+    );
+  
+  mix-blend-mode: overlay;
+}
+
+/* Dark mode: neon topographic grid with cyan/blue glow */
+html[data-theme="dark"] .featured-carousel-wrapper {
+  background: radial-gradient(circle at top left, #0a192f 0%, #020617 60%);
+}
+
+html[data-theme="dark"] .featured-carousel-wrapper::before {
+  opacity: 0.45;
+  
+  background-image:
+    /* Fine cyan grid */
+    repeating-linear-gradient(
+      to right,
+      rgba(56, 189, 248, 0.15) 0px,
+      rgba(56, 189, 248, 0.15) 1px,
+      transparent 1px,
+      transparent 18px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(56, 189, 248, 0.15) 0px,
+      rgba(56, 189, 248, 0.15) 1px,
+      transparent 1px,
+      transparent 18px
+    ),
+    /* Bold neon lines */
+    repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 89px,
+      rgba(56, 189, 248, 0.38) 89px,
+      rgba(56, 189, 248, 0.38) 91px,
+      transparent 91px,
+      transparent 92px,
+      rgba(14, 165, 233, 0.22) 92px,
+      rgba(14, 165, 233, 0.22) 93px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 89px,
+      rgba(56, 189, 248, 0.38) 89px,
+      rgba(56, 189, 248, 0.38) 91px,
+      transparent 91px,
+      transparent 92px,
+      rgba(14, 165, 233, 0.22) 92px,
+      rgba(14, 165, 233, 0.22) 93px
+    ),
+    /* Diagonal "elevation" waves */
+    repeating-linear-gradient(
+      125deg,
+      transparent 0px,
+      transparent 14px,
+      rgba(56, 189, 248, 0.22) 15px,
+      transparent 16px,
+      transparent 32px
+    );
+  
+  mix-blend-mode: screen;
+  filter: blur(0.4px);
+}
+
+html[data-theme="dark"] .featured-carousel-wrapper::after {
+  opacity: 0.25;
+  
+  background:
+    radial-gradient(
+      circle at 18% 25%,
+      rgba(56, 189, 248, 0.28) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(14, 165, 233, 0.22) 0%,
+      transparent 42%
+    );
+  
   mix-blend-mode: soft-light;
-  animation: featuredGlowShift 12s ease-in-out infinite;
-}
-
-@keyframes featuredGlowShift {
-  0%, 100% {
-    opacity: 0.25;
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    opacity: 0.35;
-    transform: translate(-3%, 4%) scale(1.05);
-  }
-}
-
-/* Ensure content stays above the background */
-.featured-gis-wrapper > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Reduce animation intensity on smaller screens */
-@media (max-width: 768px) {
-  .featured-gis-wrapper::before {
-    opacity: 0.50;
-    transform:
-      perspective(1100px)
-      rotateX(62deg)
-      rotateZ(-10deg)
-      skewX(-4deg)
-      translateY(-10%)
-      scale(1.28);
-  }
-  
-  @keyframes featuredGridPulse {
-    0%, 100% {
-      opacity: 0.50;
-    }
-    50% {
-      opacity: 0.58;
-    }
-  }
-  
-  .featured-gis-wrapper::after {
-    opacity: 0.18;
-  }
-}
-
-/* Respect reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .featured-gis-wrapper::before,
-  .featured-gis-wrapper::after {
-    animation: none !important;
-  }
 }
 
 .slideshow-container {
