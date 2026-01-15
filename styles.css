@@ -1094,7 +1094,7 @@ html[data-theme="dark"] .belt-item.is-active img {
    FEATURED MEDIA BUTTONS (overlay inside media box)
    ========================= */
 
-/* Turn the media container into the visible â€œboxâ€ */
+/* Turn the media container into the visible “box” */
 .feature-media{
   position: relative;
   border-radius: var(--radius-lg);
@@ -1164,7 +1164,7 @@ html[data-theme="dark"] .feature-media-nav .media-dot{
 }
 
 /* =========================
-   FEATURED MEDIA â€” SUBTLE CONTROLS
+   FEATURED MEDIA — SUBTLE CONTROLS
    ========================= */
 
 /* Default: controls are subtle */
@@ -1557,10 +1557,10 @@ html[data-theme="dark"] #projects .projects-lab .card.project-card::before {
 
 
 /* =========================
-   PROJECTS LAB â€” ADJUSTMENTS (v2)
+   PROJECTS LAB — ADJUSTMENTS (v2)
    Goals:
    1) Tabs: better typography + sizing so long titles feel intentional
-   2) Background: keep the same â€œenergyâ€ but STATIC (disable texture spin)
+   2) Background: keep the same “energy” but STATIC (disable texture spin)
    Note: add-only override block (does not modify existing rules).
    ========================= */
 
@@ -1601,7 +1601,7 @@ html[data-theme="dark"] #projects .projects-lab::after {
   mix-blend-mode: soft-light;
 }
 
-/* 1) Tabs â€” mobile: give each tab more real estate and cleaner wrapping */
+/* 1) Tabs — mobile: give each tab more real estate and cleaner wrapping */
 #projects .projects-lab-tabs {
   grid-auto-columns: minmax(260px, 86%);
 }
@@ -1619,7 +1619,7 @@ html[data-theme="dark"] #projects .projects-lab::after {
   hyphens: auto;
 }
 
-/* Make the index badge more â€œanchoredâ€ so the title block feels aligned */
+/* Make the index badge more “anchored” so the title block feels aligned */
 #projects .projects-lab-tab .tab-index {
   width: 40px;
   height: 40px;
@@ -1643,7 +1643,7 @@ html[data-theme="dark"] #projects .projects-lab::after {
     min-height: 104px;
   }
 
-  /* Keep hover lift subtle; reduce â€œjitterâ€ with taller cards */
+  /* Keep hover lift subtle; reduce “jitter” with taller cards */
   #projects .projects-lab-tab:hover {
     transform: translateY(-2px);
   }
@@ -1661,7 +1661,7 @@ html[data-theme="dark"] #projects .projects-lab::after {
 
 
 /* =========================
-   PROJECTS LAB â€” WARPED GRID BACKGROUND (v3)
+   PROJECTS LAB — WARPED GRID BACKGROUND (v3)
    Replaces the micro-texture overlay on the Projects section ONLY.
    Add-only override: paste at the end of styles.css
    ========================= */
@@ -1680,7 +1680,7 @@ html[data-theme="dark"] #projects .projects-lab{
   --projects-grid-glow: rgba(56, 189, 248, 0.12);
 }
 
-/* Override the existing ::after micro-texture with a â€œwarped gridâ€ */
+/* Override the existing ::after micro-texture with a “warped grid” */
 #projects .projects-lab::after{
   content: "";
   position: absolute;
@@ -1726,7 +1726,7 @@ html[data-theme="dark"] #projects .projects-lab{
       rgba(255,255,255,0.00) 18px
     );
 
-  /* The â€œwarpâ€ illusion: perspective + tilt + slight skew */
+  /* The “warp” illusion: perspective + tilt + slight skew */
   transform-origin: 45% 35%;
   transform:
     perspective(900px)
@@ -1736,7 +1736,7 @@ html[data-theme="dark"] #projects .projects-lab{
     translateY(-8%)
     scale(1.25);
 
-  /* Fade out towards edges so it feels embedded, not â€œstuck on topâ€ */
+  /* Fade out towards edges so it feels embedded, not “stuck on top” */
   -webkit-mask-image: radial-gradient(circle at 45% 35%,
     rgba(0,0,0,0.85) 0%,
     rgba(0,0,0,0.55) 42%,
@@ -1766,324 +1766,3 @@ html[data-theme="dark"] #projects .projects-lab{
   }
 }
 
-/* =========================
-   LIQUID METAL EFFECT (v1)
-   Animated metallic shimmer for buttons and card borders
-   ========================= */
-
-/* Liquid metal animation keyframes */
-@keyframes liquidMetal {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes liquidMetalBorder {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Primary button liquid metal effect */
-.btn.primary {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    #1f2937 0%,
-    #374151 25%,
-    #4b5563 50%,
-    #374151 75%,
-    #1f2937 100%
-  );
-  background-size: 200% 200%;
-  animation: liquidMetal 3s ease infinite;
-  box-shadow: 
-    0 14px 35px rgba(17, 24, 39, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-}
-
-html[data-theme="dark"] .btn.primary {
-  background: linear-gradient(
-    135deg,
-    #0ea5e9 0%,
-    #38bdf8 25%,
-    #7dd3fc 50%,
-    #38bdf8 75%,
-    #0ea5e9 100%
-  );
-  background-size: 200% 200%;
-  animation: liquidMetal 3s ease infinite;
-  color: #0b1120;
-  box-shadow: 
-    0 14px 35px rgba(56, 189, 248, 0.6),
-    0 0 20px rgba(56, 189, 248, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-}
-
-.btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 20px 45px rgba(17, 24, 39, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-}
-
-html[data-theme="dark"] .btn.primary:hover {
-  box-shadow: 
-    0 20px 45px rgba(56, 189, 248, 0.7),
-    0 0 30px rgba(56, 189, 248, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-}
-
-/* Card liquid metal borders */
-.card {
-  position: relative;
-  isolation: isolate;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: calc(var(--radius-xl) + 2px);
-  padding: 2px;
-  background: linear-gradient(
-    135deg,
-    #9ca3af 0%,
-    #d1d5db 25%,
-    #f3f4f6 50%,
-    #d1d5db 75%,
-    #9ca3af 100%
-  );
-  background-size: 200% 200%;
-  animation: liquidMetalBorder 4s ease infinite;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-html[data-theme="dark"] .card::before {
-  background: linear-gradient(
-    135deg,
-    #0ea5e9 0%,
-    #38bdf8 20%,
-    #7dd3fc 40%,
-    #bfdbfe 50%,
-    #7dd3fc 60%,
-    #38bdf8 80%,
-    #0ea5e9 100%
-  );
-  background-size: 200% 200%;
-  animation: liquidMetalBorder 4s ease infinite;
-  opacity: 0.8;
-}
-
-/* Project cards get more intense effect */
-.project-card::before {
-  opacity: 0.85;
-  animation: liquidMetalBorder 3s ease infinite;
-}
-
-html[data-theme="dark"] .project-card::before {
-  opacity: 1;
-  background: linear-gradient(
-    135deg,
-    #0284c7 0%,
-    #0ea5e9 15%,
-    #38bdf8 30%,
-    #7dd3fc 45%,
-    #bfdbfe 50%,
-    #7dd3fc 55%,
-    #38bdf8 70%,
-    #0ea5e9 85%,
-    #0284c7 100%
-  );
-  background-size: 300% 300%;
-}
-
-/* Featured carousel wrapper liquid metal border */
-.featured-carousel-wrapper {
-  position: relative;
-  isolation: isolate;
-}
-
-.featured-carousel-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: calc(var(--radius-xl) + 2px);
-  padding: 2px;
-  background: linear-gradient(
-    135deg,
-    #9ca3af 0%,
-    #d1d5db 20%,
-    #e5e7eb 40%,
-    #f3f4f6 50%,
-    #e5e7eb 60%,
-    #d1d5db 80%,
-    #9ca3af 100%
-  );
-  background-size: 200% 200%;
-  animation: liquidMetalBorder 5s ease infinite;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-html[data-theme="dark"] .featured-carousel-wrapper::before {
-  background: linear-gradient(
-    135deg,
-    #0ea5e9 0%,
-    #38bdf8 25%,
-    #7dd3fc 50%,
-    #38bdf8 75%,
-    #0ea5e9 100%
-  );
-  background-size: 200% 200%;
-  opacity: 0.9;
-}
-
-/* Projects lab liquid metal enhancement */
-#projects .projects-lab::before {
-  background: conic-gradient(
-    from 0deg,
-    #6b7280 0deg,
-    #9ca3af 60deg,
-    #d1d5db 120deg,
-    #e5e7eb 180deg,
-    #d1d5db 240deg,
-    #9ca3af 300deg,
-    #6b7280 360deg
-  );
-  filter: blur(16px);
-  opacity: 0.4;
-  animation: projectsGlowSpin 8s linear infinite !important;
-  transform: none !important;
-}
-
-html[data-theme="dark"] #projects .projects-lab::before {
-  background: conic-gradient(
-    from 0deg,
-    #0284c7 0deg,
-    #0ea5e9 60deg,
-    #38bdf8 120deg,
-    #7dd3fc 180deg,
-    #38bdf8 240deg,
-    #0ea5e9 300deg,
-    #0284c7 360deg
-  );
-  opacity: 0.5;
-}
-
-/* Ghost button subtle liquid border on hover */
-.btn.ghost {
-  position: relative;
-  isolation: isolate;
-}
-
-.btn.ghost::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 999px;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    var(--border-subtle) 50%,
-    transparent 100%
-  );
-  background-size: 200% 200%;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.btn.ghost:hover::before {
-  opacity: 1;
-  animation: liquidMetalBorder 2s ease infinite;
-}
-
-html[data-theme="dark"] .btn.ghost::before {
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    rgba(56, 189, 248, 0.4) 50%,
-    transparent 100%
-  );
-  background-size: 200% 200%;
-}
-
-/* Theme toggle button liquid effect on hover */
-.theme-toggle {
-  position: relative;
-  isolation: isolate;
-}
-
-.theme-toggle::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 999px;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    var(--accent) 50%,
-    transparent 100%
-  );
-  background-size: 200% 200%;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.theme-toggle:hover::before {
-  opacity: 0.6;
-  animation: liquidMetalBorder 2s ease infinite;
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .btn.primary,
-  .card::before,
-  .project-card::before,
-  .featured-carousel-wrapper::before,
-  #projects .projects-lab::before,
-  .btn.ghost::before,
-  .theme-toggle::before {
-    animation: none !important;
-  }
-}
