@@ -41,51 +41,31 @@
 
 /* Dark theme (original midnight blue + light blue accent) */
 html[data-theme="dark"] {
-  /* ---------- Surfaces (deep, inky) ---------- */
-  --bg: #070613;         /* page baseline */
-  --bg-alt: #0a0819;     /* alt sections */
+  --bg: #070613;
+  --bg-alt: #0a0819;
   --surface: rgba(10, 8, 25, 0.78);
   --surface-2: rgba(10, 8, 25, 0.60);
 
-  /* ---------- Accent (ember/orange, not neon) ---------- */
-  --accent: #ff4a1a;     /* ember highlight */
+  --accent: #ff4a1a;
   --accent-soft: rgba(255, 74, 26, 0.18);
 
-  /* ---------- Text (warm, peach-tinted) ---------- */
-  --text: #f6d6cc;       /* warm light */
+  --text: #f6d6cc;
   --muted: rgba(246, 214, 204, 0.72);
   --text-on-accent: #0a0819;
-
-  /* ---------- Borders / shadows (subtle, warm) ---------- */
   --border-subtle: rgba(246, 214, 204, 0.16);
   --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.62);
 
-  /* ---------- Backgrounds (match your reference image) ---------- */
-  /* Main page wash: dark navy (top-left) -> ember (middle) -> peach (bottom-right) */
   --page-bg:
-    radial-gradient(900px 700px at 18% 10%, rgba(8, 10, 28, 0.85) 0%, rgba(8, 10, 28, 0.00) 60%),
-    radial-gradient(1100px 900px at 80% 25%, rgba(120, 22, 12, 0.55) 0%, rgba(120, 22, 12, 0.00) 62%),
-    radial-gradient(1200px 900px at 85% 88%, rgba(255, 170, 145, 0.50) 0%, rgba(255, 170, 145, 0.00) 60%),
+    radial-gradient(900px 700px at 18% 10%, rgba(8, 10, 28, 0.85) 0%, rgba(8, 10, 28, 0) 60%),
     linear-gradient(135deg, #070613 0%, #3a0b12 45%, #ff5a22 68%, #f6b6a6 100%);
 
-  /* Alternate sections: same palette, a bit calmer */
-  --section-alt-bg:
-    radial-gradient(900px 700px at 15% 10%, rgba(8, 10, 28, 0.70) 0%, rgba(8, 10, 28, 0.00) 60%),
-    radial-gradient(1200px 900px at 85% 85%, rgba(255, 170, 145, 0.35) 0%, rgba(255, 170, 145, 0.00) 62%),
-    linear-gradient(135deg, #070613 0%, #240610 55%, #7a1a12 82%, #f2b2a3 100%);
-
-  /* Nav: dark glass with a warm tint */
-  --nav-bg: linear-gradient(
-    to right,
-    rgba(7, 6, 19, 0.72),
-    rgba(30, 8, 20, 0.62)
-  );
-
+  --section-alt-bg: linear-gradient(135deg, #070613 0%, #240610 55%, #7a1a12 82%, #f2b2a3 100%);
+  --nav-bg: linear-gradient(to right, rgba(7, 6, 19, 0.72), rgba(30, 8, 20, 0.62));
   --footer-bg: rgba(7, 6, 19, 0.86);
 
-  /* Media */
   --media-bg: rgba(0, 0, 0, 0.45);
 }
+
 
 /* =========================
    BASE
@@ -202,15 +182,15 @@ body {
 }
 
 html[data-theme="dark"] .btn.primary {
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  color: #0b1120;
-  box-shadow: 0 14px 35px rgba(56, 189, 248, 0.5);
+  background: linear-gradient(135deg, #ff4a1a, #ff8a66);
+  color: var(--text-on-accent);
+  box-shadow: 0 18px 45px rgba(255, 74, 26, 0.35);
 }
 
 .btn.primary:hover { transform: translateY(-1px); }
 
 html[data-theme="dark"] .btn.primary:hover {
-  box-shadow: 0 20px 45px rgba(56, 189, 248, 0.6);
+  box-shadow: 0 20px 45px rgba(255, 74, 26, 0.45);
 }
 
 .btn.ghost {
@@ -330,6 +310,11 @@ h3 {
   box-shadow: var(--shadow-soft);
 }
 
+
+html[data-theme="dark"] .card {
+  background: rgba(10, 8, 25, 0.78);
+  backdrop-filter: blur(10px);
+}
 .project-card { 
   border-left: 3px solid var(--accent); 
   max-width: 720px;
@@ -407,7 +392,7 @@ h3 {
 
 html[data-theme="dark"] .tag-list li {
   color: #e0f2fe;
-  border: 1px solid rgba(56, 189, 248, 0.5);
+  border: 1px solid rgba(255,74,26,0.5);
 }
 
 /* =========================
@@ -447,7 +432,7 @@ html[data-theme="dark"] .tag-list li {
 }
 
 html[data-theme="dark"] .timeline-item::before {
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.18);
+  box-shadow: 0 0 0 4px rgba(255,74,26,0.18);
 }
 
 .timeline-date {
@@ -702,7 +687,7 @@ html[data-theme="dark"] .featured-carousel-wrapper {
   
   html[data-theme="dark"] .prev,
   html[data-theme="dark"] .next {
-    background-color: rgba(56, 189, 248, 0.7);
+    background-color: rgba(255,74,26,0.7);
   }
 }
 
@@ -719,7 +704,7 @@ html[data-theme="dark"] .next {
 
 html[data-theme="dark"] .prev:hover,
 html[data-theme="dark"] .next:hover {
-  background-color: rgba(56, 189, 248, 0.8);
+  background-color: rgba(255,74,26,0.8);
 }
 
 /* Dots */
@@ -863,7 +848,7 @@ html[data-theme="dark"] .next:hover {
   }
 
   .showcase-thumbs .thumb.is-active {
-    border-color: rgba(56, 189, 248, 0.6);
+    border-color: rgba(255,74,26,0.6);
     box-shadow: 0 10px 24px rgba(17, 24, 39, 0.14);
   }
 
@@ -960,12 +945,12 @@ html[data-theme="dark"] .belt-viewport {
 }
 
 .belt-item.is-active img {
-  border-color: rgba(56, 189, 248, 0.6);
+  border-color: rgba(255,74,26,0.6);
   box-shadow: 0 18px 45px rgba(17, 24, 39, 0.18);
 }
 
 html[data-theme="dark"] .belt-item.is-active img {
-  box-shadow: 0 22px 60px rgba(56, 189, 248, 0.22);
+  box-shadow: 0 22px 60px rgba(255,74,26,0.22);
 }
 
 .belt-controls {
@@ -1258,8 +1243,8 @@ html:not([data-theme="dark"]) .feature-media .media-btn {
 }
 
 html[data-theme="dark"] #projects .projects-lab {
-  background: radial-gradient(1200px 520px at 15% 10%, rgba(56,189,248,0.18), transparent 60%),
-              radial-gradient(900px 520px at 85% 20%, rgba(56,189,248,0.12), transparent 55%),
+  background: radial-gradient(1200px 520px at 15% 10%, rgba(255,74,26,0.18), transparent 60%),
+              radial-gradient(900px 520px at 85% 20%, rgba(255,74,26,0.12), transparent 55%),
               linear-gradient(to bottom, rgba(2,6,23,0.88), rgba(11,16,32,0.96));
   box-shadow: 0 32px 88px rgba(2, 6, 23, 0.75);
 }
@@ -1287,11 +1272,11 @@ html[data-theme="dark"] #projects .projects-lab {
 html[data-theme="dark"] #projects .projects-lab::before {
   background: conic-gradient(
     from 180deg,
-    rgba(56,189,248,0.12),
-    rgba(56,189,248,0.45),
-    rgba(56,189,248,0.12),
-    rgba(56,189,248,0.55),
-    rgba(56,189,248,0.12)
+    rgba(255,74,26,0.12),
+    rgba(255,74,26,0.45),
+    rgba(255,74,26,0.12),
+    rgba(255,74,26,0.55),
+    rgba(255,74,26,0.12)
   );
   opacity: 0.6;
 }
@@ -1356,7 +1341,7 @@ html[data-theme="dark"] #projects .projects-lab-ui {
   border-radius: 999px;
 }
 html[data-theme="dark"] #projects .projects-lab-tabs::-webkit-scrollbar-thumb {
-  background: rgba(56,189,248,0.22);
+  background: rgba(255,74,26,0.22);
 }
 
 @media (min-width: 980px) {
@@ -1410,8 +1395,8 @@ html[data-theme="dark"] #projects .projects-lab-tab {
 }
 
 html[data-theme="dark"] #projects .projects-lab-tab .tab-index {
-  background: rgba(56,189,248,0.10);
-  border-color: rgba(56,189,248,0.28);
+  background: rgba(255,74,26,0.10);
+  border-color: rgba(255,74,26,0.28);
 }
 
 #projects .projects-lab-tab .tab-title {
@@ -1436,9 +1421,9 @@ html[data-theme="dark"] #proj2:checked ~ .projects-lab-ui label[for="proj2"],
 html[data-theme="dark"] #proj3:checked ~ .projects-lab-ui label[for="proj3"],
 html[data-theme="dark"] #proj4:checked ~ .projects-lab-ui label[for="proj4"],
 html[data-theme="dark"] #proj5:checked ~ .projects-lab-ui label[for="proj5"] {
-  background: linear-gradient(135deg, rgba(56,189,248,0.18), rgba(2,6,23,0.10));
-  border-color: rgba(56,189,248,0.45);
-  box-shadow: 0 18px 55px rgba(56, 189, 248, 0.18);
+  background: linear-gradient(135deg, rgba(255,74,26,0.18), rgba(2,6,23,0.10));
+  border-color: rgba(255,74,26,0.45);
+  box-shadow: 0 18px 55px rgba(255,74,26,0.18);
 }
 
 /* Panels */
@@ -1485,7 +1470,7 @@ html[data-theme="dark"] #proj5:checked ~ .projects-lab-ui label[for="proj5"] {
 }
 
 html[data-theme="dark"] #projects .projects-lab .card.project-card::before {
-  background: linear-gradient(135deg, rgba(56,189,248,0.55), rgba(2,6,23,0.06), rgba(56,189,248,0.30));
+  background: linear-gradient(135deg, rgba(255,74,26,0.55), rgba(2,6,23,0.06), rgba(255,74,26,0.30));
 }
 
 /* Re-enable your right-side media showcase inside the lab (desktop) */
@@ -1558,8 +1543,8 @@ html[data-theme="dark"] #projects .projects-lab .card.project-card::before {
   }
 
   html[data-theme="dark"] #projects .projects-lab .showcase-thumbs .thumb.is-active {
-    border-color: rgba(56,189,248,0.65);
-    box-shadow: 0 14px 34px rgba(56, 189, 248, 0.18);
+    border-color: rgba(255,74,26,0.65);
+    box-shadow: 0 14px 34px rgba(255,74,26,0.18);
   }
 
   #projects .projects-lab .showcase-thumbs .thumb img {
@@ -1617,8 +1602,8 @@ html[data-theme="dark"] #projects .projects-lab::after {
   background:
     repeating-linear-gradient(
       135deg,
-      rgba(56,189,248,0.10) 0px,
-      rgba(56,189,248,0.10) 1px,
+      rgba(255,74,26,0.10) 0px,
+      rgba(255,74,26,0.10) 1px,
       rgba(0,0,0,0.00) 3px,
       rgba(0,0,0,0.00) 7px
     );
@@ -1699,9 +1684,9 @@ html[data-theme="dark"] #projects .projects-lab::after {
 
 /* Dark theme variant */
 html[data-theme="dark"] #projects .projects-lab{
-  --projects-grid-line: rgba(56, 189, 248, 0.12);
-  --projects-grid-bold: rgba(56, 189, 248, 0.18);
-  --projects-grid-glow: rgba(56, 189, 248, 0.12);
+  --projects-grid-line: rgba(255,74,26,0.12);
+  --projects-grid-bold: rgba(255,74,26,0.18);
+  --projects-grid-glow: rgba(255,74,26,0.12);
 }
 
 /* Override the existing ::after micro-texture with a “warped grid” */
