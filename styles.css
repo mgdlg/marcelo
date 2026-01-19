@@ -1787,33 +1787,10 @@ html[data-theme="dark"] #projects .projects-lab{
    SECTION BACKGROUNDS
    ========================= */
 
-/* Introduction */
-.site-header {
-  background-image: url("images/dots1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
 /* Video Resume */
 #video {
   background-image: url("images/spectrum2.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Technical Skills */
-#skills {
-  background-image: url("images/dots2.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Featured Projects */
-#featured {
-  background-image: url("images/dots3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
