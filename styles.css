@@ -1838,3 +1838,20 @@ html[data-theme="dark"] .site-header::before {
   background-repeat: no-repeat;
 }
 
+/* =========================
+   MOBILE AUTO-HIDING TOP NAV
+   ========================= */
+
+@media (max-width: 768px) {
+  .top-nav {
+    position: sticky;
+    top: 0;
+    transform: translateY(0);
+    transition: transform 0.28s ease;
+    will-change: transform;
+  }
+
+  .top-nav.is-hidden {
+    transform: translateY(-100%);
+  }
+}

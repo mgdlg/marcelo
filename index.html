@@ -1288,6 +1288,47 @@ function setTheme(theme) {
     });
   })();
 </script>
+
+<script>
+  (function () {
+    const nav = document.querySelector('.top-nav');
+    if (!nav) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function onScroll() {
+      const currentScrollY = window.scrollY;
+
+      // Only apply on mobile
+      if (window.innerWidth <= 768) {
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          // scrolling down
+          nav.classList.add('is-hidden');
+        } else {
+          // scrolling up
+          nav.classList.remove('is-hidden');
+        }
+      } else {
+        // Ensure nav is visible on desktop
+        nav.classList.remove('is-hidden');
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    });
+  })();
+</script>
+
+
+
 </body>
 
 </html>
