@@ -1787,6 +1787,14 @@ html[data-theme="dark"] #projects .projects-lab{
    SECTION BACKGROUNDS
    ========================= */
 
+/* Introduction */
+.site-header {
+  background-image: url("terrain_texture_light.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 /* Video Resume */
 #video {
