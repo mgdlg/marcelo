@@ -1789,11 +1789,37 @@ html[data-theme="dark"] #projects .projects-lab{
 
 /* Introduction */
 .site-header {
-  background-image: url("terrain_texture_light.png");
+  background-image: url("images/terrain_texture_light.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+html[data-theme="dark"] .site-header {
+  background-image: url("images/terrain_texture_dark.png");
+}
+
+.site-header {
+  position: relative;
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55); /* light mode */
+  pointer-events: none;
+}
+
+html[data-theme="dark"] .site-header::before {
+  background: rgba(0, 0, 0, 0.55); /* dark mode */
+}
+
+.site-header > .container {
+  position: relative;
+  z-index: 1;
+}
+
 
 
 /* Video Resume */
