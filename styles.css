@@ -1789,14 +1789,14 @@ html[data-theme="dark"] #projects .projects-lab{
 
 /* Introduction */
 .site-header {
-  background-image: url("images/terrain_texture_light.png");
+  background-image: url("images/spectrum7.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 html[data-theme="dark"] .site-header {
-  background-image: url("images/terrain_texture_dark.png");
+  background-image: url("images/spectrum8.png");
 }
 
 .site-header {
@@ -1830,6 +1830,18 @@ html[data-theme="dark"] .site-header::before {
   background-repeat: no-repeat;
 }
 
+
+
+/* Featured */
+#featured {
+  background-image: url("images/spectrum6.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
 /* Selected GIS & Environmental Projects */
 #projects {
   background-image: url("images/spectrum1.png");
@@ -1837,6 +1849,16 @@ html[data-theme="dark"] .site-header::before {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+
+/* Timeline */
+#experience {
+  background-image: url("images/spectrum3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 /* =========================
    MOBILE AUTO-HIDING TOP NAV
