@@ -1991,3 +1991,56 @@ svg.filter {
     padding-top: calc(3rem + 70px);
   }
 }
+
+
+/* =========================
+   HERO HEADER — match test layout/scale
+   ========================= */
+
+.site-header{
+  /* more “hero” height like the test */
+  padding: clamp(7rem, 12vh, 9rem) 0 clamp(4rem, 8vh, 5.5rem);
+}
+
+.header-content{
+  /* keep it from feeling too wide/tall: “hero copy column” */
+  max-width: 920px;          /* overall container width */
+  margin: 0 auto;
+}
+
+/* tighten the actual text column a bit (test looks more focused) */
+.site-header .header-content > div{
+  max-width: 52rem;
+}
+
+/* bigger name like the test */
+.title{
+  font-size: clamp(3.2rem, 6vw, 4.6rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.65rem;
+}
+
+/* slightly bigger subtitle, better reading */
+.subtitle{
+  max-width: 44rem;
+  font-size: 1.05rem;
+  margin-bottom: 1.1rem;
+}
+
+/* eyebrow a bit more “label-like” */
+.eyebrow{
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  margin-bottom: 0.85rem;
+}
+
+/* buttons slightly larger + more spaced like the test */
+.header-actions{
+  gap: 0.85rem;
+  margin-top: 1.1rem;
+}
+
+.btn{
+  padding: 0.72rem 1.45rem;
+  font-size: 0.95rem;
+}
