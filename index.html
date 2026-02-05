@@ -8,6 +8,14 @@
     name="description"
     content="Portfolio of Marcelo Guzmán, biologist and GIS specialist focused on environmental assessments, remote sensing, and conservation."
   />
+  <script>
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "light") {
+      document.documentElement.removeAttribute("data-theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  </script>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -59,24 +67,28 @@
     </div>
   </header>
 
-  <nav class="top-nav">
-    <div class="nav-inner">
-      <a href="#video">Video Resume</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#featured">Featured</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-      <a href="#full-portfolio">Portfolio</a>
+  <div class="top-nav-wrap">
+    <nav class="top-nav">
+      <div class="nav-inner">
+        <a href="#video">Video Resume</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#featured">Featured</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
+        <a href="#references">References</a>
+        <a href="#contact">Contact</a>
+        <a href="#full-portfolio">Portfolio</a>
+      </div>
+    </nav>
 
-      <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
-        <span class="toggle-dot" aria-hidden="true"></span>
-        <span id="themeToggleLabel">Dark mode</span>
-      </button>
-    </div>
-  </nav>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
+      <span class="toggle-dot" aria-hidden="true"></span>
+      <span id="themeToggleLabel">Dark mode</span>
+    </button>
+  </div>
 
   <main>
 
@@ -874,6 +886,239 @@
       </div>
     </section>
 
+    <!-- AWARDS -->
+    <section id="awards" class="section">
+      <div class="container">
+        <h2>Awards &amp; Honors</h2>
+        <p class="section-intro">
+          Highlights from the AWARDS &amp; HONORS tab of my resume, covering academic performance, scholarships, and
+          recognition for service and study abroad.
+        </p>
+        <div class="grid awards-grid">
+          <article class="card award-card">
+            <p class="award-year">2025</p>
+            <h3>Certificate of Outstanding Performance at the National Bachelor's Examination</h3>
+            <p>Achieved the highest performance level; emitted by the National Center for the Evaluation of Higher Education.</p>
+          </article>
+          <article class="card award-card">
+            <p class="award-year">2023 – 2025</p>
+            <h3>Academic Excellence Scholarship (Full Tuition)</h3>
+            <p>Awarded to high-achieving students demonstrating exceptional academic performance across consecutive terms.</p>
+          </article>
+          <article class="card award-card">
+            <p class="award-year">2023 – 2025</p>
+            <h3>Honors Program for High Performing Undergraduate Students</h3>
+            <p>Achieved second and third highest academic ranking out of the entire cohort of biology undergraduates.</p>
+          </article>
+          <article class="card award-card">
+            <p class="award-year">2024 – 2025</p>
+            <h3>Stipendium Hungaricum Scholarship for Studying Abroad in Europe - Hungarian Government Awarded</h3>
+            <p>Enrolled in selected Geoinformatics and Environmental Science master’s programs, fully covered and monthly stipend.</p>
+          </article>
+          <article class="card award-card">
+            <p class="award-year">2025</p>
+            <h3>International Academic Mobility Scholarship for Studying Abroad in Europe - Home University Awarded</h3>
+            <p>Received based on academic merit, covering my travel expenses and offering a monthly stipend for my studies abroad.</p>
+          </article>
+          <article class="card award-card">
+            <p class="award-year">2024</p>
+            <h3>Excellence in Social Service Award</h3>
+            <p>Awarded among 450 other projects in the Sustainability category for my project’s contribution to the advancement of SDG 11.</p>
+          </article>
+        </div>
+
+        <div class="awards-docs">
+          <h3>Supporting documents</h3>
+          <p>Preview or download documentation that certifies select awards and academic recognitions.</p>
+          <ul class="doc-list">
+            <li>
+              <div>
+                <h4>Certificate of Outstanding Performance (CENEVAL)</h4>
+                <p class="doc-meta">National examination certificate recognizing top performance in the CENEVAL evaluation.</p>
+              </div>
+              <div class="doc-actions">
+                <a class="btn ghost" href="media/letters/2025%20-%20CENEVAL%20Certificado.pdf" target="_blank" rel="noopener">Preview</a>
+                <a class="btn primary" href="media/letters/2025%20-%20CENEVAL%20Certificado.pdf" download>Download</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Academic Excellence Scholarship Letter of Award</h4>
+                <p class="doc-meta">Scholarship award letter confirming full-tuition academic excellence recognition.</p>
+              </div>
+              <div class="doc-actions">
+                <a class="btn ghost" href="media/letters/2024%20TPF_Letter%20of%20Award_BACHELOR%20(Marcelo%20Guzm%C3%A1n%20De%20la%20Garza)%20(1)%20(1).pdf" target="_blank" rel="noopener">Preview</a>
+                <a class="btn primary" href="media/letters/2024%20TPF_Letter%20of%20Award_BACHELOR%20(Marcelo%20Guzm%C3%A1n%20De%20la%20Garza)%20(1)%20(1).pdf" download>Download</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Excellence in Social Service Award</h4>
+                <p class="doc-meta">Recognition letter honoring social service contributions within sustainability initiatives.</p>
+              </div>
+              <div class="doc-actions">
+                <a class="btn ghost" href="media/letters/2024%20-%20Reconocimiento%20Servicio%20Social.pdf" target="_blank" rel="noopener">Preview</a>
+                <a class="btn primary" href="media/letters/2024%20-%20Reconocimiento%20Servicio%20Social.pdf" download>Download</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Academic Transfer Apostille</h4>
+                <p class="doc-meta">Apostilled academic transfer document validating international credential portability.</p>
+              </div>
+              <div class="doc-actions">
+                <a class="btn ghost" href="media/letters/2025%20-%20ACADEMIC%20TRANSFER%20-%20APOSTILLE.pdf" target="_blank" rel="noopener">Preview</a>
+                <a class="btn primary" href="media/letters/2025%20-%20ACADEMIC%20TRANSFER%20-%20APOSTILLE.pdf" download>Download</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="awards-docs">
+          <h3>Additional Certificates</h3>
+          <p>Supplementary certificates and acceptance letters supporting ongoing training and international programs.</p>
+          <ul class="doc-list">
+            <li>
+              <div>
+                <h4>BridgeUSA TWP Certificate</h4>
+                <p class="doc-meta">For participating in 2 months of practical training in Zoology/Animal Biology from 06/10/2024 to 08/10/2024 with Tanganyika Wildlife Park in Goddard, KS, USA.</p>
+              </div>
+              <div class="doc-actions">
+                <a class="btn ghost" href="media/letters/certificates/2024%20-%20BridgeUSA%20TWP%20Certificate.pdf" target="_blank" rel="noopener">Preview</a>
+                <a class="btn primary" href="media/letters/certificates/2024%20-%20BridgeUSA%20TWP%20Certificate.pdf" download>Download</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>DELF B2 Diploma</h4>
+                <p class="doc-meta">French language proficiency diploma confirming B2-level reading, writing, listening, and speaking skills.</p>
+              </div>
+              <div class="doc-actions">
+                <a class="btn ghost" href="media/letters/certificates/2024%20-%20Diplo%CC%82me%20DELF%20B2.pdf" target="_blank" rel="noopener">Preview</a>
+                <a class="btn primary" href="media/letters/certificates/2024%20-%20Diplo%CC%82me%20DELF%20B2.pdf" download>Download</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>University of Debrecen - Internship Completion Letter</h4>
+                <p class="doc-meta">Confirmation of research volunteering completion in Debrecen, supporting a European blackbird urbanization project with data collection and fieldwork (netting, banding, nest searches, biometric data).</p>
+              </div>
+              <div class="doc-actions">
+                <a class="btn ghost" href="media/letters/certificates/2025%20-%20UNIDEB%20COMPLETION%20LETTER%20RESEARCH%20ENG.pdf" target="_blank" rel="noopener">Preview</a>
+                <a class="btn primary" href="media/letters/certificates/2025%20-%20UNIDEB%20COMPLETION%20LETTER%20RESEARCH%20ENG.pdf" download>Download</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Partial Letter of Acceptance (Non-med)</h4>
+                <p class="doc-meta">Acceptance letter for a non-medical program in Debrecen, documenting admission status and next steps.</p>
+              </div>
+              <div class="doc-actions">
+                <a class="btn ghost" href="media/letters/certificates/DE%20non-med%20Partial%20letter%20of%20acceptance%20(Marcelo%20Guzm%C3%A1n%20De%20la%20Garza)%20(1).pdf" target="_blank" rel="noopener">Preview</a>
+                <a class="btn primary" href="media/letters/certificates/DE%20non-med%20Partial%20letter%20of%20acceptance%20(Marcelo%20Guzm%C3%A1n%20De%20la%20Garza)%20(1).pdf" download>Download</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section id="references" class="section section-alt">
+      <div class="container">
+        <h2>References</h2>
+        <p class="section-intro">
+          Mentors, supervisors, and academic leaders who can speak to my work ethic, research contributions, and
+          environmental leadership.
+        </p>
+        <div class="grid references-grid">
+          <article class="card reference-card">
+            <h3>M.Sc. Ivan González</h3>
+            <p class="reference-role">Ph.D. Candidate &amp; Researcher</p>
+            <p>Mentor and supervisor for my avian research volunteering at University of Debrecen.</p>
+            <ul class="reference-list">
+              <li>📞 +36 70 675 1099</li>
+              <li>✉️ <a href="mailto:ivangonzalezandazola@gmail.com">ivangonzalezandazola@gmail.com</a></li>
+              <li>🔗 <a href="https://www.linkedin.com/in/ivan-gonzalez-688b0615b/" target="_blank" rel="noopener">LinkedIn profile</a></li>
+            </ul>
+          </article>
+          <article class="card reference-card">
+            <h3>M.Sc. Adrian Lozano</h3>
+            <p class="reference-role">Socioecosystems &amp; Sustainability Strategist</p>
+            <p>Supervisor for the position “Environmental Surveyor &amp; Researcher.”</p>
+            <ul class="reference-list">
+              <li>📞 +52 1 81 1328 3169</li>
+              <li>✉️ <a href="mailto:adrian.lozano@sosac.org">adrian.lozano@sosac.org</a></li>
+            </ul>
+          </article>
+          <article class="card reference-card">
+            <h3>Dr. Antonio Guzmán Velasco</h3>
+            <p class="reference-role">
+              Professor &amp; Researcher · Head of the Department of Conservation Biology &amp; Sustainable Development
+            </p>
+            <p>
+              President of the Climate Change Technical Council of Nuevo León, member of the Intersecretarial Commission
+              on Climate Change of Nuevo León, and advisor to the Geological and Hydrometeorological Technical Council of
+              Nuevo León.
+            </p>
+            <p>Manager for the position “Environmental Data Analyst, Database Curator, and Surveyor.”</p>
+            <ul class="reference-list">
+              <li>✉️ <a href="mailto:antonio.guzmanvl@uanl.edu.mx">antonio.guzmanvl@uanl.edu.mx</a></li>
+              <li>🔗 <a href="https://www.linkedin.com/in/antonio-guzm%C3%A1n-velasco-875528105/" target="_blank" rel="noopener">LinkedIn profile</a></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="reference-quotes">
+          <div class="reference-quotes-header">
+            <h3>Recommendation Letter Excerpts</h3>
+            <p class="section-intro">
+              A curated deck of excerpts from recommendation letters over the years. Scroll horizontally to shuffle
+              through the cards.
+            </p>
+          </div>
+          <div class="reference-deck" role="region" aria-label="Recommendation letter excerpts">
+            <div class="deck-track">
+              <article class="deck-card">
+                <p class="deck-quote">
+                  “Marcelo is a young leader with initiative, a strong set of technical skills, and a deep commitment to
+                  climate action. Considering his academic track record and personal conduct, I can confidently state
+                  that Marcelo Guzmán de la Garza is an excellent candidate for the McCall-MacBain scholarship and to
+                  lead climate action internationally. I strongly recommend him.”
+                </p>
+                <p class="deck-source">
+                  Dr. Antonio Guzmán Velasco · Professor &amp; Researcher
+                </p>
+              </article>
+              <article class="deck-card">
+                <p class="deck-quote">
+                  “For the course’s final project, Marcelo led the development of a proposal for ecological restoration
+                  and agroforestry management. His leadership in conducting an extensive analysis of the restoration
+                  site, including physiographic, climatic, soil, and ecological aspects, was distinguishable. Moreover,
+                  Marcelo’s adept use of GIS tools to create maps and process satellite imagery surpassed the standard
+                  set by his peers.”
+                </p>
+                <p class="deck-source">
+                  Dr. María Magdalena Salinas Rodríguez · Herbarium Curator, National System of Researchers Level I,
+                  Universidad Autónoma de Nuevo León
+                </p>
+              </article>
+              <article class="deck-card">
+                <p class="deck-quote">
+                  “Marcelo’s academic excellence is matched by his practical contributions. He has consistently exceeded
+                  expectations in laboratory and fieldwork.”
+                </p>
+                <p class="deck-source">
+                  Dr. Edgar Cruz Acevedo · Professor &amp; Researcher, National System of Researchers Level I,
+                  Universidad Autónoma de Nuevo León
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact" class="section section-alt">
       <div class="container">
@@ -1145,7 +1390,13 @@ function setTheme(theme) {
   const BELT_PATH = "images/belt/";
   const IMAGE_COUNT = 45;
 
-  let active = Math.floor((IMAGE_COUNT - 1) / 2);
+  let activeIndex = Math.floor((IMAGE_COUNT - 1) / 2);
+  let activePosition = activeIndex;
+  let lastDirection = 1;
+  let lastInteractionTime = 0;
+  let lastAutoTime = performance.now();
+  const AUTO_SCROLL_IMAGES_PER_SECOND = 0.24;
+  const AUTO_SCROLL_PAUSE_MS = 5000;
 
   // Create DOM once
   const items = [];
@@ -1174,21 +1425,24 @@ function setTheme(theme) {
   }
 
   function setActive(next, focus) {
-    active = wrapIndex(next);
+    activeIndex = wrapIndex(next);
+    activePosition = activeIndex;
     render();
 
     if (focus) {
-      items[active]?.querySelector("img")?.focus?.();
+      items[activeIndex]?.querySelector("img")?.focus?.();
     }
   }
 
   function render() {
     const maxVisible = 10;
     const spacing = window.matchMedia("(max-width: 720px)").matches ? 70 : 92;
+    const active = wrapIndex(Math.round(activePosition));
+    activeIndex = active;
 
     items.forEach((el, i) => {
       // Calculate offset with wrapping
-      let offset = i - active;
+      let offset = i - activePosition;
       
       // Handle wrap-around for shortest visual distance
       if (offset > IMAGE_COUNT / 2) offset -= IMAGE_COUNT;
@@ -1213,16 +1467,66 @@ function setTheme(theme) {
     track.setAttribute("aria-label", `Active image ${active + 1} of ${IMAGE_COUNT}`);
   }
 
+  function recordUserInput(direction) {
+    if (direction !== 0) {
+      lastDirection = direction;
+    }
+    lastInteractionTime = performance.now();
+  }
+
+  function wrapFloat(n) {
+    return ((n % IMAGE_COUNT) + IMAGE_COUNT) % IMAGE_COUNT;
+  }
+
+  function autoScroll(now) {
+    if (isDown) {
+      lastAutoTime = now;
+      requestAnimationFrame(autoScroll);
+      return;
+    }
+
+    const elapsedSinceInteraction = now - lastInteractionTime;
+    const deltaTime = Math.max(0, now - lastAutoTime) / 1000;
+
+    if (elapsedSinceInteraction >= AUTO_SCROLL_PAUSE_MS) {
+      activePosition = wrapFloat(
+        activePosition + lastDirection * AUTO_SCROLL_IMAGES_PER_SECOND * deltaTime
+      );
+      render();
+    }
+
+    lastAutoTime = now;
+    requestAnimationFrame(autoScroll);
+  }
+
   // Button navigation with wrapping
-  prevBtn.addEventListener("click", () => setActive(active - 1, false));
-  nextBtn.addEventListener("click", () => setActive(active + 1, false));
+  prevBtn.addEventListener("click", () => {
+    recordUserInput(-1);
+    setActive(activeIndex - 1, false);
+  });
+  nextBtn.addEventListener("click", () => {
+    recordUserInput(1);
+    setActive(activeIndex + 1, false);
+  });
 
   // Keyboard with wrapping
   viewport.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") setActive(active - 1, false);
-    if (e.key === "ArrowRight") setActive(active + 1, false);
-    if (e.key === "Home") setActive(0, false);
-    if (e.key === "End") setActive(IMAGE_COUNT - 1, false);
+    if (e.key === "ArrowLeft") {
+      recordUserInput(-1);
+      setActive(activeIndex - 1, false);
+    }
+    if (e.key === "ArrowRight") {
+      recordUserInput(1);
+      setActive(activeIndex + 1, false);
+    }
+    if (e.key === "Home") {
+      recordUserInput(-1);
+      setActive(0, false);
+    }
+    if (e.key === "End") {
+      recordUserInput(1);
+      setActive(IMAGE_COUNT - 1, false);
+    }
   });
 
   // Wheel/trackpad
@@ -1232,7 +1536,8 @@ function setTheme(theme) {
       const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
       if (Math.abs(delta) < 6) return;
       e.preventDefault();
-      setActive(active + (delta > 0 ? 1 : -1), false);
+      recordUserInput(delta > 0 ? 1 : -1);
+      setActive(activeIndex + (delta > 0 ? 1 : -1), false);
     },
     { passive: false }
   );
@@ -1245,9 +1550,10 @@ function setTheme(theme) {
   viewport.addEventListener("pointerdown", (e) => {
     isDown = true;
     startX = e.clientX;
-    startActive = active;
+    startActive = activeIndex;
     viewport.setPointerCapture(e.pointerId);
     viewport.classList.add("is-dragging");
+    recordUserInput(0);
   });
 
   viewport.addEventListener("pointermove", (e) => {
@@ -1256,7 +1562,10 @@ function setTheme(theme) {
     const step = window.matchMedia("(max-width: 720px)").matches ? 60 : 78;
 
     const next = startActive - Math.round(dx / step);
-    if (next !== active) setActive(next, false);
+    if (next !== activeIndex) {
+      recordUserInput(dx > 0 ? -1 : 1);
+      setActive(next, false);
+    }
   });
 
   function endDrag() {
@@ -1269,6 +1578,7 @@ function setTheme(theme) {
   viewport.addEventListener("pointerleave", endDrag);
 
   render();
+  requestAnimationFrame(autoScroll);
   window.addEventListener("resize", render, { passive: true });
 })();
   
@@ -1640,7 +1950,7 @@ function setTheme(theme) {
       // Any other standalone images in sections
       document.querySelectorAll('section img').forEach((img) => {
         // Skip if already handled or if it's in nav/header/footer
-        if (img.closest('.belt-track, .project-showcase, .featured-slide-image, .project-media, .top-nav, .site-header')) {
+        if (img.closest('.belt-track, .project-showcase, .featured-slide-image, .project-media, .top-nav, .top-nav-wrap, .site-header')) {
           return;
         }
         img.style.cursor = 'pointer';
@@ -1670,7 +1980,7 @@ function setTheme(theme) {
 
 <script>
   (function () {
-    const nav = document.querySelector('.top-nav');
+    const nav = document.querySelector('.top-nav-wrap');
     if (!nav) return;
 
     let lastScrollY = window.scrollY;
