@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <title>Marcelo Guzmán · GIS &amp; Environmental Intelligence</title>
@@ -45,9 +45,9 @@
         <a href="#contact">Contact</a>
       </div>
     </nav>
-    <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
       <span class="toggle-dot" aria-hidden="true"></span>
-      <span id="themeToggleLabel">Dark</span>
+      <span id="themeToggleLabel">Light</span>
     </button>
   </div>
 
@@ -92,37 +92,39 @@
           </div>
 
           <figure class="hero-figure">
-            <img src="images/portrait.jpg" alt="Marcelo Guzmán" />
+            <img class="theme-swap" src="images/portrait.jpg" data-light-src="images/portrait.jpg" data-dark-src="images/portrait_dark.jpg" alt="Marcelo Guzmán" />
             <figcaption class="caption">
               <span>MGDLG · 26°N</span>
               <span>GIS · 2025</span>
             </figcaption>
           </figure>
         </div>
-      </div>
 
-      <div class="hero-ticker" aria-hidden="true">
-        <div class="track">
-          <span>NDVI · Multispectral</span>
-          <span>UAV Photogrammetry</span>
-          <span>ArcGIS Pro · ModelBuilder</span>
-          <span>R · Python · SQL</span>
-          <span>Hyperspectral RS</span>
-          <span>DEM / DSM</span>
-          <span>Quantitative Ecology</span>
-          <span>Urban Biodiversity</span>
-          <span>Compliance &amp; Restoration</span>
-        </div>
-        <div class="track" aria-hidden="true">
-          <span>NDVI · Multispectral</span>
-          <span>UAV Photogrammetry</span>
-          <span>ArcGIS Pro · ModelBuilder</span>
-          <span>R · Python · SQL</span>
-          <span>Hyperspectral RS</span>
-          <span>DEM / DSM</span>
-          <span>Quantitative Ecology</span>
-          <span>Urban Biodiversity</span>
-          <span>Compliance &amp; Restoration</span>
+        <div class="hero-skill-alternatives" aria-label="Technical focus areas">
+          <div class="hero-ticker" aria-hidden="true">
+            <div class="track">
+              <span>NDVI · Multispectral</span>
+              <span>UAV Photogrammetry</span>
+              <span>ArcGIS Pro · ModelBuilder</span>
+              <span>R · Python · SQL</span>
+              <span>Hyperspectral RS</span>
+              <span>DEM / DSM</span>
+              <span>Quantitative Ecology</span>
+              <span>Urban Biodiversity</span>
+              <span>Compliance &amp; Restoration</span>
+            </div>
+            <div class="track" aria-hidden="true">
+              <span>NDVI · Multispectral</span>
+              <span>UAV Photogrammetry</span>
+              <span>ArcGIS Pro · ModelBuilder</span>
+              <span>R · Python · SQL</span>
+              <span>Hyperspectral RS</span>
+              <span>DEM / DSM</span>
+              <span>Quantitative Ecology</span>
+              <span>Urban Biodiversity</span>
+              <span>Compliance &amp; Restoration</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -847,17 +849,24 @@
           <aside class="awards-summary liquid-glass animate-on-scroll">
             <p class="eyebrow">At a glance</p>
             <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;line-height:1.25;color:var(--ink);max-width:36ch;margin:0;">
-              Three categories, six headline honors, four supporting documents — measurable evidence of consistent academic and civic performance.
+              Three categories, eleven headline honors, nine supporting documents — measurable evidence of consistent academic and civic performance.
             </p>
             <div class="awards-stat-row">
-              <div class="awards-stat"><div class="num">06</div><div class="label">Honors &amp; awards</div></div>
-              <div class="awards-stat"><div class="num">02</div><div class="label">International scholarships</div></div>
-              <div class="awards-stat"><div class="num">04</div><div class="label">Supporting docs</div></div>
-              <div class="awards-stat"><div class="num">450+</div><div class="label">Projects competed against</div></div>
+              <div class="awards-stat"><div class="num">11</div><div class="label">Honors &amp; awards</div></div>
+              <div class="awards-stat"><div class="num">05</div><div class="label">International scholarships</div></div>
+              <div class="awards-stat"><div class="num">09</div><div class="label">Supporting docs</div></div>
+              <div class="awards-stat"><div class="num">2.9%</div><div class="label">EGEL Excellence Award recipients among 2,536,065 CENEVAL test takers</div></div>
             </div>
           </aside>
 
           <div class="awards-stack">
+            <article class="award-row liquid-glass animate-on-scroll">
+              <span class="award-year-pill">2025</span>
+              <div>
+                <h3>National Academic Excellence Award in Biology (EGEL), Mexico</h3>
+                <p>National academic distinction awarded for exceptional performance on Mexico’s EGEL bachelor’s exit examination; CENEVAL reports that 2.9% of 2,536,065 test takers have received the award, recognizing graduates for effort, dedication, integrity, and social commitment.</p>
+              </div>
+            </article>
             <article class="award-row liquid-glass animate-on-scroll">
               <span class="award-year-pill">2025</span>
               <div>
@@ -908,6 +917,12 @@
           <h3>Supporting documents &amp; certificates</h3>
           <p>Preview or download official certifications and acceptance letters.</p>
           <ul class="compact-doc-list">
+            <li>
+              <strong>CENEVAL Academic Excellence Award · National Bachelor's Exit Exam</strong>
+              Official record for Mexico’s national academic-excellence award, searchable in CENEVAL’s recognition portal.
+              <a href="https://reconocimiento.ceneval.edu.mx/busqueda-de-reconocimientos-2/?resultId=65094" target="_blank" rel="noopener">Preview</a>
+              <a href="https://reconocimiento.ceneval.edu.mx/diplomas/diploma.php?resultId=65094&amp;downloadFile=1&amp;ab=0" target="_blank" rel="noopener">Download</a>
+            </li>
             <li>
               <strong>CENEVAL · Outstanding Performance Certificate</strong>
               National examination certificate recognizing top performance.
@@ -978,11 +993,9 @@
           </div>
           <div class="contact-card liquid-glass-strong">
             <p><strong>Email</strong> <a href="mailto:marcelo.guzmandlg@gmail.com">marcelo.guzmandlg@gmail.com</a></p>
-            <p><strong>Location</strong> Monterrey, Mexico</p>
-            <p><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/marcelo-guzman-063063128/" target="_blank" rel="noopener">LinkedIn profile</a></p>
-            <p><strong>Available</strong> Q2 / Q3 · 2026</p>
             <div class="contact-actions">
               <a class="btn primary" href="mailto:marcelo.guzmandlg@gmail.com">Send email</a>
+              <a class="btn ghost" href="https://www.linkedin.com/in/marcelo-guzman-063063128/" target="_blank" rel="noopener">LinkedIn</a>
               <a class="btn ghost" href="#full-portfolio">Full portfolio</a>
             </div>
           </div>
@@ -1085,13 +1098,21 @@
       const btn   = document.getElementById('themeToggle');
       const label = document.getElementById('themeToggleLabel');
       const html  = document.documentElement;
-      const stored = localStorage.getItem('portfolio-theme') || 'dark';
+      const stored = localStorage.getItem('portfolio-theme') || 'light';
 
       function applyTheme(theme) {
         html.setAttribute('data-theme', theme);
         if (label) label.textContent = theme === 'light' ? 'Light' : 'Dark';
         if (btn)   btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
         localStorage.setItem('portfolio-theme', theme);
+
+        document.querySelectorAll('img.theme-swap').forEach((img) => {
+          const lightSrc = img.getAttribute('data-light-src');
+          const darkSrc = img.getAttribute('data-dark-src');
+          if (!lightSrc || !darkSrc) return;
+          img.src = theme === 'dark' ? darkSrc : lightSrc;
+        });
+
         /* Swap Leaflet tile layer if map already initialised */
         if (window._mapDarkLayer && window._mapLightLayer && window._leafletMap) {
           if (theme === 'light') {
@@ -1112,7 +1133,7 @@
       applyTheme(stored);
 
       btn?.addEventListener('click', () => {
-        const cur = html.getAttribute('data-theme') || 'dark';
+        const cur = html.getAttribute('data-theme') || 'light';
         applyTheme(cur === 'dark' ? 'light' : 'dark');
       });
     })();
@@ -1368,7 +1389,7 @@
         {
           group: 'Wichita, KS, US', location: [37.6872, -97.3301], featured: false,
           projects: [
-            { title: 'Animal Biology & Zoology Training', description: 'BridgeUSA training in zoology and wildlife management.', link: '#', thumbnail: 'images/wind-portrait.png' }
+            { title: 'Animal Biology & Zoology Training', description: 'BridgeUSA training in zoology and wildlife management.', link: '#', thumbnail: 'images/belt/12.jpg' }
           ]
         }
       ];

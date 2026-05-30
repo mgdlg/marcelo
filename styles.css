@@ -402,10 +402,12 @@ em, i { font-style: italic; }
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
   padding: 180px 0 120px;
   overflow: hidden;
+}
+
+.hero .container {
+  width: 100%;
 }
 
 .hero-grid {
@@ -576,11 +578,23 @@ html[data-theme="light"] .hero-figure::after {
 html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
 
 /* hero ticker */
-.hero-ticker {
-  margin-top: 80px;
-  padding: 18px 0;
+.hero-skill-alternatives {
+  margin-top: 76px;
+  display: block;
   border-top: 1px solid var(--rule-soft);
   border-bottom: 1px solid var(--rule-soft);
+  background:
+    linear-gradient(90deg, var(--bg-0) 0%, transparent 16%, transparent 84%, var(--bg-0) 100%),
+    oklch(0.08 0.01 45 / 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+
+.hero-ticker {
+  min-width: 0;
+  padding: 18px 0;
   display: flex;
   gap: 60px;
   overflow: hidden;
@@ -590,6 +604,7 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
   text-transform: uppercase;
   color: var(--ink-faint);
   white-space: nowrap;
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
 .hero-ticker .track {
   display: flex;
@@ -602,6 +617,24 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
   margin-right: 18px;
   color: var(--accent-warm);
 }
+
+
+@media (max-width: 1100px) {
+  .hero-skill-alternatives {
+    margin-top: 56px;
+  }
+
+  .hero-ticker {
+    padding: 14px 0 18px;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-skill-alternatives {
+    display: none;
+  }
+}
+
 @keyframes ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
@@ -820,13 +853,14 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
 /* leaflet popup theme */
 .leaflet-container { background: oklch(0.18 0.05 248); font-family: 'Barlow', sans-serif; }
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-  background: oklch(0.20 0.05 248);
-  color: var(--ink);
+  background: oklch(0.075 0.008 45);
+  color: oklch(0.94 0.006 50);
+  border: 1px solid oklch(1 0 0 / 0.10);
   border-radius: 18px;
-  box-shadow: 0 16px 40px -10px rgba(0,0,0,0.5);
+  box-shadow: 0 18px 48px -10px rgba(0,0,0,0.78);
 }
 .leaflet-popup-content { margin: 0; min-width: 240px; }
-.portfolio-map-popup .leaflet-popup-close-button { color: var(--ink); }
+.portfolio-map-popup .leaflet-popup-close-button { color: oklch(0.94 0.006 50); }
 .map-pin-dot {
   display: block;
   width: 14px;
@@ -848,7 +882,11 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
   50% { box-shadow: 0 0 0 6px rgba(255,255,255,0.04), 0 0 22px currentColor; }
 }
 
-.map-popup-carousel { padding: 14px; }
+.map-popup-carousel {
+  padding: 14px;
+  background: linear-gradient(145deg, oklch(0.09 0.009 45), oklch(0.055 0.006 45));
+  border-radius: 18px;
+}
 .map-popup-header {
   display: flex;
   justify-content: space-between;
@@ -856,7 +894,7 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: oklch(0.72 0.006 50 / 0.68);
   margin-bottom: 10px;
 }
 .map-project-card { display: none; }
@@ -869,11 +907,16 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
   margin-bottom: 10px;
 }
 .map-project-card h4 {
+  color: oklch(0.96 0.006 50);
   font-size: 17px;
   font-style: normal;
   margin: 4px 0 6px;
 }
-.map-project-card p { font-size: 13px; line-height: 1.45; }
+.map-project-card p {
+  color: oklch(0.78 0.008 50 / 0.82);
+  font-size: 13px;
+  line-height: 1.45;
+}
 .map-project-card .btn { padding: 9px 16px; font-size: 11px; }
 .map-popup-carousel-nav {
   display: flex;
@@ -1723,18 +1766,12 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
    ========================================================= */
 .contact-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-  gap: clamp(28px, 4vw, 64px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 56px);
   align-items: start;
 }
 .contact-shell > :first-child {
   min-width: 0;
-}
-@media (max-width: 980px) {
-  .contact-shell {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
 }
 .contact-headline {
   font-family: 'Syne', sans-serif;
@@ -1743,13 +1780,14 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
   font-size: clamp(44px, 5.2vw, 88px);
   line-height: 1;
   margin: 0 0 24px;
-  max-width: 10.5ch;
+  max-width: 15ch;
 }
 .contact-card {
   border-radius: var(--radius);
   padding: 40px;
   width: 100%;
-  justify-self: end;
+  max-width: 560px;
+  justify-self: start;
 }
 .contact-card p {
   margin: 0 0 14px;
@@ -1773,9 +1811,10 @@ html[data-theme="light"] .hero-figure .caption { color: rgba(0,0,0,0.35); }
   gap: 10px;
   flex-wrap: wrap;
 }
-@media (max-width: 980px) {
+@media (max-width: 680px) {
   .contact-card {
-    justify-self: stretch;
+    max-width: none;
+    padding: 28px;
   }
 }
 /* =========================================================
@@ -2176,7 +2215,12 @@ html[data-theme="light"] .showcase-thumbs button { border-color: rgba(0,0,0,0.09
 html[data-theme="light"] .showcase-thumbs button.is-active { border-color: oklch(0.48 0.16 242); }
 
 /* Ticker */
-html[data-theme="light"] .hero-ticker { border-color: rgba(0,0,0,0.07); }
+html[data-theme="light"] .hero-skill-alternatives {
+  border-color: rgba(0,0,0,0.07);
+  background:
+    linear-gradient(90deg, var(--bg-0) 0%, transparent 16%, transparent 84%, var(--bg-0) 100%),
+    rgba(255,255,255,0.58);
+}
 html[data-theme="light"] .hero-ticker .track span::before { color: oklch(0.48 0.16 242); }
 
 /* Deck quote cards */
@@ -2192,13 +2236,14 @@ html[data-theme="light"] .deck-card::before { color: oklch(0.48 0.16 242); opaci
 html[data-theme="light"] .leaflet-container { background: oklch(0.970 0 0); }
 html[data-theme="light"] .leaflet-popup-content-wrapper,
 html[data-theme="light"] .leaflet-popup-tip {
-  background: oklch(0.982 0 0);
-  color: var(--ink);
+  background: oklch(0.075 0.008 45);
+  color: oklch(0.94 0.006 50);
+  border-color: oklch(1 0 0 / 0.10);
 }
 html[data-theme="light"] .map-nav-btn {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(0,0,0,0.10);
-  color: var(--ink);
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+  color: oklch(0.94 0.006 50);
 }
 html[data-theme="light"] .portfolio-map {
   filter: saturate(0.7) brightness(1.05);
