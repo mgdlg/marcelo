@@ -30,7 +30,7 @@
           <a class="project-back-link" href="index.html#full-portfolio">← Back to Portfolio</a>
           <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
             <span class="toggle-dot" aria-hidden="true"></span>
-            <span id="themeToggleLabel">Dark mode</span>
+            <span id="themeToggleLabel">Light</span>
           </button>
         </div>
         <p class="eyebrow">Case study</p>
@@ -41,6 +41,7 @@
         <ul class="project-meta-list">
           <li><strong>Focus:</strong> ArcGIS ModelBuilder automation</li>
           <li><strong>Role:</strong> Graduate coursework project</li>
+          <li><strong>Year:</strong> 2025</li>
           <li><strong>Deliverable:</strong> CSV outputs for land cover area statistics</li>
         </ul>
       </div>
@@ -51,7 +52,36 @@
   </header>
 
   <main class="project-main">
+    <section class="project-section section-alt">
+      <div class="container">
+        <h2>Project Overview</h2>
+        <p>
+          This project comes from the Models in GIS course taught by Dr. Boglárka Bertalan-Balázs, which I took
+          as an exchange student. My final project involved a model using ArcGIS Pro ModelBuilder applied to forestry and 
+          land use.
+          
+          This workflow automates a city-by-city forest cover assessment in ArcGIS ModelBuilder. It filters land-cover
+          classes corresponding to forest (e.g., 311, 312, 313), iterates through each administrative boundary, selects
+          only forest polygons fully within each city, dissolves them into a single forest area, and joins city area
+          attributes to compute forest percentage ((forest area / city area) × 100). A companion Python script then
+          consolidates all generated attribute tables from the geodatabase into one Excel report for fast comparison and
+          reporting.
+        </p>
+      </div>
+    </section>
+
     <section class="project-section">
+      <div class="container">
+        <h2>Key Contributions</h2>
+        <ul class="project-highlights">
+          <li>Built a reusable ModelBuilder pipeline for land cover metrics and landscape indices.</li>
+          <li>Structured outputs for rapid reporting and visualization.</li>
+          <li>Documented the workflow for instructional use and future reuse.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-section section-alt">
       <div class="container">
         <h2>Featured Media</h2>
         <div class="project-media-embed">
@@ -66,17 +96,6 @@
             allowfullscreen
           ></iframe>
         </div>
-      </div>
-    </section>
-
-    <section class="project-section section-alt">
-      <div class="container">
-        <h2>Key Contributions</h2>
-        <ul class="project-highlights">
-          <li>Built a reusable ModelBuilder pipeline for land cover metrics and landscape indices.</li>
-          <li>Structured outputs for rapid reporting and visualization.</li>
-          <li>Documented the workflow for instructional use and future reuse.</li>
-        </ul>
       </div>
     </section>
 
@@ -101,34 +120,6 @@
       </div>
     </section>
 
-    <section class="project-section">
-      <div class="container">
-        <h2>Available for Download</h2>
-        <ul class="project-reference-list">
-          <li><strong>Status:</strong> Available upon request.</li>
-          <li><strong>Includes:</strong> ModelBuilder diagram, sample CSV outputs, and workflow documentation.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <div class="container">
-        <h2>Project Overview</h2>
-        <p>
-          This experiences is part of my participation in the Models in GIS taught by Dr. Boglárka Bertalan-Balázs course
-          as an exchange student. My final project involved a model using ArcGIS Pro ModelBuilder applied to forestry and 
-          land use.
-          
-          This workflow automates a city-by-city forest cover assessment in ArcGIS ModelBuilder. It filters land-cover
-          classes corresponding to forest (e.g., 311, 312, 313), iterates through each administrative boundary, selects
-          only forest polygons fully within each city, dissolves them into a single forest area, and joins city area
-          attributes to compute forest percentage ((forest area / city area) × 100). A companion Python script then
-          consolidates all generated attribute tables from the geodatabase into one Excel report for fast comparison and
-          reporting.
-        </p>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
@@ -148,22 +139,25 @@
       if (theme === "dark") {
         htmlEl.setAttribute("data-theme", "dark");
         toggleBtn?.setAttribute("aria-pressed", "true");
-        if (toggleLabel) toggleLabel.textContent = "Light mode";
+        if (toggleLabel) toggleLabel.textContent = "Dark";
       } else {
         htmlEl.setAttribute("data-theme", "light");
         toggleBtn?.setAttribute("aria-pressed", "false");
-        if (toggleLabel) toggleLabel.textContent = "Dark mode";
+        if (toggleLabel) toggleLabel.textContent = "Light";
       }
     }
 
-    const storedTheme = localStorage.getItem("theme");
-    setTheme(storedTheme || "light");
+    /* "portfolio-theme" is the key the index uses; "theme" is the older key
+       these pages stored, read only as a fallback. */
+    const storedTheme =
+      localStorage.getItem("portfolio-theme") || localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
 
     toggleBtn?.addEventListener("click", () => {
       const isDark = htmlEl.getAttribute("data-theme") === "dark";
       const nextTheme = isDark ? "light" : "dark";
       setTheme(nextTheme);
-      localStorage.setItem("theme", nextTheme);
+      localStorage.setItem("portfolio-theme", nextTheme);
     });
   </script>
 </body>

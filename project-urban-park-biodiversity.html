@@ -30,7 +30,7 @@
           <a class="project-back-link" href="index.html#full-portfolio">← Back to Portfolio</a>
           <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
             <span class="toggle-dot" aria-hidden="true"></span>
-            <span id="themeToggleLabel">Dark mode</span>
+            <span id="themeToggleLabel">Light</span>
           </button>
         </div>
         <p class="eyebrow">Case study</p>
@@ -53,6 +53,17 @@
   <main class="project-main">
     <section class="project-section section-alt">
       <div class="container">
+        <h2>Project Overview</h2>
+        <p>
+          I standardized biodiversity surveys across nine urban parks and proposed new statistical indicators to track
+          ecological health in urban green spaces. The framework supports SDG 11 metrics and consistent cross-park
+          comparisons.
+        </p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="container">
         <h2>Key Contributions</h2>
         <ul class="project-highlights">
           <li>Harmonized survey protocols to enable cross-park biodiversity comparisons.</li>
@@ -62,7 +73,7 @@
       </div>
     </section>
 
-    <section class="project-section">
+    <section class="project-section section-alt">
       <div class="container">
         <h2>Affiliation, Contributors, and Collaborators</h2>
         <ul class="project-reference-list">
@@ -70,37 +81,6 @@
           <li><strong>Contributor:</strong> Marcelo Guzmán (Biodiversity monitoring intern)</li>
           <li><strong>Collaborators:</strong> Urban park managers and monitoring teams across nine sites</li>
         </ul>
-      </div>
-    </section>
-
-    <section class="project-section section-alt">
-      <div class="container">
-        <h2>Reference Contact Information</h2>
-        <ul class="project-reference-list">
-          <li><strong>Primary Contact:</strong> Marcelo Guzmán · <a href="mailto:marcelo.guzmandlg@gmail.com">marcelo.guzmandlg@gmail.com</a></li>
-          <li><strong>Affiliation:</strong> San Pedro + Parques</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <div class="container">
-        <h2>Available for Download</h2>
-        <ul class="project-reference-list">
-          <li><strong>Status:</strong> Available upon request.</li>
-          <li><strong>Includes:</strong> Survey protocol templates, indicator framework, and summary tables.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <div class="container">
-        <h2>Project Overview</h2>
-        <p>
-          I standardized biodiversity surveys across nine urban parks and proposed new statistical indicators to track
-          ecological health in urban green spaces. The framework supports SDG 11 metrics and consistent cross-park
-          comparisons.
-        </p>
       </div>
     </section>
 
@@ -123,22 +103,25 @@
       if (theme === "dark") {
         htmlEl.setAttribute("data-theme", "dark");
         toggleBtn?.setAttribute("aria-pressed", "true");
-        if (toggleLabel) toggleLabel.textContent = "Light mode";
+        if (toggleLabel) toggleLabel.textContent = "Dark";
       } else {
         htmlEl.setAttribute("data-theme", "light");
         toggleBtn?.setAttribute("aria-pressed", "false");
-        if (toggleLabel) toggleLabel.textContent = "Dark mode";
+        if (toggleLabel) toggleLabel.textContent = "Light";
       }
     }
 
-    const storedTheme = localStorage.getItem("theme");
-    setTheme(storedTheme || "light");
+    /* "portfolio-theme" is the key the index uses; "theme" is the older key
+       these pages stored, read only as a fallback. */
+    const storedTheme =
+      localStorage.getItem("portfolio-theme") || localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
 
     toggleBtn?.addEventListener("click", () => {
       const isDark = htmlEl.getAttribute("data-theme") === "dark";
       const nextTheme = isDark ? "light" : "dark";
       setTheme(nextTheme);
-      localStorage.setItem("theme", nextTheme);
+      localStorage.setItem("portfolio-theme", nextTheme);
     });
   </script>
 </body>

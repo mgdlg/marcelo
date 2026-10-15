@@ -30,7 +30,7 @@
           <a class="project-back-link" href="index.html#full-portfolio">← Back to Portfolio</a>
           <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
             <span class="toggle-dot" aria-hidden="true"></span>
-            <span id="themeToggleLabel">Dark mode</span>
+            <span id="themeToggleLabel">Light</span>
           </button>
         </div>
         <p class="eyebrow">Case study</p>
@@ -54,16 +54,27 @@
   <main class="project-main">
     <section class="project-section section-alt">
       <div class="container">
+        <h2>Project Overview</h2>
+        <p>
+          I supported a remote sensing program evaluating reforestation efforts in renewable energy sites, ensuring
+          ecological commitments were met. The work paired satellite imagery with field observations to track vegetation
+          recovery and species presence.
+        </p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="container">
         <h2>Key Contributions</h2>
         <ul class="project-highlights">
           <li>Tracked changes in vegetation cover through time using geospatial tools and satellite imagery.</li>
-          <li>Automated environmental metadata processing in R, cutting turnaround time from five days to one.</li>
+          <li>Automated environmental metadata processing in R, cutting a ~48-hour technician task to under 30 minutes.</li>
           <li>Combined spatial data with large mammal and endangered species observations.</li>
         </ul>
       </div>
     </section>
 
-    <section class="project-section">
+    <section class="project-section section-alt">
       <div class="container">
         <h2>Affiliation, Contributors, and Collaborators</h2>
         <ul class="project-reference-list">
@@ -74,34 +85,13 @@
       </div>
     </section>
 
-    <section class="project-section section-alt">
+    <section class="project-section">
       <div class="container">
         <h2>Reference Contact Information</h2>
         <ul class="project-reference-list">
           <li><strong>Primary Contact:</strong> Antonio Guzmán · Head of the Department of Conservation Biology &amp; Sustainable Development and President of the Climate Change Technical Council of Nuevo León · <a href="mailto:antonio.guzmanvl@uanl.edu.mx">antonio.guzmanvl@uanl.edu.mx</a></li>
           <li><strong>Affiliation:</strong> Lab of Conservation Biology &amp; Sustainable Development, UANL</li>
         </ul>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <div class="container">
-        <h2>Available for Download</h2>
-        <ul class="project-reference-list">
-          <li><strong>Status:</strong> Available upon request.</li>
-          <li><strong>Includes:</strong> Vegetation change summaries, R automation outputs, and monitoring notes.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <div class="container">
-        <h2>Project Overview</h2>
-        <p>
-          I supported a remote sensing program evaluating reforestation efforts in renewable energy sites, ensuring
-          ecological commitments were met. The work paired satellite imagery with field observations to track vegetation
-          recovery and species presence.
-        </p>
       </div>
     </section>
 
@@ -124,22 +114,25 @@
       if (theme === "dark") {
         htmlEl.setAttribute("data-theme", "dark");
         toggleBtn?.setAttribute("aria-pressed", "true");
-        if (toggleLabel) toggleLabel.textContent = "Light mode";
+        if (toggleLabel) toggleLabel.textContent = "Dark";
       } else {
         htmlEl.setAttribute("data-theme", "light");
         toggleBtn?.setAttribute("aria-pressed", "false");
-        if (toggleLabel) toggleLabel.textContent = "Dark mode";
+        if (toggleLabel) toggleLabel.textContent = "Light";
       }
     }
 
-    const storedTheme = localStorage.getItem("theme");
-    setTheme(storedTheme || "light");
+    /* "portfolio-theme" is the key the index uses; "theme" is the older key
+       these pages stored, read only as a fallback. */
+    const storedTheme =
+      localStorage.getItem("portfolio-theme") || localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
 
     toggleBtn?.addEventListener("click", () => {
       const isDark = htmlEl.getAttribute("data-theme") === "dark";
       const nextTheme = isDark ? "light" : "dark";
       setTheme(nextTheme);
-      localStorage.setItem("theme", nextTheme);
+      localStorage.setItem("portfolio-theme", nextTheme);
     });
   </script>
 </body>
